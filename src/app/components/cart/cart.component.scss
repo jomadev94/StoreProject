@@ -1,0 +1,7 @@
+@use "variables/colors" as *;
+
+.cart{
+    font-size: clamp(1rem,2vw,1.3rem);
+    margin-left: clamp(.5rem,5vw,2rem);
+    color: $white-100;
+}

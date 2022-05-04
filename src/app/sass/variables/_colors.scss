@@ -1,0 +1,28 @@
+// RED
+$red-100:hsl(0, 74%, 61%);
+
+// PURPLE
+$purple-130:hsl(317, 71%, 52%);
+$purple-120:hsl(280, 63%, 29%); // -> BACKGROUND BOTTONS
+$purple-100:hsl(280, 62%, 49%); // -> LINE COLOR SECTION,
+$purple-80:hsla(280, 62%, 49%, 0.68);
+$purple-70:hsl(259, 39%, 71%);
+$purple-60:hsl(259, 82%, 75%); // -> BACKGROUND BODY
+
+// BLACK
+$black-100:hsl(0, 0%, 0%, 100%);
+$black-transparent-1:hsla(0, 0%, 0%, 0.86);
+$black-transparent-2:hsla(0, 0%, 9%, 0.61);
+$grey-100:hsl(0, 0%, 84%); // -> SECOND NAV OPTIONS 
+
+// WHITE
+$white-80: hsl(0, 0%, 92%); // -> FONT COLOR SECTION, NAV OPTIONS
+$white-100: hsl(0, 0%, 100%); // -> BACKGROUND FORMS, FONT COLOR OFERTA
+
+// HEADER
+$header-background: linear-gradient(to bottom,hsl(0, 1%, 17%, 97%),hsl(265, 24%, 34%, 9%),hsla(264, 34%, 51%, 0));
+
+// SCROLLBAR COLORS
+$scrollbar-track-color:hsl(280, 36%, 18%);
+$scrollbar-thumb-color:hsl(250, 34%, 59%);
+$scrollbar-thumb-hover-color:hsl(250, 34%, 30%);

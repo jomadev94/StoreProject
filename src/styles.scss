@@ -1,1 +1,27 @@
-/* You can add global styles to this file, and also import other style files */
+@use "helpers/normalize";
+@use "components/scrollbar";
+@use "variables/colors" as *;
+@import '~@angular/cdk/overlay-prebuilt.css';
+
+body{
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+    background-color: $purple-70;
+    position: relative;
+
+    &::after{
+        content: "";
+        position: absolute;
+        top:0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 100%;
+        background: url("./assets/img/background/background-body.jpg");
+        background-repeat: repeat repeat;
+        background-attachment: fixed;
+        opacity: 18%;
+        z-index: -1;
+    }
+}
+

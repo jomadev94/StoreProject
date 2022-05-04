@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { OpenCloseService } from './services/open-close/open-close.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'StoreProject';
+
+  constructor(private openCloseService:OpenCloseService){
+  }
+
+  closeAll(){
+    this.openCloseService.closeAll();
+  }
 }

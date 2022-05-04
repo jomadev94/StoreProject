@@ -1,0 +1,9 @@
+@use "variables/colors" as *;
+@use "variables/paddings" as *;
+
+footer{
+    background-color: $white-80;
+    display: flex;
+    padding: $padding-layout;
+    height: 10rem;
+}

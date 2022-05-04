@@ -1,0 +1,25 @@
+<header>
+    <div class="header-top">
+        <img class="logo" src="../../../assets/img/logo.png" alt="Logo">
+        <app-searcher class="large-width"></app-searcher>
+        <button class="mobile-nav-toggle" aria-controls="navbar-options" [attr.aria-expanded]="open"
+            (click)="showMenu()" #mobileNav>
+            <span class="sr-only">Menu</span>
+            <fa-icon [icon]="icon"></fa-icon>
+        </button>
+        <ul class="header-options header-options--close" #headerOptions>
+            <li><a href="" class="link-header">Crear cuenta</a></li>
+            <li><a href="" class="link-header">Ingresar</a></li>
+            <li>
+                <app-cart></app-cart>
+            </li>
+        </ul>
+    </div>
+    <nav>
+        <ul id="navbar-options" class="navbar-options" #navOptions>
+            <li><a href="" class="link-nav">Ofertas</a></li>
+            <li><a href="" class="link-nav">Populares</a></li>
+            <li><a href="" class="link-nav">Categorías</a></li>
+        </ul>
+    </nav>
+</header>
