@@ -3,7 +3,18 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "outDir": "./out-tsc/app",
-    "types": []
+    "types": [],
+    "baseUrl": "src",
+    "paths": {
+      "@enumerables/*":["app/enumerables/*"],
+      "@guards/*":["app/guards/*"],
+      "@interceptors/*":["app/interceptors/*"],
+      "@models/*":["app/models/*"],
+      "@modules/*":["app/modules/*"],
+      "@services/*":["app/services/*"],
+      "@static/*":["app/static/*"],
+      "@validators/*":["app/validators/*"],
+    },
   },
   "files": [
     "src/main.ts",

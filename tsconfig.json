@@ -2,7 +2,18 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "baseUrl": "./",
+    // "baseUrl": "./",
+    "baseUrl": "src",
+    "paths": {
+      "@enumerables/*":["app/enumerables/*"],
+      "@guards/*":["app/guards/*"],
+      "@interceptors/*":["app/interceptors/*"],
+      "@models/*":["app/models/*"],
+      "@modules/*":["app/modules/*"],
+      "@services/*":["app/services/*"],
+      "@static/*":["app/static/*"],
+      "@validators/*":["app/validators/*"],
+    },
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
     "strict": true,

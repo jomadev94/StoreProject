@@ -1,39 +1,54 @@
-@use "../variables/colors" as *;
-@use "../variables/fonts" as *;
+@use "variables/colors" as *;
+@use "variables/fonts" as *;
+@use "variables/spaces" as *;
+@use "variables/borders" as *;
 
 .button {
-  padding: 0.8rem;
-  text-decoration: none;
-  border-radius: 0.5rem;
-  // font-size: $navbar-options-font-size;
-  color: pink;
-  font-weight:500;
-  text-align: center;
-  display: block;
+  padding: $space-100;
+  border: none;
+  cursor: pointer;
+}
 
-  &--primary {
-    @extend .button;
-    // background-color: $button-primary-color;
-  }
+.button-menu{
+  @extend .button;
+  background-color: $purple-120;
+  border-radius: $radius-all-300;
+  font-size: $font-size-230;
+  font-weight: bold;
+  color: $white-80;
 
-  &--secondary {
-    @extend .button;
-    // background-color: $button-secondary-color;
+  &:focus {
+    outline: $border-white-100;
   }
 }
 
-.link-header{
-  font-size: clamp(1rem,2vw,1.3rem);
-  color:$white-80;
+.link{
+  text-decoration: none;
+
+  &:focus {
+    color: $purple-130;
+    font-weight: bold;
+    outline: none;
+  }
+
+}
+
+.link-header,.link-nav{
+  @extend .link;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.link-header {
+  font-size: $font-size-230;
+  color: $white-80;
   white-space: nowrap;
-  text-decoration: none;
   font-weight: 400;
-  text-shadow: rgba(0, 0, 0, 0.13) 3px 5px 3px;
-  
+  text-shadow: rgba(0, 0, 0, 0.329) 3px 5px 3px;
 }
 
-.link-nav{
+.link-nav {
   color: $grey-100;
-  text-decoration: none;
-  font-size: clamp(.6rem,1.5vw,1rem);
+  font-size: $font-size-200;
 }

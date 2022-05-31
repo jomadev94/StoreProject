@@ -1,6 +1,7 @@
 @use "helpers/normalize";
 @use "components/scrollbar";
 @use "variables/colors" as *;
+@use "components/overlay";
 @import '~@angular/cdk/overlay-prebuilt.css';
 
 body{
@@ -22,6 +23,25 @@ body{
         background-attachment: fixed;
         opacity: 18%;
         z-index: -1;
+    }
+
+    main{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        min-height: calc(100vh - 18.8rem);
+    
+        section{
+            margin-inline: auto;
+        }
+
+        .big-section{
+            width: 70%;
+        }
+
+        .medium-section{
+            width: 50%;
+        }
     }
 }
 
