@@ -1,8 +1,0 @@
-@use "variables/colors" as *;
-@use "variables/paddings" as *;
-
-main{
-    display: flex;
-    padding: $padding-layout;
-    min-height: calc(100vh - 4rem);
-}

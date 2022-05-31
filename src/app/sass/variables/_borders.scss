@@ -1,0 +1,22 @@
+@use "variables/colors" as *;
+
+
+// BORDER
+$border-section: .3rem solid $purple-120;
+$border-title-form: 2px solid $purple-120;
+$border-white-100: 2px solid $white-80;
+$border-red-100: 3px solid $red-100;
+$border-purple-50:1px solid $purple-70;
+$border-purple-100:3px solid $purple-60;
+
+
+// RADIUS
+
+$radius-all-100:3px;
+$radius-all-200:5px;
+$radius-all-300:8px;
+$radius-all-500:1rem;
+
+$radius-top-100:1px 5px 0 0;
+$radius-right-100:0 8px 8px 0;
+$radius-left-100:8px 0 0 8px;
