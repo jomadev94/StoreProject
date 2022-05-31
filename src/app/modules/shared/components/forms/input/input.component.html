@@ -1,0 +1,23 @@
+<div class="field-box" [formGroup]="form">
+    <label for="{{controlName}}">
+        {{label}}
+        <fa-icon class="icon-label" *ngIf="labelIcon" [icon]="[labelIconFormat,labelIcon]"></fa-icon>
+    </label>
+    <div class="field" [ngSwitch]="type">
+        <ng-container *ngSwitchCase="'checkbox'">
+            <input type="checkbox" [ngClass]="styleClass" id="{{controlName}}" formControlName="{{controlName}}">
+            <span class="checkbox-text">Aceptar términos y condiciones</span>
+        </ng-container>
+        <ng-container *ngSwitchCase="'number'">
+            <div class="field-icon"><fa-icon [icon]="numberIcon"></fa-icon></div>
+            <input type="number" [ngClass]="styleClass" id="{{controlName}}" formControlName="{{controlName}}" placeholder="{{placeholder}}" appDigitOnly inputmode="numeric" pattern="[0-9]*">
+        </ng-container>
+        <ng-container *ngSwitchDefault>
+            <input type="{{type}}" [ngClass]="styleClass" id="{{controlName}}" formControlName="{{controlName}}" placeholder="{{placeholder}}">
+            <button type="button" *ngIf="isPassword" [ngClass]="checkError()?'invalid':''" (click)="toggleShow()">
+                <fa-icon [icon]="type == 'password'? 'eye':'eye-slash'"></fa-icon>
+            </button>
+        </ng-container>
+    </div>
+    <span class="error" *ngIf="checkError()">{{fieldError}}</span>
+</div>

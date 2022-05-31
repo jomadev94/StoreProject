@@ -1,0 +1,16 @@
+<div class="loader-box" *ngIf="show">
+    <div class="icons">
+        <!-- <img *ngFor="let icon of icons" src="/assets/img/loader/{{icon}}.png" alt="Imagen de carga"> -->
+        <img src="/assets/img/loader/{{icons[0]}}.png" alt="Imagen de carga">
+        <img src="/assets/img/loader/{{icons[1]}}.png" alt="Imagen de carga">
+        <img src="/assets/img/loader/{{icons[2]}}.png" alt="Imagen de carga">
+        <img src="/assets/img/loader/{{icons[3]}}.png" alt="Imagen de carga">
+    </div>
+    <div class="percent">{{percent}}%</div>
+    <div class="bar">
+        <div class="barconfrm"></div>
+        <div class="loader-icon">
+            <img src="/assets/img/loader/load.png" alt="icono carga" class="load">
+        </div>
+    </div>
+</div>

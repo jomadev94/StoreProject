@@ -1,0 +1,54 @@
+<app-logo-slider></app-logo-slider>
+<footer>
+    <div class="info-panel">
+        <div class="info-panel__button">
+            <button (click)="openClosePanel()">
+                <span>Mas información</span>
+                <fa-icon [icon]="open? 'angle-down':'angle-up'"></fa-icon>
+            </button>
+        </div>
+        <div class="info-panel__options" #optionsPanel>
+            <div class="info-panel__options__area">
+                <h3>Acerca de</h3>
+                <a href="">Nosotros</a>
+                <a href="">Medios de pago</a>
+                <a href="">Sucursales</a>
+                <a href="">Fabricantes</a>
+                <a href="">Pedidos</a>
+            </div>
+            <div class="info-panel__options__area">
+                <h3>Ayuda</h3>
+                <a href="">Comprar</a>
+                <a href="">Devoluciones</a>
+                <a href="">Envios</a>
+                <a href="">Horarios</a>
+                <a href="">Contacto</a>
+            </div>
+        </div>
+    </div>
+    <div class="terms">
+        <div class="options">
+            <a href="">Terminos y condiciones</a>
+            <a href="">Privacidad</a>
+            <a href="">Ayuda</a>
+        </div>
+        <div class="social-media">
+            <p>Seguinos en:</p>
+            <div class="social-media__links">
+                <a href="">
+                    <img src="/assets/img/social/insta.png" alt="Instagram">
+                </a>
+                <a href="">
+                    <img src="/assets/img/social/fb.png" alt="Facebook">
+                </a>
+                <a href="">
+                    <img src="/assets/img/social/twitter.png" alt="Twitter">
+                </a>
+            </div>
+        </div>
+        <div class="author">
+            <span>Copyright 2022 Empresa</span>
+            <span>Av. Inventada 1234, Piso 100, Bs. As. - Argentina</span>
+        </div>
+    </div>
+</footer>

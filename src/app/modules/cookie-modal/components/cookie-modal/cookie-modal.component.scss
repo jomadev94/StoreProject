@@ -1,0 +1,47 @@
+@use 'variables/borders' as *;
+@use 'variables/spaces' as *;
+@use 'variables/colors' as *;
+@use 'variables/fonts' as *;
+@use 'components/buttons' as *;
+
+
+.cookie-modal-box{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: $space-1000;
+    background-color: $white-100;
+    border-radius: $radius-all-500;
+    padding-inline: $space-180;
+    padding-bottom: $space-180;
+    padding-top: 3rem;
+    margin-left: $space-180;
+    margin-bottom: $space-250;
+    opacity: 0;
+    transform: translateY(200%);
+
+    P{
+        margin-top: 0;
+        font-size:$font-size-200;
+        font-weight: 300;
+    }
+
+    img{
+        position: absolute;
+        bottom: calc(100% - 2rem);
+        left: 50%;
+        transform: translateX(-50%);
+        width: clamp(15rem,30vw,20rem);
+    }
+
+    button{
+        @extend .button;
+        align-self: flex-end;
+        padding: $space-100;
+        text-transform: uppercase;
+        background-color: $purple-120;
+        color: $white-100;
+        font-weight: bold;
+        border-radius: $radius-all-200;
+    }
+}

@@ -1,0 +1,15 @@
+@use "variables/colors" as *;
+@use "variables/fonts" as *;
+@use "helpers/mixins" as *;
+
+.cart{
+    font-size: $font-size-200;
+    color: $white-100;
+
+    &:focus{
+        color: $purple-130;
+        font-weight: bold;
+        outline:none;
+    }
+
+}

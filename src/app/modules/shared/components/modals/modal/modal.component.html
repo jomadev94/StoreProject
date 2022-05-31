@@ -1,0 +1,8 @@
+<div class="modal-box" cdkTrapFocus cdkTrapFocusAutoCapture="true">
+    <h3>{{title}}</h3>
+    <hr>
+    <ng-content></ng-content>
+    <button class="modal-box__close" (click)="close()">
+        <fa-icon icon="circle-xmark"></fa-icon>
+    </button>
+</div>

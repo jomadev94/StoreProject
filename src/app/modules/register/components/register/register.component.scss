@@ -1,0 +1,126 @@
+@use "variables/colors" as *;
+@use "variables/spaces" as *;
+@use "variables/borders" as *;
+@use "variables/fonts" as *;
+@use "components/buttons";
+@use "helpers/mixins" as *;
+
+section {
+  position: relative;
+  width:clamp(40rem,50vw,90rem);
+  margin-block:$space-250;
+
+  @include media-down(md){
+    width: 80%;
+  }
+}
+
+.box{
+  position: relative;
+  transform-style: preserve-3d;
+  transform: perspective(1200px);
+}
+
+.form-box,.created-box{
+  border-radius: $radius-all-300;
+  padding: $space-300;
+  backface-visibility: hidden;
+  transition: all 1s;
+  outline: 1px solid transparent;
+}
+
+.form-box {
+
+  background-color: $white-100;
+  
+  p {
+    margin-top: 0;
+    padding: $space-180;
+    background-color: $purple-70;
+    border-radius: $radius-all-300;
+    color: $white-100;
+  }
+
+  &__fields {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20vw, 1fr));
+    gap: 1rem;
+
+    @include media-down(md) {
+      grid-template-columns: repeat(auto-fit, minmax(34vw, 1fr));
+    }
+  }
+
+  &__field-submit {
+    display: flex;
+    justify-content: flex-end;
+
+    .button-width{
+      width: 50%;
+  
+      @include media-down(sm) {
+        width: 100%;
+      }
+    }
+  }
+  
+}
+
+.created-box{
+  position: absolute;
+  inset: 0;
+  transform: rotateY(180deg);
+  background-image: url('/assets/img/alert/created-background.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(18rem,1fr));
+  place-items: center;
+  overflow: hidden;
+
+  h3{
+    font-weight: bold;
+    font-size:clamp(2rem,6vw,2.3rem);
+    text-align: center;
+
+    @include media-down(sm){
+      align-self: flex-end;
+    }
+
+  }
+
+  img{
+    position: relative;
+    transform: translateX(-2rem) translateY(24rem);
+    width: clamp(10rem,20vw,13rem);
+
+    @include media-down(sm){
+      align-self: flex-start;
+    }
+
+  }
+}
+
+.jump{
+  animation: jump 2s ease forwards;
+}
+
+@keyframes jump{
+  0%{
+    transform: translateX(-2rem) translateY(24rem) rotareZ(-45deg);
+  }
+  30%{
+    transform: translateX(-1.8rem) translateY(-4.8rem) rotateZ(-20deg);
+  }
+  50%{
+    transform: rotateZ(5deg);
+  }
+  80%{
+    transform: rotateZ(0deg);
+  }
+  100%{
+    transform: translateX(0rem) translateY(0rem) rotateZ(0deg);
+  }
+}
+
+

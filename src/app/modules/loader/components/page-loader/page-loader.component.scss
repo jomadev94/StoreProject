@@ -1,0 +1,75 @@
+@use 'variables/indexes' as *;
+@use 'variables/colors' as *;
+
+.loader-box{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    color: $white-100;
+    background-color: $black-100;
+    z-index: $index-5;
+    display: grid;
+    place-content: center;
+
+    .icons{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+
+        img{
+            height: clamp(2rem,10vw,5rem);
+            width: clamp(2rem,10vw,5rem);
+            border-radius: 1rem;
+        }
+    }
+    
+
+    .percent{
+        text-align: center;
+        margin-top: 1rem;
+        font-size: 2rem;
+    }
+
+    .bar{
+        margin-top: .5rem;
+        position:relative;
+        display: flex;
+        align-items: center;
+        margin-inline: auto;
+        width: 30vw;
+        overflow: hidden;
+
+
+        .barconfrm{
+            position: absolute;
+            top:50%;
+            left:0;
+            transform: translateY(-50%);
+            width: 120%;
+            height: 10px;
+            background: repeating-linear-gradient(-45deg,$purple-120, $purple-130, $purple-60 3rem);
+        }
+
+    }
+
+    .loader-icon{
+
+        background-color: black;
+        width: 100%;
+        z-index: 100;
+
+        .load{
+            width: 2rem;
+            transform: translateY(.2rem);
+        }
+
+    }
+
+   
+
+
+    
+}

@@ -1,0 +1,39 @@
+@use "variables/colors" as *;
+@use "variables/spaces" as *;
+@use "variables/borders" as *;
+@use "variables/fonts" as *;
+@use "components/buttons";
+@use "helpers/mixins" as *;
+
+.modal-box {
+  position: relative;
+  background-color: $white-100;
+  border-radius: $radius-all-300;
+  padding: $space-300;
+  transform: scale(0);
+  transform-origin: center;
+  width: clamp(20rem,30vw,25rem);
+
+  h3 {
+    margin: 0;
+    font-size: $font-size-300;
+  }
+
+  hr {
+    margin-top: 2px;
+    margin-bottom: $space-180;
+    border: $border-title-form;
+    border-radius: $radius-all-500;
+  }
+
+  &__close{
+    border: none;
+    cursor: pointer;
+    font-size: $font-size-250;
+    background-color: transparent;
+    position: absolute;
+    top: .5rem;
+    right: .3rem;
+  }
+
+}

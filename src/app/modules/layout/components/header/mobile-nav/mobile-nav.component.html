@@ -1,0 +1,39 @@
+<button [ngClass]="user.role==roles.NoAuth?'mobile-nav-toggle':'user-nav-toogle'" (click)="toggleMenu()"
+    cdkOverlayOrigin #origin="cdkOverlayOrigin">
+    <span class="sr-only">Menu</span>
+    <ng-container *appRole="[roles.Admin,roles.Client]">
+        <span>{{user.name + " "+user.lastname}}</span>
+        <fa-icon id="desktop-icon" icon="circle-user"></fa-icon>
+    </ng-container>
+    <fa-icon id="mobile-icon" [icon]="open? 'xmark' : 'bars'"></fa-icon>
+</button>
+
+<ng-template cdkConnectedOverlay cdkConnectedOverlayHasBackdrop cdkConnectedOverlayLockPosition
+    cdkConnectedOverlayBackdropClass="cdk-overlay-transparent-backdrop" [cdkConnectedOverlayOrigin]="origin"
+    [cdkConnectedOverlayOpen]="open" (backdropClick)="toggleMenu()" (overlayKeydown)="close($event)"
+    (attach)="openMenu()">
+    <div [ngClass]="user.role == roles.NoAuth?'mobile-nav hide':'mobile-nav'" #mobileNav cdkTrapFocus cdkTrapFocusAutoCapture="true">
+        <div *ngFor="let section of menu;index as i" class="mobile-nav__section">
+            <ng-container *appRole="section.roles">
+                <h3>{{section.title}}</h3>
+                <ul>
+                    <li *ngIf="section.title === 'Saldo actual'" class="wallet">{{user.wallet | currency : 'USD' : 'symbol' : '1.0-0'}}
+                    </li>
+                    <li *ngFor="let link of section.links">
+                        <ng-container *ngIf="link.isButton else notButton">
+                            <app-link-with-modal [title]="link.title" [roles]="link.roles" [portal]="portals[link.id!]"></app-link-with-modal>
+                        </ng-container>
+                        <ng-template #notButton>
+                            <a *appRole="link.roles" class="link-nav" routerLink="/{{link.href}}">{{link.title}}</a>
+                        </ng-template>
+                    </li>
+                </ul>
+                <hr *ngIf="i<menu.length-1">
+            </ng-container>
+        </div>
+        <div class="mobile-nav__section" *appRole="[roles.Client, roles.Admin]">
+            <hr>
+            <button class="logout" (click)="logout()">Cerrar sesión</button>
+        </div>
+    </div>
+</ng-template>

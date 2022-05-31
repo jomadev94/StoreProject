@@ -1,0 +1,23 @@
+@use "variables/colors" as *;
+@use "variables/indexes" as *;
+@use "variables/spaces" as *;
+
+header{
+    display: flex;
+    align-items: center;
+    position: sticky;
+    left: 0;
+    top: 0;
+    height: 3rem;
+    z-index: $index-1;
+    background-color:$purple-122;
+
+    a{
+        margin-left:$space-150;
+    }
+
+    img{
+        height: 2rem;
+        width: 2rem;
+    }
+}

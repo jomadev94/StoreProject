@@ -1,0 +1,39 @@
+@use "variables/colors" as *;
+@use "variables/shadows" as *;
+@use "variables/fonts" as *;
+@use "variables/borders" as *;
+@use "variables/spaces" as *;
+
+.title-box{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+
+    h2{
+        margin: 0;
+        font-size: $font-size-280;
+        color: $white-80;
+        text-shadow: $text-shadow-200;
+        white-space: nowrap;
+    }
+
+    a{
+        text-decoration: none;
+        padding-inline:min(1rem,2vw);
+        padding-block: $space-50;
+        border-radius: $radius-all-100;
+        text-transform: uppercase;
+        white-space: nowrap;
+        background-color: $white-100;
+        color: $purple-110;
+        font-size:$font-size-200;
+    }
+}
+
+hr{
+    border: $border-section;
+    border-radius: $radius-all-500;
+    margin-bottom: $space-180;
+
+}
+

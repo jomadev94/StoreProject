@@ -1,0 +1,119 @@
+@use "variables/colors" as *;
+@use "variables/spaces" as *;
+@use "variables/borders" as *;
+@use "variables/fonts" as *;
+@use "variables/indexes" as *;
+@use "components/buttons";
+@use "helpers/mixins" as *;
+@use "helpers/sr" as *;
+
+.mobile-nav-toggle {
+  @extend .button-menu;
+  display: none;
+
+  @include media-down(md) {
+    display: block;
+  }
+}
+
+.user-nav-toogle{
+  @extend .button-menu;
+  white-space: nowrap;
+  display: flex;
+  font-size: $font-size-200;
+
+  span{
+    margin-right: $space-100;
+  }
+
+  #mobile-icon{
+    display: none;
+  }
+
+  @include media-down(md){
+    
+    #desktop-icon,span{
+      display: none;
+    }
+
+    #mobile-icon{
+      display: block;
+      white-space: nowrap;
+    }
+
+  }
+}
+
+.mobile-nav{
+  position: fixed;
+  background-color: $black-transparent-1;
+  top: 4rem;
+  right: 0;
+  margin-right: $space-250;
+  border-radius: $radius-all-300;
+  text-align: right;
+  padding-block: $space-180;
+  opacity: 0;
+  width: $space-700;
+
+  h3,ul,.logout{
+    padding-inline: $space-180;
+  }
+
+  h3 {
+    font-size: $font-size-230;
+    color: $purple-60;
+    margin: 0;
+  }
+
+  ul {
+    margin-block: $space-100;
+
+    li {
+      list-style: none;
+      margin-top: $space-100;
+    }
+  }
+
+  hr {
+    color: $purple-60;
+    margin-block: $space-180;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: -0.5rem;
+    right: $space-150;
+    height: 1rem;
+    width: 1rem;
+    background-color: $black-transparent-1;
+    clip-path: polygon(50% 0, 100% 50%, 0 50%, 0 50%);
+  }
+}
+
+.wallet{
+  color:$white-100;
+  font-size: $font-size-300;
+  font-weight: bold;
+}
+
+.logout{
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  text-decoration: none;
+  white-space: nowrap;
+  font-size: $font-size-230;
+  color: $red-100;
+  font-weight: bold;
+}
+
+.hide {
+  @extend .mobile-nav;
+  display: none;
+
+  @include media-down(md) {
+    display: block;
+  }
+}

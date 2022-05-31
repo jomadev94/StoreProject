@@ -1,0 +1,14 @@
+<app-modal title="Iniciar Sesión" [eventModal]="modalClose">
+    <form [formGroup]="loginForm" (ngSubmit)="login()" class="form-box" novalidate>
+        <app-input label="Email" placeholder="Ingrese su email.." controlName="email" labelIcon="envelope" labelIconFormat="far" [form]="loginForm"></app-input>
+        <app-input type="password" label="Contraseña" placeholder="Ingrese su contraseña.." labelIcon="lock" controlName="password" [form]="loginForm"></app-input>
+        <app-button-submit [condition]="!loginForm.valid" text="Ingresar"></app-button-submit>
+    </form>
+    <app-form-notification [error]="true" [messages]="errorMessages"></app-form-notification>
+    <div class="form-options">
+        <ul>
+            <li><button type="button">Recuperar contraseña</button></li>
+            <li><a [routerLink]="['user/register']">Crear cuenta</a></li>
+        </ul>
+    </div>
+</app-modal>

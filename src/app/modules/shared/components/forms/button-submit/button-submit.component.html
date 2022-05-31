@@ -1,0 +1,8 @@
+<button type="submit" [disabled]="condition">
+    <ng-container *ngIf="load$ | async else textBlock">
+        <fa-icon [icon]="['fas', 'spinner']" [spin]="true"></fa-icon>
+    </ng-container>
+    <ng-template #textBlock>
+        {{text}}
+    </ng-template>                    
+</button>

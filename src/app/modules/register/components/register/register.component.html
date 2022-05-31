@@ -1,0 +1,25 @@
+<section>
+    <app-section-title [title]="'Crear Cuenta'" [buttons]="button"></app-section-title>
+    <div class="box">
+        <div class="form-box">
+            <p>Al crearse una cuenta, ustes puede tener un mejor seguimiento de sus acciones, añadir saldo a su billetera virtual y mantener sus datos personales guardados para futuras compras.</p>
+            <form [formGroup]="registerForm" (ngSubmit)="register()" class="form-box__fields" novalidate autocomplete="off">
+                <app-input label="Nombre" placeholder="Ingrese su nombre.." controlName="name" [form]="registerForm"></app-input>
+                <app-input label="Apellido" placeholder="Ingrese su apellido.." controlName="lastname" [form]="registerForm"></app-input>
+                <app-input label="Email" placeholder="Ingrese su correo.." controlName="email" [form]="registerForm"></app-input>
+                <app-input type="date" label="Fecha de nacimiento" controlName="birthday" [form]="registerForm"></app-input>
+                <app-input type="password" label="Contraseña" controlName="password" [form]="registerForm"></app-input>
+                <app-input type="password" label="Repita la contraseña" controlName="repeatPassword" [form]="registerForm"></app-input>
+                <app-input type="checkbox" controlName="terms" [form]="registerForm"></app-input>
+                <div class="form-box__field-submit">
+                    <app-button-submit class="button-width" text="Registrarse" [condition]="!registerForm.valid"></app-button-submit>
+                </div>
+            </form>
+            <app-form-notification [error]="true" [messages]="errorMessages"></app-form-notification>
+        </div>
+        <div class="created-box">
+            <h3>Usuario creado exitosamente!</h3>
+            <img [ngClass]="success?'jump':''" src="/assets/img/alert/created.png" alt="Usuario creado">
+        </div>
+    </div>
+</section>

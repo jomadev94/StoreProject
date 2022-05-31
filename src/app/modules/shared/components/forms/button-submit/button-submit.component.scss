@@ -1,0 +1,27 @@
+@use "variables/colors" as *;
+@use "variables/spaces" as *;
+@use "variables/borders" as *;
+@use "variables/fonts" as *;
+@use "components/buttons";
+@use "helpers/mixins" as *;
+
+button {
+  margin-top: $space-200;
+  color: $white-100;
+  font-size: $font-size-200;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  background-color: $purple-122;
+  padding-block: $space-180;
+  border-radius: $radius-all-300;
+  height: auto;
+  transition: background-color 1s ease-in-out;
+  padding-inline: $space-180;
+  width: 100%;
+
+  &:disabled {
+    background-color: $purple-70;
+    cursor: not-allowed;
+  }
+}

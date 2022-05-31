@@ -1,0 +1,21 @@
+@use "variables/colors" as *;
+@use "variables/spaces" as *;
+@use "variables/borders" as *;
+@use "variables/animations" as *;
+@use "variables/fonts" as *;
+@use "components/buttons";
+@use "helpers/mixins" as *;
+
+
+.notification {
+  background-color: $green-100;
+  color: $white-100;
+  padding: $space-180;
+  border-radius: $radius-all-200;
+  margin-top: $space-180;
+  animation: fadeUp 1s forwards;
+
+  &.error {
+    background-color: $red-100;
+  }
+}

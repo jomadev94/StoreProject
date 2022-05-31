@@ -1,0 +1,23 @@
+@use "helpers/mixins" as *;
+
+.promo-box {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, calc((100% / 3) - 1rem));
+  gap: 1rem;
+
+  @include media-down(md) {
+    grid-template-columns: repeat(auto-fit, calc((100% / 2) - 1rem));
+  }
+
+  @include media-down(sm) {
+    grid-template-columns: repeat(auto-fit, 100%);
+  }
+
+}
+
+.promo-img {
+  border-radius: 10px;
+  height: 12rem;
+  width: 100%;
+  object-fit: cover;
+}

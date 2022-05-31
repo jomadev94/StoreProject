@@ -1,0 +1,10 @@
+<div class="title-box">
+    <h2>{{title}}</h2>
+    <a *ngFor="let button of buttons" routerLink="{{button.action}}">
+        <ng-container *ngIf="button.icon != null">
+            <fa-icon [icon]="button.icon"></fa-icon>
+        </ng-container>
+        {{button.text}}
+    </a>
+</div>
+<hr>

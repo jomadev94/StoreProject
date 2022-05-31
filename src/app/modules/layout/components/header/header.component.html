@@ -1,0 +1,25 @@
+<header>
+    <div class="header-top">
+        <a routerLink="home"><img class="logo" src="/assets/img/logo.png" alt="Logo"></a>
+        <app-searcher class="large-width"></app-searcher>
+        <ul class="header-options" #headerOptions>
+            <ng-container *appRole="[roles.NoAuth]">
+                <li id="register"><a routerLink="../user/register" class="link-header">Crear cuenta</a></li>
+                <li id="login"><app-link-with-modal title="Ingresar" [roles]="[roles.NoAuth]" buttonStyle="link-header" [portal]="login"></app-link-with-modal></li>
+            </ng-container>
+            <li>
+                <app-cart></app-cart>
+            </li>
+            <li>
+                <app-mobile-nav></app-mobile-nav>
+            </li>
+        </ul>
+    </div>
+    <nav>
+        <ul id="navbar-options" class="navbar-options">
+            <ng-container *ngFor="let option of options">
+                <li *appRole="option.roles"><a href="{{option.href}}" class="link-nav">{{option.title}}</a></li>
+            </ng-container>
+        </ul>
+    </nav>
+</header>
