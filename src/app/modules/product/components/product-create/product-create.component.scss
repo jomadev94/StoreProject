@@ -1,0 +1,77 @@
+@use "variables/colors" as *;
+@use "variables/spaces" as *;
+@use "variables/borders" as *;
+@use "variables/fonts" as *;
+@use "components/buttons" as *;
+@use "variables/animations" as *;
+
+.steps-box {
+  height: $space-600;
+  border-radius: $radius-top-500;
+  background-color: $purple-120;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: $space-180;
+  padding-inline: 1rem;
+
+  &__step {
+    border-radius: 100%;
+    background-color: $white-100;
+    color: $purple-122;
+    padding: $space-180;
+    display: grid;
+    place-content: center;
+    transition: background-color .3s ease-in-out;
+
+    fa-icon {
+      font-size: $font-size-230;
+    }
+
+    &.current {
+      background-color: $black-100;
+      color: $white-100;
+      outline: $border-white-500;
+    }
+  }
+
+  &__separator {
+    height: $space-150;
+    width: $space-250;
+    background-color: $white-100;
+    border-radius: $radius-all-500;
+  }
+}
+
+.form-box {
+  background-color: $white-100;
+  border-radius: $radius-bottom-500;
+  padding: $space-250;
+  overflow: hidden;
+  min-height: 30rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  &__content {
+    display: flex;
+    gap: calc($space-250 * 2);
+
+    &__step {
+      display: none;
+      flex-grow: 0;
+      flex-shrink: 0;
+      flex-basis: 100%;
+
+      &.active{
+        display: block;
+      }
+    }
+  }
+
+  &__actions {
+    display: flex;
+    gap: $space-180;
+    justify-content: flex-end;
+  }
+}

@@ -3,20 +3,15 @@ import { BrowserModule } from '@angular/platform-browser';
 import {
   FaConfig,
   FaIconLibrary,
-  FontAwesomeModule,
 } from '@fortawesome/angular-fontawesome';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { far } from '@fortawesome/free-regular-svg-icons';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { OverlayModule } from '@angular/cdk/overlay';
-import { A11yModule } from '@angular/cdk/a11y';
 import { HttpClientModule } from '@angular/common/http';
-import { ReactiveFormsModule } from '@angular/forms';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { JwtInterceptor } from '@interceptors/jwt/jwt.interceptor';
-import { ProductViewModule } from './modules/product-view/product-view.module';
-import { SharedModule } from './modules/shared/shared.module';
+import { ProductModule } from './modules/product/product.module';
 import { LayoutModule } from './modules/layout/layout.module';
 import { CookieModalModule } from './modules/cookie-modal/cookie-modal.module';
 import { HomeModule } from './modules/home/home.module';
@@ -25,6 +20,10 @@ import { RegisterModule } from './modules/register/register.module';
 import { LoginModule } from './modules/login/login.module';
 import { LoaderInterceptor } from '@interceptors/loader/loader.interceptor';
 import { LoaderModule } from '@modules/loader/loader.module';
+import { AlertModule } from './modules/alert/alert.module';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideStorage,getStorage } from '@angular/fire/storage';
 
 @NgModule({
   declarations: [AppComponent],
@@ -32,7 +31,7 @@ import { LoaderModule } from '@modules/loader/loader.module';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ProductViewModule,
+    ProductModule,
     LayoutModule,
     CookieModalModule,
     HomeModule,
@@ -40,10 +39,13 @@ import { LoaderModule } from '@modules/loader/loader.module';
     RegisterModule,
     LoginModule,
     LoaderModule,
+    AlertModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideStorage(() => getStorage()),
   ],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true },
   ],
   bootstrap: [AppComponent],
 })
@@ -53,9 +55,3 @@ export class AppModule {
     faConfig.fixedWidth = true;
   }
 }
-
-// FontAwesomeModule,
-// OverlayModule,
-// A11yModule,
-// ReactiveFormsModule,
-// SharedModule,

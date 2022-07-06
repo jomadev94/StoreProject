@@ -1,0 +1,8 @@
+<button type="{{type}}" [disabled]="disabled" class="{{className}}" (click)="emit()">
+    <ng-container *ngIf="load  else textBlock">
+        <fa-icon [icon]="['fas', 'spinner']" [spin]="true"></fa-icon>
+    </ng-container>
+    <ng-template #textBlock>
+        {{text}}
+    </ng-template>                    
+</button>

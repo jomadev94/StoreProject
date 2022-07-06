@@ -1,0 +1,10 @@
+@use "variables/spaces" as *;
+@use "variables/fonts" as *;
+@use "components/forms" as *;
+
+.textarea-count {
+  position: absolute;
+  top: -1.4rem;
+  right: 0.5rem;
+  font-size: 0.8rem;
+}

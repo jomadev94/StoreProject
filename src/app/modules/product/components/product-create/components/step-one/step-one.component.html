@@ -1,0 +1,22 @@
+<app-info-text [title]="title"
+    text="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Impedit eum laudantium modi deleniti rem tempora eaque aspernatur? Ratione, dignissimos iure! Id dignissimos earum reiciendis provident molestiae officia aliquid magni. Aperiam.
+Hic suscipit, repudiandae repellendus cumque consequatur sapiente ut consequuntur quas nam tempore ipsam qui odit at voluptatem dolorem nisi facilis doloribus rerum sequi quae mollitia aliquam. Inventore dicta reprehenderit quasi.
+Impedit placeat aspernatur, ab odit nisi quos vero, labore neque expedita repellat vitae eveniet cumque quasi ipsa rerum optio dignissimos vel perferendis ut aperiam magnam commodi iure quod hic! Aliquid.">
+</app-info-text>
+<form [formGroup]="form" class="form">
+    <div class="group-box">
+        <app-input controlName="name" [form]="form" label="Nombre del producto"
+            placeholder="Ingrese nombre del producto..."></app-input>
+        <app-select controlName="category" [form]="form" label="Categoría" [options]="categories"></app-select>
+        <app-input-number controlName="stock" [form]="form" label="Stock"
+            placeholder="Ingrese la cantidad disponible..."></app-input-number>
+        <app-input-number controlName="price" [form]="form" label="Precio"
+            placeholder="Ingrese el precio del producto..." numberIcon="dollar-sign"></app-input-number>
+        <app-input-number controlName="discount" [form]="form" label="Descuento (Porcentaje)"
+            placeholder="Porcentaje de descuento..." numberIcon="percent"></app-input-number>
+    </div>
+    <div class="group-box">
+        <app-textarea style="height:100%;" controlName="description" [form]="form" label="Descripción"
+            placeholder="Ingrese una breve descripción del producto..."></app-textarea>
+    </div>
+</form>

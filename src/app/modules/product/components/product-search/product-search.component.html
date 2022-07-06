@@ -1,0 +1,56 @@
+<section>
+    <app-section-title [buttons]="buttons" title="Busqueda ({{searchCategory}}) : {{searchProduct}}"></app-section-title>
+    <div class="order-by">
+        <span>Ordenar por:</span>
+        <app-select [hideLabel]="true" [form]="form" controlName="order" [options]="orders" [needEmpty]="false"></app-select>
+    </div>
+    <div class="search-box">
+        <div class="search-box__options">
+            <app-input [form]="form" controlName="name" label="Nombre del producto" placeholder="Nombre..."></app-input>
+            <app-select [form]="form" controlName="category" label="Categoría" [options]="categories" defaultText="Todas"></app-select>
+            <div class="price-box">
+                <label for="price">Precio</label>
+                <div id="price" class="minmax-box">
+                    <app-input-number [form]="form" controlName="minPrice" placeholder="Minimo" [hideLabel]="true">
+                    </app-input-number>
+                    <hr>
+                    <app-input-number [form]="form" controlName="maxPrice" placeholder="Maximo" [hideLabel]="true"></app-input-number>
+                </div>
+            </div>
+            <div class="check-box">
+                <label for="ofert">Ofertas</label>
+                <app-input-checkbox [form]="form" controlName="ofert" text="Mostrar solo ofertas"></app-input-checkbox>
+            </div>
+            <div class="check-box">
+                <label for="stock">Stock</label>
+                <app-input-checkbox [form]="form" controlName="stock" text="Mostrar solo con stock"></app-input-checkbox>
+            </div>
+            
+            <app-button (clicked)="search()" text="Buscar" [autoLoad]="false" [load]="loadSearch" className="button-primary full"></app-button>
+        </div>
+        <div class="search-box__items">
+            <div class="products-box" *ngIf="!empty else elseBlock">
+                <ng-container *ngFor="let item of items">
+                    <app-item-card [product]="item"></app-item-card>
+                </ng-container>
+            </div>
+            <ng-template #elseBlock>
+                <app-empty></app-empty>
+            </ng-template>
+            <div *ngIf="!empty" class="pagination">
+                <div class="pagination-box">
+                    <button class="button-primary" *ngIf="pagination.hasPreviousPage" (click)="goTo(pagination.currentPage - 1)">
+                        Anterior
+                        <fa-icon icon="angle-left"></fa-icon>
+                    </button>
+                    <p>{{pagination.currentPage}}</p>
+                    <span>de {{pagination.totalPage}}</span>
+                    <button class="button-primary" *ngIf="pagination.hasNextPage" (click)="goTo(pagination.currentPage + 1)">
+                        Siguiente
+                        <fa-icon icon="angle-right"></fa-icon>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

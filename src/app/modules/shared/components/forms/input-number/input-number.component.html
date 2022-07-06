@@ -1,0 +1,8 @@
+<app-input-base [controlName]="controlName" [form]="form" [label]="label" [labelIcon]="labelIcon"
+    [labelIconFormat]="labelIconFormat" [formGroup]="form">
+    <div *ngIf="numberIcon" class="field-icon">
+        <fa-icon [icon]="numberIcon"></fa-icon>
+    </div>
+    <input [ngClass]="{'border-right':numberIcon}" type="number" id="{{controlName}}" formControlName="{{controlName}}" placeholder="{{placeholder}}"
+        appDigitOnly inputmode="numeric">
+</app-input-base>

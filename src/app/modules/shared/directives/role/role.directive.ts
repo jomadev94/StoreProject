@@ -8,7 +8,7 @@ import { AuthService } from '@services/auth/auth.service';
 })
 export class RoleDirective implements OnInit ,OnDestroy {
 
-  private currentUserRole: Roles = Roles.NoAuth; 
+  private currentUserRole: Roles; 
   private blockRoles:Roles[];
   private subsAuth$:Subscription;
 
@@ -21,18 +21,16 @@ export class RoleDirective implements OnInit ,OnDestroy {
     private templateRef:TemplateRef<any>,
     private viewContainer:ViewContainerRef,
     private authService:AuthService,
-  ) {
+  ) {}
+  
+  ngOnInit(): void {
     this.currentUserRole=this.authService.currentUser.role;
     this.subsAuth$=this.authService.userAuth$.subscribe(
       isAuth=>{
         this.currentUserRole=this.authService.currentUser.role;
         this.updateView();         
       }
-    )
-  }
-  
-  ngOnInit(): void {
-    this.updateView;
+    );
   }
 
   ngOnDestroy(): void {

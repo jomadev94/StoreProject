@@ -5,6 +5,8 @@ import {
   OnInit,
   ViewChild,
 } from '@angular/core';
+import { Categories } from '@enumerables/categories';
+import { Product } from '@models/product';
 import { Card } from '@models/view/card';
 
 @Component({
@@ -14,246 +16,26 @@ import { Card } from '@models/view/card';
 })
 export class ItemCarouselComponent implements OnInit, AfterViewInit {
   @ViewChild('carouselBox') carouselBox: ElementRef;
-  items: Card[] = [
+  products: Product[] = [
     {
       name: 'producto1',
       discount: 10,
       date: new Date(),
       price: 23567,
-      img: {
-        front: {
-          src: '/assets/img/products/figure_1.jpg',
-          description: 'img1',
+      category: Categories.Comics,
+      description: '',
+      stock: 7,
+      productId: 'jhkhk',
+      files: [
+        {
+          path: '/assets/img/products/figure_1.jpg',
+          fileId: 'sasasas',
         },
-        back: {
-          src: '/assets/img/products/figure_2.jpg',
-          description: 'img1',
+        {
+          path: '/assets/img/products/figure_2.jpg',
+          fileId: 'sasasas',
         },
-      },
-    },
-    {
-      name: 'producto1',
-      discount: 10,
-      date: new Date(),
-      price: 23567,
-      img: {
-        front: {
-          src: '/assets/img/products/figure_1.jpg',
-          description: 'img1',
-        },
-        back: {
-          src: '/assets/img/products/figure_2.jpg',
-          description: 'img1',
-        },
-      },
-    },
-    {
-      name: 'producto1',
-      discount: 10,
-      date: new Date(),
-      price: 23567,
-      img: {
-        front: {
-          src: '/assets/img/products/figure_1.jpg',
-          description: 'img1',
-        },
-        back: {
-          src: '/assets/img/products/figure_2.jpg',
-          description: 'img1',
-        },
-      },
-    },
-    {
-      name: 'producto1',
-      discount: 10,
-      date: new Date(),
-      price: 23567,
-      img: {
-        front: {
-          src: '/assets/img/products/figure_1.jpg',
-          description: 'img1',
-        },
-        back: {
-          src: '/assets/img/products/figure_2.jpg',
-          description: 'img1',
-        },
-      },
-    },
-    {
-      name: 'producto1',
-      discount: 10,
-      date: new Date(),
-      price: 23567,
-      img: {
-        front: {
-          src: '/assets/img/products/figure_1.jpg',
-          description: 'img1',
-        },
-        back: {
-          src: '/assets/img/products/figure_2.jpg',
-          description: 'img1',
-        },
-      },
-    },
-    {
-      name: 'producto1',
-      discount: 10,
-      date: new Date(),
-      price: 23567,
-      img: {
-        front: {
-          src: '/assets/img/products/figure_1.jpg',
-          description: 'img1',
-        },
-        back: {
-          src: '/assets/img/products/figure_2.jpg',
-          description: 'img1',
-        },
-      },
-    },
-    {
-      name: 'producto1',
-      discount: 10,
-      date: new Date(),
-      price: 23567,
-      img: {
-        front: {
-          src: '/assets/img/products/figure_1.jpg',
-          description: 'img1',
-        },
-        back: {
-          src: '/assets/img/products/figure_2.jpg',
-          description: 'img1',
-        },
-      },
-    },
-    {
-      name: 'producto1',
-      discount: 10,
-      date: new Date(),
-      price: 23567,
-      img: {
-        front: {
-          src: '/assets/img/products/figure_1.jpg',
-          description: 'img1',
-        },
-        back: {
-          src: '/assets/img/products/figure_2.jpg',
-          description: 'img1',
-        },
-      },
-    },
-    {
-      name: 'producto1',
-      discount: 10,
-      date: new Date(),
-      price: 23567,
-      img: {
-        front: {
-          src: '/assets/img/products/figure_1.jpg',
-          description: 'img1',
-        },
-        back: {
-          src: '/assets/img/products/figure_2.jpg',
-          description: 'img1',
-        },
-      },
-    },
-    {
-      name: 'producto1',
-      discount: 10,
-      date: new Date(),
-      price: 23567,
-      img: {
-        front: {
-          src: '/assets/img/products/figure_1.jpg',
-          description: 'img1',
-        },
-        back: {
-          src: '/assets/img/products/figure_2.jpg',
-          description: 'img1',
-        },
-      },
-    },
-    {
-      name: 'producto1',
-      discount: 10,
-      date: new Date(),
-      price: 23567,
-      img: {
-        front: {
-          src: '/assets/img/products/figure_1.jpg',
-          description: 'img1',
-        },
-        back: {
-          src: '/assets/img/products/figure_2.jpg',
-          description: 'img1',
-        },
-      },
-    },
-    {
-      name: 'producto1',
-      discount: 10,
-      date: new Date(),
-      price: 23567,
-      img: {
-        front: {
-          src: '/assets/img/products/figure_1.jpg',
-          description: 'img1',
-        },
-        back: {
-          src: '/assets/img/products/figure_2.jpg',
-          description: 'img1',
-        },
-      },
-    },
-    {
-      name: 'producto1',
-      discount: 10,
-      date: new Date(),
-      price: 23567,
-      img: {
-        front: {
-          src: '/assets/img/products/figure_1.jpg',
-          description: 'img1',
-        },
-        back: {
-          src: '/assets/img/products/figure_2.jpg',
-          description: 'img1',
-        },
-      },
-    },
-    {
-      name: 'producto1',
-      discount: 10,
-      date: new Date(),
-      price: 23567,
-      img: {
-        front: {
-          src: '/assets/img/products/figure_1.jpg',
-          description: 'img1',
-        },
-        back: {
-          src: '/assets/img/products/figure_2.jpg',
-          description: 'img1',
-        },
-      },
-    },
-    {
-      name: 'producto1',
-      discount: 10,
-      date: new Date(),
-      price: 23567,
-      img: {
-        front: {
-          src: '/assets/img/products/figure_1.jpg',
-          description: 'img1',
-        },
-        back: {
-          src: '/assets/img/products/figure_2.jpg',
-          description: 'img1',
-        },
-      },
+      ],
     },
   ];
   currentPosition = 0;
@@ -291,7 +73,7 @@ export class ItemCarouselComponent implements OnInit, AfterViewInit {
     const box = this.carouselBox.nativeElement as HTMLElement;
     const item = box.childNodes[0] as HTMLElement;
     const itemsForPage = Math.round(box.offsetWidth / item.offsetWidth);
-    this.lastPosition = Math.ceil(this.items.length / itemsForPage) - 1;
+    this.lastPosition = Math.ceil(this.products.length / itemsForPage) - 1;
   }
 
   reset() {

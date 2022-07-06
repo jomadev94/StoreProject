@@ -1,26 +1,27 @@
 <div class="card-box">
-    <div class="card-box__image">
-        <div *ngIf="info.discount>0" class="card-box__image__ofert">
-            <span>Oferta</span>
+    <div class="card-box__image" (click)="viewProduct()">
+        <div *ngIf="product.discount>0" class="card-box__image__ofert">
+            <span>{{product.discount | discountPercent}}</span>
         </div>
         <div class="card-box__image__preview">
-            <img class="front" src="{{info.img.front.src}}" alt="{{info.img.front.description}}">
-            <img class="back" src="{{info.img.back.src}}" alt="{{info.img.back.description}}">
+            <img class="front" src="{{product.files![0].path}}" alt="{{product.files![0].fileId}}">
+            <img class="back" src="{{product.files![1].path}}" alt="{{product.files![1].fileId}}">
         </div>
-        <div *ngIf="newProduct" class="card-box__image__new">
-            <span>Nuevo!</span>
+        <div *ngIf="newProduct || product.stock === 0" class="card-box__image__tag" [ngClass]="product.stock === 0? 'no-stock':'new'">
+            <span>{{product.stock === 0? "Sin stock!":"Nuevo!"}}</span>
         </div>
     </div>
     <div class="card-box__info">
-        <h4>{{info.name}}</h4>
-        <p>{{showPrice | currency : 'USD' : 'symbol' : '1.0-0'}}</p>
-        <div *ngIf="info.discount>0" class="discountPercent">
-            <span class="previous-price">
-                {{info.price | currency : 'USD' : 'symbol' : '1.0-0'}}
-            </span>
-            <span class="discount">
-                {{info.discount | discountPercent}}
-            </span>
+        <div class="info">
+            <h4>{{product.name}}</h4>
+            <div class="info__price">
+                <p>{{showPrice | currency : 'USD' : 'symbol' : '1.0-0'}}</p>
+                <div *ngIf="product.discount>0" class="discountPercent">
+                    <span class="previous-price">
+                        {{product.price | currency : 'USD' : 'symbol' : '1.0-0'}}
+                    </span>
+                </div>
+            </div>
         </div>
         <button class="add-cart">
             <fa-icon icon="cart-plus"></fa-icon>

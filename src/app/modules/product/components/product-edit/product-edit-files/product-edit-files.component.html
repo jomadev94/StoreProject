@@ -1,0 +1,9 @@
+<app-product-edit-box title="PASO 2: Galería">
+    <app-step-two [form]="form" [max]="5 - imgs.length"></app-step-two>
+    <h4>Imagenes del producto</h4>
+    <app-img-preview icon="trash-can" [imgsPreview]="imgs" (clicked)="remove($event)"></app-img-preview>
+    <div class="edit-options">
+        <app-form-notification [error]="error" [messages]="msg"></app-form-notification>
+        <app-button text="Añadir imagenes" [disabled]="form.invalid" (clicked)="addFiles()" [autoLoad]="false" [load]="load"></app-button>
+    </div>
+</app-product-edit-box>

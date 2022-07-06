@@ -1,0 +1,8 @@
+@use 'variables/spaces' as *;
+
+.options-box{
+    display: flex;
+    justify-content: flex-end;
+    gap:$space-100;
+    margin-top: $space-180;
+}

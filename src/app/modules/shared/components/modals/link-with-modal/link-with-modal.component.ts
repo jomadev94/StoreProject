@@ -1,55 +1,63 @@
-import { Overlay, OverlayConfig, OverlayRef, ScrollStrategyOptions } from '@angular/cdk/overlay';
+import {
+  Overlay,
+  OverlayConfig,
+  OverlayRef,
+} from '@angular/cdk/overlay';
 import { ComponentPortal } from '@angular/cdk/portal';
-import { Component, Input, OnInit } from '@angular/core';
+import {
+  Component,
+  Injector,
+  Input,
+  OnInit,
+  StaticProvider,
+} from '@angular/core';
 import gsap from 'gsap';
 import { Roles } from '@enumerables/roles';
-import { LoginComponent } from '@modules/login/components/login/login.component';
+import { IconProp } from '@fortawesome/fontawesome-svg-core';
+import { DATA_OVREF } from '@static/data';
 
 @Component({
   selector: 'app-link-with-modal',
   templateUrl: './link-with-modal.component.html',
-  styleUrls: ['./link-with-modal.component.scss']
+  styleUrls: ['./link-with-modal.component.scss'],
 })
 export class LinkWithModalComponent implements OnInit {
+  @Input() roles: Roles[];
+  @Input() title: string;
+  @Input() component: any = null;
+  @Input() providers: StaticProvider[] = [];
+  @Input() buttonStyle: string = 'link-nav';
+  @Input() disabled: boolean = false;
+  @Input() icon: IconProp;
 
-  @Input() roles:Roles[];
-  @Input() title:string;
-  @Input() portal: ComponentPortal<any>;
-  @Input() buttonStyle:string='link-nav';
+  overlayRef: OverlayRef;
 
-  overlayRef:OverlayRef;
-
-  constructor(private sso:ScrollStrategyOptions, private overlay:Overlay) {
-    const config=new OverlayConfig({
-      hasBackdrop:true,
-      backdropClass:'overlay-dark',
-      scrollStrategy: this.sso.block(),
-      positionStrategy: this.overlay.position().global().centerHorizontally().centerVertically()
-    })
-    this.overlayRef=this.overlay.create(config);
-    this.overlayRef.backdropClick().subscribe(()=>{
-      this.closeModal();
+  constructor(private overlay: Overlay) {
+    const config = new OverlayConfig({
+      hasBackdrop: true,
+      backdropClass: 'overlay-dark',
+      scrollStrategy: this.overlay.scrollStrategies.block(),
+      positionStrategy: this.overlay
+        .position()
+        .global()
+        .centerHorizontally()
+        .centerVertically(),
     });
-    this.overlayRef.attachments().subscribe(()=>{
-      gsap.to('.modal-box',{duration:1,scale:1,ease:"bounce"});
-    });
-  }
-
-  ngOnInit(): void {
-  }
-
-  openModal(){
-    const ref=this.overlayRef.attach(this.portal);
-    const listenClose=ref.instance as LoginComponent
-    listenClose.modalClose.subscribe(()=>{
-      this.closeModal();
-    })
-  }
-
-  closeModal(){
-    gsap.to('.modal-box',{duration:.2,opacity:0,ease:"power2"}).then(()=>{
-      this.overlayRef.detach();
+    this.overlayRef = this.overlay.create(config);
+    this.overlayRef.attachments().subscribe(() => {
+      gsap.to('.modal-box', { duration: 1, scale: 1, ease: 'bounce' });
     });
   }
 
+  ngOnInit(): void {}
+
+  openModal() {
+    const portalInjector = Injector.create({
+      providers: this.providers.concat([
+        { provide: DATA_OVREF, useValue: this.overlayRef },
+      ]),
+    });
+    const portal = new ComponentPortal(this.component, null, portalInjector);
+    this.overlayRef.attach(portal);
+  }
 }

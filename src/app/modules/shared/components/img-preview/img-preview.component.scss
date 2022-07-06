@@ -1,0 +1,43 @@
+@use "components/forms" as *;
+@use "components/buttons" as *;
+@use "variables/spaces" as *;
+@use "variables/borders" as *;
+@use "helpers/mixins" as *;
+
+.preview-box {
+  margin-top: $space-180;
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-180;
+
+  @include media-down(sm) {
+    justify-content: center;
+  }
+
+  &__img {
+    position: relative;
+    height: 15rem;
+    width: 15rem;
+    border-radius: $radius-all-500;
+    border: $border-purple-130;
+    overflow: hidden;
+
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: contain;
+    }
+
+    &__remove {
+      @extend .button-primary;
+      padding: $space-100;
+      position: absolute;
+      top: $space-100;
+      right: $space-100;
+
+      fa-icon {
+        pointer-events: none;
+      }
+    }
+  }
+}

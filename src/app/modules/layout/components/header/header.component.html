@@ -5,7 +5,7 @@
         <ul class="header-options" #headerOptions>
             <ng-container *appRole="[roles.NoAuth]">
                 <li id="register"><a routerLink="../user/register" class="link-header">Crear cuenta</a></li>
-                <li id="login"><app-link-with-modal title="Ingresar" [roles]="[roles.NoAuth]" buttonStyle="link-header" [portal]="login"></app-link-with-modal></li>
+                <li id="login"><app-link-with-modal title="Ingresar" [roles]="[roles.NoAuth]" buttonStyle="link-header" [component]="login"></app-link-with-modal></li>
             </ng-container>
             <li>
                 <app-cart></app-cart>

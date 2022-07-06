@@ -10,6 +10,7 @@ import { Overlay, ScrollStrategyOptions } from '@angular/cdk/overlay';
 import { ComponentPortal } from '@angular/cdk/portal';
 import { LoginComponent } from '@modules/login/components/login/login.component';
 import { AddWalletComponent } from '@modules/add-wallet/components/add-wallet/add-wallet.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-mobile-nav',
@@ -21,13 +22,13 @@ export class MobileNavComponent implements OnInit, OnDestroy {
   readonly menu:NavSection[]=Menu.navSections;
   readonly roles=Globals.roles;
   private subsAuth$:Subscription;
-  portals:{[key:string]:ComponentPortal<any>}={
-    login:new ComponentPortal(LoginComponent),
-    wallet:new ComponentPortal(AddWalletComponent)
+  components:{[key:string]:any}={
+    login:LoginComponent,
+    wallet:AddWalletComponent
   }
   open:boolean=false;
   
-  constructor(private authService:AuthService, private sso:ScrollStrategyOptions, private overlay:Overlay) {
+  constructor(private authService:AuthService, private sso:ScrollStrategyOptions, private overlay:Overlay, private router:Router) {
     this.user=this.authService.currentUser;
     this.subsAuth$=this.subsAuth$=this.authService.userAuth$.subscribe(
       isAuth=>{
@@ -58,6 +59,7 @@ export class MobileNavComponent implements OnInit, OnDestroy {
   logout(){
     this.authService.reset();
     this.toggleMenu();
+    this.router.navigate(['home']);
   }
 
   close(event:KeyboardEvent){

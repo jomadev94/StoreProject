@@ -1,47 +1,65 @@
 @use "helpers/normalize";
 @use "components/scrollbar";
 @use "variables/colors" as *;
+@use "variables/borders" as *;
+@use "variables/spaces" as *;
 @use "components/overlay";
-@import '~@angular/cdk/overlay-prebuilt.css';
+@import "~@angular/cdk/overlay-prebuilt.css";
 
-body{
-    font-family: 'Poppins', sans-serif;
-    overflow-x: hidden;
-    background-color: $purple-70;
-    position: relative;
+body {
+  font-family: "Poppins", sans-serif;
+  overflow-x: hidden;
+  background-color: $purple-70;
+  position: relative;
 
-    &::after{
-        content: "";
-        position: absolute;
-        top:0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        height: 100%;
-        background: url("./assets/img/background/background-body.jpg");
-        background-repeat: repeat repeat;
-        background-attachment: fixed;
-        opacity: 18%;
-        z-index: -1;
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    background: url("./assets/img/background/background-body.jpg");
+    background-repeat: repeat repeat;
+    background-attachment: fixed;
+    opacity: 18%;
+    z-index: -1;
+  }
+
+  main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: calc(100vh - 18.8rem);
+
+    section {
+      margin-inline: auto;
     }
 
-    main{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        min-height: calc(100vh - 18.8rem);
-    
-        section{
-            margin-inline: auto;
-        }
-
-        .big-section{
-            width: 70%;
-        }
-
-        .medium-section{
-            width: 50%;
-        }
+    .big-section {
+      width: 70%;
     }
+
+    .medium-section {
+      width: 50%;
+    }
+  }
+
+  section {
+    width: clamp(21rem, 70vw, 90rem);
+    margin-bottom: 1.5rem;
+  }
+
+  .invalid {
+    input,
+    button,
+    textarea,
+    .field-icon {
+      outline: $border-red-100;
+      border: none;
+    }
+  }
+
+  
 }
-

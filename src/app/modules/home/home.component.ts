@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Roles } from '@enumerables/roles';
 import { SectionButton } from '@models/view/sectionButton';
 
 @Component({
@@ -12,6 +13,7 @@ export class HomeComponent implements OnInit {
     {
       text: 'ver todos',
       action: '',
+      roles:[Roles.Admin,Roles.Client,Roles.NoAuth]
     },
   ];
 

@@ -1,10 +1,16 @@
-import { Image } from "@models/view/image";
+import { Categories } from "@enumerables/categories";
+import { FileUpload } from "./file";
+import { Tag } from "./tag";
 
 export interface Product{
+    productId:string
     name:string;
+    category:Categories;
     description:string;
-    discount:number;
-    date:Date;
     price:number;
-    gallery:Image[];
+    discount:number;
+    stock:number;
+    date:Date;
+    tags?:Tag[];
+    files?:FileUpload[];
 }

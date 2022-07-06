@@ -21,7 +21,7 @@
                     </li>
                     <li *ngFor="let link of section.links">
                         <ng-container *ngIf="link.isButton else notButton">
-                            <app-link-with-modal [title]="link.title" [roles]="link.roles" [portal]="portals[link.id!]"></app-link-with-modal>
+                            <app-link-with-modal [title]="link.title" [roles]="link.roles" [component]="components[link.id!]"></app-link-with-modal>
                         </ng-container>
                         <ng-template #notButton>
                             <a *appRole="link.roles" class="link-nav" routerLink="/{{link.href}}">{{link.title}}</a>

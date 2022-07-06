@@ -1,10 +1,11 @@
-<app-modal title="Iniciar Sesión" [eventModal]="modalClose">
+<app-modal title="Iniciar Sesión" [overRef]="ovRef">
     <form [formGroup]="loginForm" (ngSubmit)="login()" class="form-box" novalidate>
         <app-input label="Email" placeholder="Ingrese su email.." controlName="email" labelIcon="envelope" labelIconFormat="far" [form]="loginForm"></app-input>
-        <app-input type="password" label="Contraseña" placeholder="Ingrese su contraseña.." labelIcon="lock" controlName="password" [form]="loginForm"></app-input>
-        <app-button-submit [condition]="!loginForm.valid" text="Ingresar"></app-button-submit>
+        <app-input-password label="Contraseña" placeholder="Ingrese su contraseña.." labelIcon="lock" controlName="password" [form]="loginForm"></app-input-password>
+        <app-button type="submit" className="button-primary full" [disabled]="!loginForm.valid" text="Ingresar"></app-button>
+        <!-- <app-button-submit style="width: 100%;" [condition]="!loginForm.valid" text="Ingresar"></app-button-submit> -->
     </form>
-    <app-form-notification [error]="true" [messages]="errorMessages"></app-form-notification>
+    <app-form-notification *ngIf="errorMessages.length > 0" [error]="true" [messages]="errorMessages"></app-form-notification>
     <div class="form-options">
         <ul>
             <li><button type="button">Recuperar contraseña</button></li>

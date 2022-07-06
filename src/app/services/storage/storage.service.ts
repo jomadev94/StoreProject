@@ -23,6 +23,10 @@ export class StorageService {
     this.storage.setItem(key,JSON.stringify(value));
   }
 
+  remove(key:string){
+    this.storage.removeItem(key);
+  }
+
   getToken(){
     return this.retrive('token');
   }

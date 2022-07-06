@@ -1,0 +1,49 @@
+<section>
+    <app-section-title title="Agregar producto" [buttons]="sectionButton"></app-section-title>
+    <ng-container *ngIf="!created else elseBlock">
+        <div class="steps-box">
+            <div class="steps-box__step" [ngClass]="{'current':currentStep===1}">
+                <fa-icon icon="info"></fa-icon>
+            </div>
+            <div class="steps-box__separator"></div>
+            <div class="steps-box__step" [ngClass]="{'current':currentStep===2}">
+                <fa-icon icon="image"></fa-icon>
+            </div>
+            <div class="steps-box__separator"></div>
+            <div class="steps-box__step" [ngClass]="{'current':currentStep===3}">
+                <fa-icon icon="tags"></fa-icon>
+            </div>
+        </div>
+        <div class="form-box">
+            <div class="form-box__content" #steps>
+                <div class="form-box__content__step active">
+                    <app-step-one title="PASO 1: Detalles del producto" [form]="infoForm"></app-step-one>
+                </div>
+                <div class="form-box__content__step">
+                    <app-step-two title="PASO 2: Galería" [form]="fileForm"></app-step-two>
+                </div>
+                <div class="form-box__content__step">
+                    <app-step-three title="PASO 3: Etiquetas" [toAdd]="tags"></app-step-three>
+                </div>
+            </div>
+            <div class="form-box__actions">
+                <button *ngIf="currentStep > 1" class="button-primary" (click)="prev()">
+                    <fa-icon icon="angle-left"></fa-icon>
+                    <span>Anterior</span>
+                </button>
+                <button class="button-primary" (click)="next()" [disabled]="!canNext()">
+                    <ng-container *ngIf="load else elseBlock">
+                        <fa-icon [icon]="['fas', 'spinner']" [spin]="true"></fa-icon>
+                    </ng-container>
+                    <ng-template #elseBlock>
+                        <span>{{currentStep < 3? "Siguiente" :"Finalizar"}}</span>
+                        <fa-icon *ngIf="currentStep < 3" icon="angle-right"></fa-icon>
+                    </ng-template>
+                </button>
+            </div>
+        </div>
+    </ng-container>
+    <ng-template #elseBlock>
+        <app-created></app-created>
+    </ng-template>
+</section>

@@ -1,0 +1,29 @@
+@use "variables/colors" as *;
+@use "variables/spaces" as *;
+@use "variables/borders" as *;
+@use "components/buttons" as *;
+
+.edit-box{
+    border-radius: $radius-all-300;
+    overflow:hidden ;
+    
+    &__title{
+        color: $white-100;
+        background-color:$purple-100;
+        padding:$space-180;
+
+        h3{
+            margin: 0;
+            font-size: $space-180;
+        }
+    }
+
+    &__content{
+        padding: $space-180;
+        background-color: $white-100;
+
+        form{
+            margin-top: $space-180;
+        }
+    }
+}

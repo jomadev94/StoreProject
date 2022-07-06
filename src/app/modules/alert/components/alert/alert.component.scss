@@ -1,0 +1,49 @@
+@use 'variables/colors' as *;
+@use 'variables/fonts' as *;
+@use 'variables/borders' as *;
+@use 'variables/spaces' as *;
+@use 'components/buttons' as *;
+@use 'helpers/mixins' as *;
+
+.alert-box{
+    margin-block:2rem;
+    background-color: $white-100;
+    border-radius: $radius-all-500;
+    padding:$space-400;
+    display: flex;
+    align-items: center;
+    gap: $space-400;
+
+    @include media-down(md){
+        flex-direction: column;
+        gap: .5rem;
+    }
+
+    img{
+        height: 100%;
+        width: 100%;
+        object-fit: contain;
+        max-height: 35vh;
+        flex-basis: 35%;
+    }
+
+    .alert-box__info{
+        flex-basis: 65%;
+        h3{
+            font-size: $font-size-500;
+            margin-top: 0;
+            margin-bottom: .5rem;
+            font-weight: bold;
+        }
+
+        @include media-down(md){
+            text-align: center;
+        }
+    }
+
+    .options-box{
+        margin-top: $space-180;
+        display: flex;
+        // justify-content: flex-end;
+    }
+}

@@ -1,0 +1,8 @@
+<app-input-base [controlName]="controlName" [form]="form" [label]="label" [labelIcon]="labelIcon" [labelIconFormat]="labelIconFormat" [formGroup]="form">
+    <input type="file" id="{{controlName}}" multiple (change)="onSelectFiles($event)">
+    <label for="{{controlName}}">
+        <span><fa-icon icon="upload"></fa-icon></span> 
+        <p>Cantidad seleccionados: {{files.length}} - Máximo: {{maxAdd}}</p>
+    </label>
+</app-input-base>
+<app-img-preview *ngIf="imgsPreview.length > 0" (clicked)="remove($event)" icon="xmark" [imgsPreview]="imgsPreview"></app-img-preview>

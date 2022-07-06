@@ -1,0 +1,10 @@
+<div class="field-box" [ngClass]="{'full-height':fullHeight}" [formGroup]="form">
+    <label *ngIf="label && !hideLabel" for="{{controlName}}">
+        {{label}}
+        <fa-icon class="icon-label" *ngIf="labelIcon" [icon]="[labelIconFormat,labelIcon]"></fa-icon>
+    </label>
+    <div class="field" [ngClass]="{'invalid':checkError(),'full-height':fullHeight}">
+        <ng-content></ng-content>
+    </div>
+    <span class="error" *ngIf="checkError()">{{fieldError}}</span>
+</div>

@@ -1,0 +1,17 @@
+<app-modal [title]="title" [overRef]="overRef">
+    <p>¿Seguro que desea eliminar la etiqueta "{{selected!.name}}"?</p>
+    <app-form-notification *ngIf="errMsg.length > 0" [error]="true" [messages]="errMsg"></app-form-notification>
+    <div class="options-box">
+        <button (click)="delete()" class="button-primary">
+            <ng-container *ngIf="load | async else elseBlock">
+                <fa-icon class="loading-box" [icon]="['fas', 'spinner']" [spin]="true"></fa-icon>
+            </ng-container>
+            <ng-template #elseBlock>
+                Eliminar
+            </ng-template>
+        </button>
+        <button (click)="cancel()" class="button-secondary">
+            Cancelar
+        </button>
+    </div>
+</app-modal>

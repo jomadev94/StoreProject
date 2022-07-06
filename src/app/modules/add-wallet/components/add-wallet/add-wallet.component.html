@@ -1,4 +1,4 @@
-<app-modal title="Agregar Saldo" [eventModal]="modalClose">
+<app-modal title="Agregar Saldo" [overRef]="ovRef">
     <form [formGroup]="walletForm" (ngSubmit)="addMoney()" novalidate>
         <app-input type="number" label="Monto" controlName="wallet" placeholder="Ingrese un monto.." [form]="walletForm" numberIcon="dollar-sign"></app-input>
         <app-button-submit [condition]="!walletForm.valid" text="Agregar"></app-button-submit>

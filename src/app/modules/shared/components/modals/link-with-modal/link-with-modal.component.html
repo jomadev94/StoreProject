@@ -1,1 +1,6 @@
-<button *appRole="roles" class="{{buttonStyle}}" (click)="openModal()">{{title}}</button>
+<button [disabled]="disabled" class="{{buttonStyle}}" (click)="openModal()">
+    <fa-icon *ngIf="icon" [icon]="icon"></fa-icon>
+    <ng-container *ngIf="title">
+        {{title}}
+    </ng-container>
+</button>

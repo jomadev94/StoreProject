@@ -1,0 +1,101 @@
+@use "variables/colors" as *;
+@use "variables/spaces" as *;
+@use "variables/borders" as *;
+@use "variables/fonts" as *;
+@use "components/buttons" as *;
+
+.gallery-box {
+  --cant-show: 3;
+  --show: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  height: 100%;
+
+  .gallery-preview {
+    height: calc(80% - 1rem);
+    border-radius: $radius-all-500;
+    overflow: hidden;
+    cursor: zoom-in;
+  }
+
+  .gallery-carousel {
+    height: 20%;
+    position: relative;
+    overflow: hidden;
+
+    &:hover {
+      --show: 1;
+    }
+
+    &__container {
+      --gap: 1rem;
+      height: 100%;
+      display: flex;
+      gap: var(--gap);
+      transition: transform 0.5s ease-in-out;
+    }
+
+    &__item {
+      position: relative;
+      width: calc(
+        100% / var(--cant-show) - var(--gap) + (var(--gap) / var(--cant-show))
+      );
+      height: 100%;
+      flex-shrink: 0;
+      cursor: pointer;
+      box-sizing: border-box;
+
+      &.selected {
+        border: $border-purple-120;
+      }
+
+      &:hover,&.selected{
+        &::after {
+          opacity: 0;
+        }
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-color: $black-transparent-2;
+        opacity: 1;
+        transition: opacity 0.5s ease-in-out;
+      }
+    }
+
+    .next,
+    .prev {
+      @extend .button;
+      position: absolute;
+      top: 0;
+      height: 100%;
+      width: $space-300;
+      font-size: $font-size-150;
+      font-weight: bold;
+      color: $white-100;
+      background-color: $black-transparent-1;
+      opacity: var(--show);
+      transition: opacity 0.5s ease-in-out;
+    }
+
+    .next {
+      right: 0;
+    }
+
+    .prev {
+      left: 0;
+    }
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+  }
+}
+
+

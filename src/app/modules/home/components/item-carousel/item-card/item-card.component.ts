@@ -1,4 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Product } from '@models/product';
 import { Card } from '@models/view/card';
 
 @Component({
@@ -11,21 +13,26 @@ export class ItemCardComponent implements OnInit {
   newProduct:boolean;
   showPrice:number;
 
-  @Input() info:Card;
+  @Input() product:Product;
 
-  constructor() { 
+  constructor(private router:Router) { 
   }
 
   ngOnInit(): void {
     const now=new Date();
-    this.newProduct= this.info.date.getMonth() === now.getMonth() && this.info.date.getFullYear() === now.getFullYear()? true : false;
-    if(this.info.discount>0){
-      const discount=(this.info.discount/100)*this.info.price;
-      this.showPrice=this.info.price - discount;
+    const date=new Date(this.product.date);
+    this.newProduct= date.getMonth() === now.getMonth() && date.getFullYear() === now.getFullYear()? true : false;
+    if(this.product.discount>0){
+      const discount=(this.product.discount/100)*this.product.price;
+      this.showPrice=this.product.price - discount;
     }
     else{
-      this.showPrice=this.info.price;
+      this.showPrice=this.product.price;
     }
+  }
+
+  viewProduct(){
+    this.router.navigate([`/product/view/${this.product.productId}`]);
   }
 
 }

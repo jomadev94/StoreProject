@@ -1,0 +1,18 @@
+<div class="gallery-box">
+    <div class="gallery-preview" (click)="fullPagePreview()">
+        <img src="{{imgSelected.src}}" alt="{{imgSelected.alt}}">
+    </div>
+    <div class="gallery-carousel">
+        <div class="gallery-carousel__container" #gallery>
+            <div *ngFor="let img of imgs" class="gallery-carousel__item" (click)="preview($event)">
+                <img src="{{img.src}}" alt="{{img.src}}">
+            </div>
+        </div>
+        <button *ngIf="index+cantShow < imgs.length" class="next" (click)="next()">
+            <fa-icon icon="angle-right"></fa-icon>
+        </button>
+        <button *ngIf="index > 0" class="prev" (click)="prev()">
+            <fa-icon icon="angle-left"></fa-icon>
+        </button>
+    </div>
+</div>

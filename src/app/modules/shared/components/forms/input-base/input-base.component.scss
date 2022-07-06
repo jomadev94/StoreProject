@@ -1,0 +1,38 @@
+@use "variables/colors" as *;
+@use "variables/spaces" as *;
+@use "variables/borders" as *;
+@use "variables/fonts" as *;
+@use "variables/animations" as *;
+@use "components/buttons" as *;
+
+.field-box {
+  display: flex;
+  flex-direction: column;
+
+  label {
+    margin-bottom: $space-100;
+    font-weight: $font-semibold;
+    font-size: $font-size-200;
+  }
+
+  &.full-height{
+    height: 100%;
+
+    &>.field{
+      height: 100%;
+    }
+  }
+}
+
+.field {
+  position: relative;
+  display: flex;
+}
+
+.error {
+  color: $red-100;
+  margin-top: $space-100;
+  font-size: $font-size-100;
+  font-weight: bold;
+  animation: fadeUp 1s ease-in forwards;
+}

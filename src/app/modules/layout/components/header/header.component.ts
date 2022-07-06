@@ -1,4 +1,3 @@
-import { ComponentPortal } from '@angular/cdk/portal';
 import {
   Component,
   OnInit,
@@ -15,7 +14,7 @@ import { Menu } from '@static/menu';
 export class HeaderComponent implements OnInit {
   roles=Globals.roles;
   options=Menu.options;
-  login= new ComponentPortal(LoginComponent);
+  login= LoginComponent;
 
   constructor() {
   }

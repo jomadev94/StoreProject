@@ -1,0 +1,28 @@
+<section *ngIf="product">
+    <app-section-title title="{{product.name}}" [buttons]="buttons"></app-section-title>
+    <article class="product-box">
+        <app-product-carousel [product]="product"></app-product-carousel>
+        <div class="info-box">
+            <div class="info-box__details">
+                <h4>Descripción:</h4>
+                <p>{{product.description}}</p>
+                <div class="product-detail">
+                    <h5>Categoría:</h5><span>{{product.category}}</span>
+                </div>
+                <div class="product-detail">
+                    <h5 class="inline">Stock:</h5><span>{{product.stock}}</span>
+                </div>
+            </div>
+            <div class="info-box__options">
+                <div class="price">
+                    <h5>Precio:</h5>
+                    <span>{{product.price | currency : 'USD' : 'symbol' : '1.0-0'}}</span>
+                </div>
+                <div class="options">
+                    <button class="button-secondary">Agregar al carrito</button>
+                    <button class="button-primary">Comprar</button>
+                </div>
+            </div>
+        </div>
+    </article>
+</section>

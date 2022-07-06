@@ -1,0 +1,7 @@
+@use "variables/spaces" as *;
+
+.edit-options {
+  display: flex;
+  gap: $space-180;
+  justify-content: flex-end;
+}

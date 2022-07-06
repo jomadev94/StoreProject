@@ -1,0 +1,6 @@
+@use "variables/borders" as *;
+@use "components/forms" as *;
+
+.border-left {
+    border-radius: $radius-left-100;
+}

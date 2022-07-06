@@ -1,5 +1,7 @@
-import { Component, EventEmitter, Input, OnDestroy, OnInit } from '@angular/core';
+import { OverlayRef } from '@angular/cdk/overlay';
+import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import {Router } from '@angular/router';
+import gsap from 'gsap';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -10,25 +12,29 @@ import { Subscription } from 'rxjs';
 export class ModalComponent implements OnInit, OnDestroy {
 
   @Input() title:string;
-  @Input() eventModal:EventEmitter<boolean>;
+  @Input() overRef: OverlayRef;
 
   private _routerSubs:Subscription;
 
-  constructor(private router:Router) {
-  }
+  constructor(private router:Router) {}
 
   ngOnDestroy(): void {
     this._routerSubs.unsubscribe();
   }
 
   ngOnInit(): void {
+    this.overRef.backdropClick().subscribe(()=>{
+      this.close();
+    });
     this._routerSubs=this.router.events.subscribe(()=>{
       this.close();
     })
   }
 
   close(){
-    this.eventModal.emit(true);
+    gsap.to('.modal-box',{duration:.2,opacity:0,ease:"power2"}).then(()=>{
+      this.overRef.detach();
+    });
   }
 
 }

@@ -1,0 +1,14 @@
+@use "variables/spaces" as *;
+@use "variables/fonts" as *;
+
+.edit-options {
+  display: flex;
+  gap: $space-180;
+  justify-content: flex-end;
+}
+
+h4{
+  margin: 0;
+  font-size: $font-size-200;
+  font-weight: $font-semibold;
+}

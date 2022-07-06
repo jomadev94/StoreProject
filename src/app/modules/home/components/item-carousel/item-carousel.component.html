@@ -1,8 +1,8 @@
 <div class="carousel">
     <div class="carousel-view" (window:resize)="onResize($event)">
         <div class="carousel-box" #carouselBox>
-            <div *ngFor="let item of items; index as i" class="carousel-box__item">
-                <app-item-card [info]="items[i]"></app-item-card>
+            <div *ngFor="let product of products" class="carousel-box__item">
+                <app-item-card [product]="product"></app-item-card>
             </div>
         </div>
     </div>

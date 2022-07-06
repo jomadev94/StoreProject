@@ -1,0 +1,8 @@
+<app-product-edit-box title="PASO 1: Detalles del producto">
+    <app-step-one [form]="form"></app-step-one>
+    <div class="edit-options">
+        <app-form-notification [messages]="msg" [error]="error"></app-form-notification>
+        <app-button [disabled]="!change" (clicked)="reset()" className="button-secondary" text="Cancelar" [autoLoad]="false"></app-button>
+        <app-button [disabled]="form.invalid || !change" text="Guardar cambios" (clicked)="edit()"></app-button>
+    </div>
+</app-product-edit-box>

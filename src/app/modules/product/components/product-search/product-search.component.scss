@@ -1,0 +1,140 @@
+@use 'components/forms' as *;
+@use 'components/buttons' as *;
+@use 'variables/colors' as *;
+@use 'variables/spaces' as *;
+@use 'variables/borders' as *;
+@use 'variables/fonts' as *;
+@use 'helpers/mixins' as *;
+
+
+section{
+    @include media-down(lg){
+        width: 85%;
+    }
+
+    @include media-down(sm){
+        width: 90%;
+    }
+}
+
+.order-by{
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 2rem;
+    gap: $space-180;
+    
+    span{
+        font-weight: bold;
+        color: $purple-120;
+        font-size: $font-size-200;
+    }
+}
+
+.search-box{
+    display: flex;
+    gap: $space-180;
+
+    @include media-down(md){
+        flex-direction: column;
+
+        &> &__options{
+            max-width: 100%;
+            grid-template-columns: repeat(3,1fr);
+        }
+    }
+
+    @include media-down(sm){
+        &> &__options{
+            grid-template-columns: repeat(2,1fr);
+
+            .price-box{
+                grid-column: span 2;
+            }
+
+            app-button{
+                grid-column: span 2;
+            }
+        }
+    }
+
+    &__options{
+        height: 100%;
+        max-width: 15rem;
+        position: sticky;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: $space-180;
+        padding: $space-180;
+        background-color: $white-100;
+        border: 5px solid $purple-120;
+        border-radius: $radius-all-300;
+
+        app-button{
+            align-self: flex-end;
+        }
+    }
+
+    &__items{
+        display: flex;
+        flex-direction: column;
+        flex-basis: 100%;
+
+        .products-box{
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: $space-180;
+
+            @include media-down(md){
+                grid-template-columns: repeat(2,1fr);
+            }
+
+            @include media-down(sm){
+                grid-template-columns: 1fr;
+            }
+        }
+    }
+
+    .minmax-box{
+        display: flex;
+        align-items: center;
+        gap: $space-180;
+
+        hr{
+            box-sizing: border-box;
+            width: 2rem;
+            border: none;
+            height: .3rem;
+            background-color: $black-100;
+            border-radius: $radius-all-500;
+        }
+    }
+
+    .pagination{
+        margin-top: 1rem;
+        display: grid;
+        place-content: center;
+    }
+
+    .pagination-box{
+        padding: 1rem;
+        border-radius: 5px;
+        background-color: white;
+        display: flex;
+        gap: .5rem;
+        align-items: center;
+        justify-content: center;
+
+        span{
+            font-weight: bold;
+        }
+
+        p{
+            @extend .button-primary;
+            cursor: auto;
+            background-color: $purple-110;
+            margin: 0;
+        }
+    }
+}

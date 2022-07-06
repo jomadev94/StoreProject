@@ -1,6 +1,8 @@
+import { Overlay, OverlayRef } from '@angular/cdk/overlay';
 import {
   Component,
   EventEmitter,
+  Inject,
   OnInit,
   Output,
 } from '@angular/core';
@@ -13,6 +15,8 @@ import { Router } from '@angular/router';
 import { Credentials } from '@models/credentials';
 import { AuthService } from '@services/auth/auth.service';
 import { UserService } from '@services/user/user.service';
+import { DATA_OVREF } from '@static/data';
+import gsap from 'gsap';
 
 @Component({
   selector: 'app-login',
@@ -20,11 +24,11 @@ import { UserService } from '@services/user/user.service';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
-  @Output() modalClose = new EventEmitter<boolean>();
   loginForm: FormGroup;
   errorMessages: string[]=[];
 
   constructor(
+    @Inject(DATA_OVREF) public ovRef: OverlayRef,
     private formBuilder: FormBuilder,
     private authService: AuthService,
     private userService: UserService,
@@ -53,14 +57,20 @@ export class LoginComponent implements OnInit {
     return credentials;
   }
 
+  closeModal(){
+    gsap.to('.modal-box',{duration:.2,opacity:0,ease:"power2"}).then(()=>{
+      this.ovRef.detach();
+    });
+  }
+
   login() {
     this.loginForm.markAllAsTouched();
+    this.errorMessages=[];
     if (this.loginForm.valid) {
       this.userService.login(this.prepareSend()).subscribe(res=>{
         if(res.success){
           this.authService.setAuth(res.data.token,res.data.user);
-          this.modalClose.emit(true);
-          this.router.navigate(['home']);
+          this.closeModal();
         }else{
           this.errorMessages=res.errorMessage;
         }

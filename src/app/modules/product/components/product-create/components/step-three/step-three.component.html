@@ -1,0 +1,46 @@
+<app-info-text
+    text="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Impedit eum laudantium modi deleniti rem tempora eaque aspernatur? Ratione, dignissimos iure! Id dignissimos earum reiciendis provident molestiae officia aliquid magni. Aperiam.
+Hic suscipit, repudiandae repellendus cumque consequatur sapiente ut consequuntur quas nam tempore ipsam qui odit at voluptatem dolorem nisi facilis doloribus rerum sequi quae mollitia aliquam. Inventore dicta reprehenderit quasi.
+Impedit placeat aspernatur, ab odit nisi quos vero, labore neque expedita repellat vitae eveniet cumque quasi ipsa rerum optio dignissimos vel perferendis ut aperiam magnam commodi iure quod hic! Aliquid.">
+</app-info-text>
+<div class="tag-box">
+    <div class="search-box">
+        <form [formGroup]="searchForm">
+            <app-input-button [load]="loadSearch" controlName="tag" [form]="searchForm" label="Buscar etiqueta"
+                placeholder="Nombre de la etiqueta..." buttonIcon="magnifying-glass">
+            </app-input-button>
+        </form>
+        <div id="result-box" infinite-scroll [scrollWindow]="false" (scrolled)="onScrollDown()" class="result-box" [ngClass]="{'center':loadSearch}" #tagsBox>
+            <ng-container *ngIf="loadSearch else elseBlock">
+                <fa-icon class="loading-box" [icon]="['fas', 'spinner']" [spin]="true"></fa-icon>
+            </ng-container>
+            <ng-template #elseBlock>
+                <button *ngFor="let tag of tags" id="{{tag.tagId}}" class="result-box__item"
+                    (click)="selectTag($event)">{{tag.name}}</button>
+            </ng-template>
+        </div>
+        <div class="search-box__options">
+            <form [formGroup]="addForm">
+                <app-input-button [load]="loadCreate | async" label="Tag" [hideLabel]="true" controlName="tag" [form]="addForm"
+                    placeholder="Agregar etiqueta..." buttonIcon="plus" (isClicked)="createTag()"></app-input-button>
+            </form>
+            <app-link-with-modal [roles]="[roles.NoAuth,roles.Client,roles.Admin]" [component]="deleteTag" [providers]="providers" buttonStyle="button-primary-input" [disabled]="!tagSelected" icon="trash-can"></app-link-with-modal>
+        </div>
+        <app-form-notification *ngIf="msg.length>0" [error]="errMsg" [messages]="msg"></app-form-notification>
+    </div>
+    <button [disabled]="!tagSelected" (click)="addTag()">
+        Agregar
+        <fa-icon icon="angle-right"></fa-icon>
+    </button>
+    <div class="add-box">
+        <label for="addTags">Etiquetas del producto</label>
+        <div id="addTags" class="result-box">
+            <div *ngFor="let tag of toAdd" class="add-item">
+                <span>{{tag.name}}</span>
+                <button id="{{tag.tagId}}" class="result-box__item" (click)="cancelTag($event)">
+                    <fa-icon icon="xmark"></fa-icon>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

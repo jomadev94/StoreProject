@@ -7,6 +7,8 @@ import { UserService } from '@services/user/user.service';
 import { birthdayValidator } from '@validators/birthdayValidator';
 import { emailExistValidator } from '@validators/emailExistValidator';
 import { matchValidator } from '@validators/matchValidator';
+import { Roles } from '@enumerables/roles';
+import { v4 as uuidv4 } from 'uuid';
 
 @Component({
   selector: 'app-register',
@@ -23,6 +25,7 @@ export class RegisterComponent implements OnInit {
     text:"Volver a home",
     action:"/home",
     icon:"house",
+    roles:[Roles.NoAuth,Roles.Admin,Roles.Client]
   }];
   
   constructor(private formBuilder:FormBuilder, private userService:UserService) {
@@ -59,6 +62,7 @@ export class RegisterComponent implements OnInit {
   register(){
     this.load=true;
     const data:Register={
+      userId: uuidv4(),
       name:this.getValue('name'),
       lastname:this.getValue('lastname'),
       birthday: this.getValue('birthday'),

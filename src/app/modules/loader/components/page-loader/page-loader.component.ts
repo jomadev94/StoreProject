@@ -68,7 +68,6 @@ export class PageLoaderComponent implements AfterViewInit, OnDestroy {
             setTimeout(() => {
               this.show = false;
             });
-            // })
           }, 3000);
           break;
         }

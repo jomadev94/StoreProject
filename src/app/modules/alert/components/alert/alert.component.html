@@ -1,0 +1,14 @@
+<section>
+    <div class="alert-box">
+        <img src="{{alertImg.src}}" alt="{{alertImg.alt}}">
+        <div class="alert-box__info">
+            <h3>{{title}}</h3>
+            <app-info-text text="{{text}}"></app-info-text>
+            <ng-container *ngIf="buttons">
+                <div class="options-box">
+                    <button class="button-primary" *ngFor="let button of buttons" (click)="button.action()">{{button.text}}</button>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+</section>

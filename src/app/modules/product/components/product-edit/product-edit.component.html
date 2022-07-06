@@ -1,0 +1,8 @@
+<section *ngIf="product">
+    <app-section-title title="Editar producto: {{product.name}}" [buttons]="buttons"></app-section-title>
+    <div class="edit-container">
+        <app-product-edit-info [product]="product"></app-product-edit-info>
+        <app-product-edit-files [product]="product"></app-product-edit-files>
+        <app-product-edit-tag [product]="product"></app-product-edit-tag>
+    </div>
+</section>

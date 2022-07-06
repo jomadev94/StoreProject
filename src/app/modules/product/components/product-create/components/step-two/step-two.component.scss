@@ -1,0 +1,6 @@
+.form{
+    padding-block: 1rem;
+    display:grid;
+    grid-template-columns: repeat(auto-fit,minmax(30vw,1fr));
+    gap: 2rem;
+}

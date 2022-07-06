@@ -9,7 +9,60 @@
   cursor: pointer;
 }
 
-.button-menu{
+.button-section{
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  padding-inline:min(1rem,2vw);
+  padding-block: $space-50;
+  border-radius: $radius-all-100;
+  text-transform: uppercase;
+  white-space: nowrap;
+  background-color: $white-100;
+  color: $purple-110;
+  font-size:$font-size-150;
+}
+
+.button-base {
+  color: $white-100;
+  font-size: $font-size-200;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  padding: $space-180;
+  border-radius: $radius-all-300;
+  text-decoration: none;
+  transition: background-color .3s ease-in-out;
+
+  &:disabled{
+    cursor: not-allowed;
+    background-color: $purple-60;
+  }
+
+  &.full{
+    width: 100%;
+  }
+}
+
+.button-primary{
+  @extend .button-base;
+  background-color: $purple-122;
+}
+
+.button-secondary{
+  @extend .button-base;
+  background-color: $purple-130;
+}
+
+.button-primary-input{
+  @extend .button-primary;
+  font-size: $font-size-150;
+  height: 2.7rem;
+  padding: 0;
+  padding-inline: 1rem;
+}
+
+.button-menu {
   @extend .button;
   background-color: $purple-120;
   border-radius: $radius-all-300;
@@ -22,7 +75,7 @@
   }
 }
 
-.link{
+.link {
   text-decoration: none;
 
   &:focus {
@@ -30,10 +83,10 @@
     font-weight: bold;
     outline: none;
   }
-
 }
 
-.link-header,.link-nav{
+.link-header,
+.link-nav {
   @extend .link;
   border: none;
   background-color: transparent;

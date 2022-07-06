@@ -12,6 +12,20 @@ import { LinkWithModalComponent } from './components/modals/link-with-modal/link
 import { RoleDirective } from './directives/role/role.directive';
 import { DigitOnlyDirective } from './directives/digitOnly/digit-only.directive';
 import { DiscountPercentPipe } from './pipes/discount-percent/discount-percent.pipe';
+import { InfoTextComponent } from './components/info-text/info-text.component';
+import { InputCheckboxComponent } from './components/forms/input-checkbox/input-checkbox.component';
+import { InputNumberComponent } from './components/forms/input-number/input-number.component';
+import { TextareaComponent } from './components/forms/textarea/textarea.component';
+import { InputBaseComponent } from './components/forms/input-base/input-base.component';
+import { InputFileComponent } from './components/forms/input-file/input-file.component';
+import { InputButtonComponent } from './components/forms/input-button/input-button.component';
+import { InputModelComponent } from './components/forms/input-model/input-model.component';
+import { InputPasswordComponent } from './components/forms/input-password/input-password.component';
+import { SelectComponent } from './components/forms/select/select.component';
+import { ButtonComponent } from './components/button/button.component';
+import { ImgPreviewComponent } from './components/img-preview/img-preview.component';
+import { DeleteModalComponent } from './components/modals/delete-modal/delete-modal.component';
+import { LoadingComponent } from './components/loading/loading.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +37,21 @@ import { DiscountPercentPipe } from './pipes/discount-percent/discount-percent.p
     LinkWithModalComponent,
     RoleDirective,
     DigitOnlyDirective,
-    DiscountPercentPipe
+    DiscountPercentPipe,
+    InfoTextComponent,
+    InputCheckboxComponent,
+    InputNumberComponent,
+    TextareaComponent,
+    InputBaseComponent,
+    InputFileComponent,
+    InputButtonComponent,
+    InputModelComponent,
+    InputPasswordComponent,
+    SelectComponent,
+    ButtonComponent,
+    ImgPreviewComponent,
+    DeleteModalComponent,
+    LoadingComponent
   ],
   imports: [
     CommonModule,
@@ -40,7 +68,18 @@ import { DiscountPercentPipe } from './pipes/discount-percent/discount-percent.p
     LinkWithModalComponent,
     RoleDirective,
     DigitOnlyDirective,
-    DiscountPercentPipe
+    DiscountPercentPipe,
+    InfoTextComponent,
+    InputNumberComponent,
+    TextareaComponent,
+    InputCheckboxComponent,
+    InputFileComponent,
+    InputButtonComponent,
+    InputPasswordComponent,
+    SelectComponent,
+    ButtonComponent,
+    ImgPreviewComponent,
+    LoadingComponent
   ]
 })
 export class SharedModule { }

@@ -1,0 +1,6 @@
+<ng-container *ngIf="load else elseBlock">
+    <fa-icon class="loading-box" [icon]="['fas', 'spinner']" [spin]="true"></fa-icon>
+</ng-container>
+<ng-template #elseBlock>
+    <ng-content></ng-content>
+</ng-template>

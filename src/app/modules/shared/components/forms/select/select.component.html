@@ -1,0 +1,6 @@
+<app-input-base [controlName]="controlName" [form]="form" [label]="label" [labelIcon]="labelIcon" [labelIconFormat]="labelIconFormat" [formGroup]="form" [fullHeight]="fullHeight">
+    <select formControlName="{{controlName}}" id="{{controlName}}">
+        <option *ngIf="needEmpty" value="">{{defaultText}}</option>
+        <option *ngFor="let option of options; let i=index" value="{{i}}">{{option}}</option>
+    </select>
+</app-input-base>

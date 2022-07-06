@@ -1,10 +1,16 @@
 <div class="title-box">
     <h2>{{title}}</h2>
-    <a *ngFor="let button of buttons" routerLink="{{button.action}}">
-        <ng-container *ngIf="button.icon != null">
-            <fa-icon [icon]="button.icon"></fa-icon>
+    <div *ngIf="buttons" class="section-options">
+        <ng-container *ngFor="let button of buttons">
+            <a *ngIf="button.action != '' else elseBlock" class="button-section" routerLink="{{button.action}}">
+                <fa-icon *ngIf="button.icon" [icon]="button.icon"></fa-icon>
+                {{button.text}}
+            </a>
+            <ng-template #elseBlock>
+                <app-link-with-modal [component]="button.component" [providers]="button.providers!" buttonStyle="button-section" [icon]="button.icon!"
+                    title="{{button.text}}"></app-link-with-modal>
+            </ng-template>
         </ng-container>
-        {{button.text}}
-    </a>
+    </div>
 </div>
 <hr>

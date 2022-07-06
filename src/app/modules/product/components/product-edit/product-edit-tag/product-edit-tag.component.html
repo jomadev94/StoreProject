@@ -1,0 +1,7 @@
+<app-product-edit-box title="PASO 3: Etiquetas">
+    <app-step-three [toAdd]="tags"></app-step-three>
+    <div class="edit-options">
+        <app-form-notification [messages]="msg" [error]="err"></app-form-notification>
+        <app-button text="Guardar cambios" [disabled]="false" (clicked)="setTags()"></app-button>
+    </div>
+</app-product-edit-box>

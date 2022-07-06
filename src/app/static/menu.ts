@@ -15,7 +15,7 @@ export class Menu {
     {
       title: 'Panel Admin',
       links: [
-        { title: 'Agregar producto', href: '', roles: [Roles.Admin] },
+        { title: 'Agregar producto', href: 'product/create', roles: [Roles.Admin] },
         { title: 'Gestión de ofertas', href: '', roles: [Roles.Admin] },
         { title: 'Configurar promoción', href: '', roles: [Roles.Admin] },
         { title: 'Ver estadísticas', href: '', roles: [Roles.Admin] },

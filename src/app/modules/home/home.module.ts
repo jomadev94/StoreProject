@@ -22,7 +22,8 @@ import { SharedModule } from '@modules/shared/shared.module';
     SharedModule
   ],
   exports:[
-    HomeComponent
+    HomeComponent,
+    ItemCardComponent,
   ]
 })
 export class HomeModule { }

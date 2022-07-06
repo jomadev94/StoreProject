@@ -1,0 +1,8 @@
+<app-modal [title]="title" [overRef]="overRef">
+    <p>¿Seguro que desea eliminar:"{{item}}"?</p>
+    <app-form-notification *ngIf="errMsg.length > 0" [error]="true" [messages]="errMsg"></app-form-notification>
+    <div class="options-box">
+        <app-button text="Eliminar" (clicked)="deleteItem()"></app-button>
+        <app-button text="Cancel" (clicked)="closeModal()" [autoLoad]="false"></app-button>
+    </div>
+</app-modal>

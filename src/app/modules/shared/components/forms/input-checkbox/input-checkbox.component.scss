@@ -1,0 +1,7 @@
+@use "variables/spaces" as *;
+@use "components/forms" as *;
+
+.checkbox-text {
+  margin-left: $space-100;
+  margin-block: auto;
+}

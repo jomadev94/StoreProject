@@ -12,10 +12,9 @@
   color: $white-100;
   padding: $space-180;
   border-radius: $radius-all-200;
-  margin-top: $space-180;
-  animation: fadeUp 1s forwards;
 
   &.error {
     background-color: $red-100;
   }
+
 }

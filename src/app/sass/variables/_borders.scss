@@ -5,9 +5,13 @@
 $border-section: .3rem solid $purple-120;
 $border-title-form: 2px solid $purple-120;
 $border-white-100: 2px solid $white-80;
+$border-white-500: 4px solid $white-80;
+$border-white-100: 1px solid $white-100;
 $border-red-100: 3px solid $red-100;
 $border-purple-50:1px solid $purple-70;
 $border-purple-100:3px solid $purple-60;
+$border-purple-120:5px solid $purple-100;
+$border-purple-130:5px solid $purple-130;
 
 
 // RADIUS
@@ -17,6 +21,8 @@ $radius-all-200:5px;
 $radius-all-300:8px;
 $radius-all-500:1rem;
 
-$radius-top-100:1px 5px 0 0;
+$radius-top-100:5px 5px 0 0;
+$radius-top-500:15px 15px 0 0;
+$radius-bottom-500:0 0 15px 15px;
 $radius-right-100:0 8px 8px 0;
 $radius-left-100:8px 0 0 8px;

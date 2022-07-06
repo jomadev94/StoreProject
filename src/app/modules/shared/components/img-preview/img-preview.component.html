@@ -1,0 +1,8 @@
+<div class="preview-box">
+    <div *ngFor="let img of imgsPreview" class="preview-box__img">
+        <img src="{{img.src}}" alt="{{img.alt}}">
+        <button id="{{img.alt}}" class="preview-box__img__remove" (click)="emit($event)">
+            <fa-icon [icon]="icon"></fa-icon>
+        </button>
+    </div>
+</div>

@@ -1,3 +1,3 @@
-<div [ngClass]="error? 'notification error': 'notification'" *ngIf="messages.length>0">
+<div class="notification" [ngClass]="{'error':error}">
     <span *ngFor="let msg of messages">{{msg}}</span>
 </div>

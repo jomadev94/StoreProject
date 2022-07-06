@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpParams} from '@angular/common/http'
-import { catchError, Observable, of } from 'rxjs';
+import { catchError, EMPTY, Observable, of } from 'rxjs';
 import { StorageService } from '@services/storage/storage.service';
 import { BaseResponse } from '@models/baseResponse';
 
@@ -23,7 +23,7 @@ export class DataService {
         if(err.status === 0){
           return of(this.maintenance)
         }
-        return of(err.error);
+        return of(err.error)
       })
     );
   }

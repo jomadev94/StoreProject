@@ -1,0 +1,82 @@
+@use "variables/colors" as *;
+@use "variables/spaces" as *;
+@use "variables/borders" as *;
+@use "variables/fonts" as *;
+@use "components/buttons" as *;
+
+input,textarea, select {
+  border: $border-purple-50;
+  border-radius: $radius-all-300;
+  padding: $space-100;
+  box-shadow: 0 0 0 3px transparent;
+  transition: box-shadow 0.3s ease-in-out;
+  width: 100%;
+  box-sizing: border-box;
+
+  &::placeholder {
+    color: $black-transparent-2;
+    font-style: italic;
+    font-weight: $font-light;
+  }
+}
+
+input[type="checkbox"] {
+  position: relative;
+  appearance: none;
+  width: 2rem;
+  height: 2rem;
+  flex-basis: auto;
+  border: $border-purple-100;
+  border-radius: 0.3rem;
+  display: grid;
+  place-content: center;
+
+  &::before {
+    content: "";
+    width: 1rem;
+    height: 1rem;
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+    box-shadow: inset 1rem 1rem $purple-120;
+    transform-origin: bottom left;
+    clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+  }
+
+  &:checked::before {
+    transform: scale(1);
+  }
+}
+
+textarea {
+  min-height: 13.5rem;
+  width: 100%;
+}
+
+select{
+  background-color: $white-100;
+  
+  &.change{
+    background-color: $purple-70;
+    color: $white-100;
+  }
+}
+
+input:focus,
+textarea:focus,
+button:focus {
+  outline: 2px solid $purple-100;
+  box-shadow: 0 0 0 3px $purple-120;
+}
+
+button {
+  @extend .button-primary;
+  border-radius: $radius-right-100;
+  padding: $space-100;
+}
+
+label {
+  display: block;
+  margin-bottom: $space-100;
+  font-weight: $font-semibold;
+  font-size: $font-size-200;
+}

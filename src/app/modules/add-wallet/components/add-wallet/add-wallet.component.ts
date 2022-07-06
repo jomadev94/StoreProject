@@ -1,8 +1,10 @@
-import { Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Inject, OnDestroy, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { AuthService } from '@services/auth/auth.service';
 import { UserService } from '@services/user/user.service';
+import { DATA_OVREF } from '@static/data';
+import { OverlayRef } from '@angular/cdk/overlay';
 
 @Component({
   selector: 'app-add-wallet',
@@ -11,14 +13,13 @@ import { UserService } from '@services/user/user.service';
 })
 export class AddWalletComponent implements OnInit, OnDestroy {
 
-  @Output() modalClose=new EventEmitter<boolean>()
   walletForm:FormGroup;
   addMoneySub$:Subscription;
   wformSub$:Subscription;
   error:boolean=true;
   messages:string[]=[];
 
-  constructor(private formBuilder:FormBuilder, private userService:UserService, private authService:AuthService) {
+  constructor(@Inject(DATA_OVREF) public ovRef: OverlayRef,private formBuilder:FormBuilder, private userService:UserService, private authService:AuthService) {
     this.walletForm=formBuilder.group({
       wallet:[100,[Validators.required,Validators.min(100),Validators.max(1000000)]],
     });

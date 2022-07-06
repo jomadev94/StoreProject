@@ -1,0 +1,11 @@
+<div class="full-box">
+    <div class="full-box__item">
+        <img src="{{imgSelectedFull.src}}" alt="{{imgSelectedFull.alt}}">
+    </div>
+    <button class="full-next" (click)="nextFull()" [ngClass]="{'disabled':indexFull === imgs.length-1}">
+        <fa-icon icon="angle-right"></fa-icon>
+    </button>
+    <button class="full-prev" (click)="prevFull()" [ngClass]="{'disabled':indexFull === 0}">
+        <fa-icon icon="angle-left"></fa-icon>
+    </button>
+</div>

@@ -1,0 +1,17 @@
+@use "variables/colors" as *;
+@use "variables/spaces" as *;
+@use "variables/borders" as *;
+@use "components/forms" as *;
+
+.field-icon {
+  display: grid;
+  place-content: center;
+  padding-inline: $space-180;
+  border-radius: $radius-left-100;
+  background-color: $purple-120;
+  color: $white-100;
+}
+
+.border-right {
+  border-radius: $radius-right-100;
+}

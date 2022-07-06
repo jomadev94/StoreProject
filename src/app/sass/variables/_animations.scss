@@ -8,3 +8,21 @@
     transform: translateY(0);
   }
 }
+
+@keyframes jump {
+  0% {
+    transform: translateX(-2rem) translateY(24rem) rotareZ(-45deg);
+  }
+  30% {
+    transform: translateX(-1.8rem) translateY(-4.8rem) rotateZ(-20deg);
+  }
+  50% {
+    transform: rotateZ(5deg);
+  }
+  80% {
+    transform: rotateZ(0deg);
+  }
+  100% {
+    transform: translateX(0rem) translateY(0rem) rotateZ(0deg);
+  }
+}
