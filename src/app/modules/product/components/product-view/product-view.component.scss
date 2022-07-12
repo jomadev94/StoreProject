@@ -67,6 +67,17 @@
         font-size: $font-size-350;
         font-weight: $font-bold;
         color: $black-transparent-3;
+
+        .discount{
+          display: inline-block;
+          margin-block:$space-50;
+          font-size: $font-size-100;
+          background-color: $purple-120;
+          border-radius: 5px;
+          padding-inline: $space-100;
+          padding-block: $space-50;
+          color: $white-100;
+        }
       }
     }
   }

@@ -1,1 +1,14 @@
-<a class="cart" href=""><fa-icon icon='cart-shopping' size="lg"></fa-icon></a>
+<app-button-with-modal-menu [component]="component">
+    <button type="button" class="cart">
+        <div class="cart__indicator" *ngIf="cart.length > 0">
+            <span>{{cart.length}}</span>
+        </div>
+        <fa-icon icon='cart-shopping'>
+    </fa-icon></button>
+</app-button-with-modal-menu>
+
+<div class="notification-box">
+    <div id="notification_{{notification.id}}" *ngFor="let notification of notifications" class="notification">
+        <span>{{notification.msg}}</span>
+    </div>
+</div>

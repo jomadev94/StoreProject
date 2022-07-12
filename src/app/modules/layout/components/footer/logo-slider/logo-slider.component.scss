@@ -1,16 +1,27 @@
 @use "variables/colors" as *;
+@use "helpers/mixins" as *;
 
 section {
-  // --cant-item:8;
+  --cant-item: 8;
+  --animation-speed: 30s;
   position: relative;
   width: 100vw;
-  height: 10vh;
+  height: 8rem;
   background-color: $black-100;
   display: flex;
   align-items: center;
   overflow: hidden;
 
-  &::after,&::before{
+  @include media-down(md){
+    --cant-item:6
+  }
+
+  @include media-down(sm){
+    --cant-item:4
+  }
+
+  &::after,
+  &::before {
     content: "";
     position: absolute;
     width: 6rem;
@@ -19,34 +30,44 @@ section {
     z-index: 100;
   }
 
-  &::after{
+  &::after {
     left: 0;
-    background: linear-gradient(to right, $black-100,70%,transparent);
+    background: linear-gradient(to right, $black-100, 70%, transparent);
   }
 
-  &::before{
+  &::before {
     right: 0;
-    background: linear-gradient(to left, $black-100,70%,transparent);
+    background: linear-gradient(to left, $black-100, 70%, transparent);
   }
 
+  &:hover {
+    .logo-box{
+      animation-play-state: paused;
+    }
+  }
 }
 
 .logo-box {
+  flex-shrink: 0;
+  position: absolute;
+  animation-name: slider-first;
+  animation-duration: var(--animation-speed);
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
   display: flex;
+  gap: .5rem;
   align-items: center;
-  animation: slider 10s linear infinite;
 
-  &:hover{
-      animation-play-state: paused;
+  &.delay {
+    transform: translateX(100%);
+    animation-name: slider-last;
   }
 }
 
 .logo-item {
   height: 6vh;
-  width: calc(100vw/var(--cant-item));
+  width: calc((100vw / var(--cant-item)) - .5rem);
   box-sizing: border-box;
-  flex-shrink: 0;
-
 
   a > img {
     width: 100%;
@@ -61,11 +82,20 @@ section {
   }
 }
 
-@keyframes slider {
+@keyframes slider-first {
   0% {
     transform: translateX(0);
   }
   100% {
-    transform: translateX(-100vw);
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes slider-last {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0%);
   }
 }

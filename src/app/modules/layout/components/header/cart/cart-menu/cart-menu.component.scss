@@ -1,0 +1,60 @@
+@use "components/menu" as *;
+@use "components/buttons" as *;
+@use "variables/spaces" as *;
+@use "variables/colors" as *;
+@use "variables/borders" as *;
+@use "variables/fonts" as *;
+
+.menu__info{
+  margin-top: $space-50;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: $space-50;
+  font-size: $font-size-100;
+}
+
+.menu__cart {
+  position: relative;
+  margin-block: $space-180;
+  display: grid;
+  grid-template-columns: 3fr 2fr 1fr;
+  align-items: center;
+  gap: $space-180;
+  text-align: center;
+
+  &::after {
+    position: absolute;
+    content: "";
+    top: 1rem;
+    left: 0rem;
+    height: 0.3rem;
+    width: 100%;
+    border-bottom: 2px solid $purple-60;
+  }
+
+  span {
+    font-size: $font-size-150;
+    max-width: 12rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .left{
+    text-align: left;
+  }
+}
+
+.option {
+  @extend .button-secondary;
+  padding: $space-100;
+  border-radius: $radius-all-200;
+  width: 3rem;
+  justify-self: center;
+}
+
+.to-cash {
+  @extend .button-primary;
+  margin-inline: $space-180;
+}

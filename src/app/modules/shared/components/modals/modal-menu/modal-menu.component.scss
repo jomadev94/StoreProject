@@ -1,0 +1,28 @@
+@use "variables/colors" as *;
+@use "variables/spaces" as *;
+@use "variables/borders" as *;
+@use "variables/fonts" as *;
+@use "components/buttons";
+@use "helpers/mixins" as *;
+
+.modal-menu {
+  position: relative;
+  background-color: $black-transparent-1;
+  top: 1rem;
+  border-radius: $radius-all-300;
+  text-align: right;
+  padding-block: $space-180;
+  opacity: 0;
+  width: $space-900;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: -0.5rem;
+    right: $space-150;
+    height: 1rem;
+    width: 1rem;
+    background-color: $black-transparent-1;
+    clip-path: polygon(50% 0, 100% 50%, 0 50%, 0 50%);
+  }
+}

@@ -2,6 +2,7 @@
 @use "variables/spaces" as *;
 @use "variables/borders" as *;
 @use "variables/fonts" as *;
+@use "helpers/mixins" as *;
 @use "components/buttons" as *;
 
 .full-box {
@@ -27,10 +28,15 @@
     transform: translateY(-50%);
     background-color: $purple-120;
     color: $white-100;
-    font-size: 3rem;
-    padding: 2rem;
+    font-size: $font-size-350;
+    padding: $space-250;
     border: none;
     border-radius: 100%;
+
+    @include media-down(md){
+      top: 90%;
+      margin-bottom:$space-250;
+    }
 
     &.disabled {
       cursor: not-allowed;
@@ -40,12 +46,12 @@
 
   .full-next {
     right: 0;
-    margin-right: 2rem;
+    margin-right:$space-250;
   }
 
   .full-prev {
     left: 0;
-    margin-left: 2rem;
+    margin-left:$space-250;
   }
 
 }

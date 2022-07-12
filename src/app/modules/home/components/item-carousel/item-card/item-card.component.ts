@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Product } from '@models/product';
-import { Card } from '@models/view/card';
+import { CartService } from '@services/cart/cart.service';
 
 @Component({
   selector: 'app-item-card',
@@ -15,7 +15,7 @@ export class ItemCardComponent implements OnInit {
 
   @Input() product:Product;
 
-  constructor(private router:Router) { 
+  constructor(private router:Router, private cartService:CartService) { 
   }
 
   ngOnInit(): void {
@@ -33,6 +33,18 @@ export class ItemCardComponent implements OnInit {
 
   viewProduct(){
     this.router.navigate([`/product/view/${this.product.productId}`]);
+  }
+
+  addCart(){
+    if(this.product.stock > 0){
+      this.cartService.addProduct({
+        productId:this.product.productId,
+        name:this.product.name,
+        stock: this.product.stock,
+        price: this.product.price,
+        discount: this.product.discount
+      });
+    }
   }
 
 }

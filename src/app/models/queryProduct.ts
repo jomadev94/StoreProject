@@ -4,7 +4,7 @@ export interface QueryProduct{
     pageNumber: number;
     pageSize?: number;
     name?:string | null;
-    category?:Categories;
+    category?:string | null;
     ofert?:boolean | null;
     stock?:boolean | null;
     minPrice?:number | null;

@@ -1,7 +1,11 @@
-import { Component, OnInit, Renderer2 } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
-import { Categories } from '@enumerables/categories';
 import { Category } from '@models/view/category';
+import { Globals } from '@static/globals';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { QueryProduct } from '@models/queryProduct';
+import { Router } from '@angular/router';
+import { Categories } from '@enumerables/categories';
 
 @Component({
   selector: 'app-searcher',
@@ -12,35 +16,13 @@ export class SearcherComponent implements OnInit {
   open: boolean;
   selected: Category;
   iconOpen: IconProp;
+  categories: Category[] = Globals.categories;
+  form:FormGroup;
 
-  categories: Category[] = [
-    {
-      name: Categories.Todas,
-      icon: 'ellipsis',
-    },
-    {
-      name: Categories.Figuras,
-      icon: 'robot',
-    },
-    {
-      name: Categories.Comics,
-      icon: 'book-journal-whills',
-    },
-    {
-      name: Categories.Videojuegos,
-      icon: 'gamepad',
-    },
-    {
-      name: Categories.Ropa,
-      icon: 'shirt',
-    },
-    {
-      name: Categories.Accesorios,
-      icon: 'dice',
-    },
-  ];
-
-  constructor(private renderer:Renderer2) {
+  constructor(private formBuilder:FormBuilder,private router:Router) {
+    this.form=this.formBuilder.group({
+      name:['']
+    });
   }
 
   ngOnInit(): void {
@@ -54,7 +36,6 @@ export class SearcherComponent implements OnInit {
   }
 
   selectCategory(event: Event): void {
-    console.log("activando");
     const element = event.target as HTMLElement;
     if (element.tagName === 'BUTTON') {
       const index=element.getAttribute("value");
@@ -64,5 +45,14 @@ export class SearcherComponent implements OnInit {
         this.changeCategory();
       }
     }
+  }
+
+  search(){
+    const query=this.form.value as QueryProduct;
+    if(this.selected.name != "Todas"){
+      const searchCategory=Object.values(Categories).filter(c=>c != "Todas");
+      query.category=searchCategory.indexOf(this.selected.name).toString();
+    }
+    this.router.navigate(['/product/search'],{queryParams:query});
   }
 }

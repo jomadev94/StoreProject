@@ -2,12 +2,11 @@ import {
   AfterViewInit,
   Component,
   ElementRef,
+  Input,
   OnInit,
   ViewChild,
 } from '@angular/core';
-import { Categories } from '@enumerables/categories';
 import { Product } from '@models/product';
-import { Card } from '@models/view/card';
 
 @Component({
   selector: 'app-item-carousel',
@@ -16,32 +15,14 @@ import { Card } from '@models/view/card';
 })
 export class ItemCarouselComponent implements OnInit, AfterViewInit {
   @ViewChild('carouselBox') carouselBox: ElementRef;
-  products: Product[] = [
-    {
-      name: 'producto1',
-      discount: 10,
-      date: new Date(),
-      price: 23567,
-      category: Categories.Comics,
-      description: '',
-      stock: 7,
-      productId: 'jhkhk',
-      files: [
-        {
-          path: '/assets/img/products/figure_1.jpg',
-          fileId: 'sasasas',
-        },
-        {
-          path: '/assets/img/products/figure_2.jpg',
-          fileId: 'sasasas',
-        },
-      ],
-    },
-  ];
-  currentPosition = 0;
-  lastPosition: number = 999;
+  @Input() products: Product[];
+  currentPosition: number;
+  lastPosition: number;
 
-  constructor() {}
+  constructor() {
+    this.currentPosition=0;
+    this.lastPosition=999;
+  }
 
   ngOnInit(): void {}
 

@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { ImageWithLink } from '@models/view/imageWithLink';
 
 @Component({
@@ -6,9 +6,7 @@ import { ImageWithLink } from '@models/view/imageWithLink';
   templateUrl: './logo-slider.component.html',
   styleUrls: ['./logo-slider.component.scss']
 })
-export class LogoSliderComponent implements OnInit, AfterViewInit{
-
-  @ViewChild("logoBox") logoBox: ElementRef;
+export class LogoSliderComponent{
 
   images:ImageWithLink[]=[
     {
@@ -54,13 +52,5 @@ export class LogoSliderComponent implements OnInit, AfterViewInit{
   ]
 
   constructor() { }
-
-  ngAfterViewInit(): void {
-    const elem=this.logoBox.nativeElement as HTMLElement;
-    elem.style.setProperty("--cant-item",`${this.images.length}`)
-  }
-
-  ngOnInit(): void {
-  }
 
 }

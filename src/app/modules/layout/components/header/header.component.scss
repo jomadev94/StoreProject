@@ -30,9 +30,13 @@ header {
   padding-inline: $space-250;
 }
 
-.logo {
-  height: 2.5rem;
-  width: 2.5rem;
+#logo-header{
+  position: absolute;
+
+  .logo {
+    height: 2.5rem;
+    width: 2.5rem;
+  }
 }
 
 .large-width {
@@ -70,31 +74,3 @@ header {
     display: none;
   }
 }
-
-// .form-box{
-//   background-color: $white-100;
-//   border-radius: $radius-all-100;
-//   padding: $space-200;
-
-//   h3{
-//     margin: 0;
-//   }
-
-//   hr{
-//     margin-top: 2px;
-//     margin-bottom: $space-150;
-//     border: $border-title-form;
-//     border-radius: $radius-all-500;
-//   }
-
-//   &__fields{
-//     display: flex;
-//     flex-direction: column;
-
-
-
-//     input{
-//       margin-block: $space-150;
-//     }
-//   }
-// }

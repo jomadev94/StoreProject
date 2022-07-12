@@ -5,6 +5,7 @@ import { IconProp } from "@fortawesome/fontawesome-svg-core";
 export interface SectionButton{
     text:string,
     action:string | any,
+    params?: any,
     roles?: Roles[],
     icon?:IconProp,
     component?:any,

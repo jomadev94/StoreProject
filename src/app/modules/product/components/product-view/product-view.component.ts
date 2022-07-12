@@ -9,6 +9,7 @@ import { Roles } from '@enumerables/roles';
 import { Product } from '@models/product';
 import { SectionButton } from '@models/view/sectionButton';
 import { DeleteModalComponent } from '@modules/shared/components/modals/delete-modal/delete-modal.component';
+import { CartService } from '@services/cart/cart.service';
 import { ProductService } from '@services/product/product.service';
 import { ToDeleteService } from '@services/toDelete/to-delete.service';
 import { DATA_ANY, DATA_ID, DATA_KEY, DATA_TITLE } from '@static/data';
@@ -43,7 +44,12 @@ export class ProductViewComponent implements OnDestroy {
   sub$:Subscription;
   sub2$: Subscription;
 
-  constructor(private router:Router, private route:ActivatedRoute,private productService:ProductService, private deleteService:ToDeleteService){
+  constructor(private router:Router, 
+    private route:ActivatedRoute,
+    private productService:ProductService,
+    private deleteService:ToDeleteService,
+    private cartService:CartService
+    ){
     const productId=this.route.snapshot.params["productId"];
     this.buttons[1].action += productId;
     const categories=Object.values(Categories).filter(c=> c != "Todas");
@@ -67,6 +73,16 @@ export class ProductViewComponent implements OnDestroy {
       }
     })
 
+  }
+
+  addCart(){
+    this.cartService.addProduct({
+      productId:this.product.productId,
+      name: this.product.name,
+      price: this.product.price,
+      discount: this.product.discount,
+      stock: this.product.stock
+    });
   }
 
   ngOnDestroy(): void {

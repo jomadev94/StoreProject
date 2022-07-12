@@ -1,28 +1,30 @@
-<div class="searcher">
-    <div class="category-box">
-        <button class="category-box__select" aria-label="Seleccionar categoria" (click)="changeCategory()"
-            [ngClass]="{active:open}" cdkOverlayOrigin #origin="cdkOverlayOrigin">
-            <fa-icon id="selected-icon" [icon]="this.selected.icon" size="sm"></fa-icon>
-            <fa-icon [icon]="iconOpen" size="sm"></fa-icon>
+<form [formGroup]="form" (submit)="search()" novalidate>
+    <div class="searcher">
+        <div class="category-box">
+            <button type="button" class="category-box__select" aria-label="Seleccionar categoria" (click)="changeCategory()"
+                [ngClass]="{active:open}" cdkOverlayOrigin #origin="cdkOverlayOrigin">
+                <fa-icon id="selected-icon" [icon]="this.selected.icon" size="sm"></fa-icon>
+                <fa-icon [icon]="iconOpen" size="sm"></fa-icon>
+            </button>
+            <ng-template cdkConnectedOverlay cdkConnectedOverlayHasBackdrop cdkConnectedOverlayLockPosition
+                cdkConnectedOverlayBackdropClass="cdk-overlay-transparent-backdrop" [cdkConnectedOverlayOrigin]="origin"
+                [cdkConnectedOverlayOpen]="open" (backdropClick)="changeCategory()">
+                <div class="wrap" cdkTrapFocus cdkTrapFocusAutoCapture="true">
+                    <ul class="category-box__options" role="listbox" tabindex="-1" (click)="selectCategory($event)">
+                        <li *ngFor="let category of this.categories; index as i"
+                            [ngClass]="{active:category.name == selected.name}">
+                            <button value="{{i}}">
+                                <fa-icon [icon]="category.icon" size="sm"></fa-icon>
+                                {{category.name}}
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            </ng-template>
+        </div>
+        <input formControlName="name" class="searcher-input" type="text" placeholder="Buscar producto..." aria-label="Buscar producto">
+        <button type="submit" class="searcher-go" aria-label="Realizar busqueda">
+            <fa-icon icon="magnifying-glass" size="sm"></fa-icon>
         </button>
-        <ng-template cdkConnectedOverlay cdkConnectedOverlayHasBackdrop cdkConnectedOverlayLockPosition
-            cdkConnectedOverlayBackdropClass="cdk-overlay-transparent-backdrop" [cdkConnectedOverlayOrigin]="origin"
-            [cdkConnectedOverlayOpen]="open" (backdropClick)="changeCategory()">
-            <div class="wrap" cdkTrapFocus cdkTrapFocusAutoCapture="true">              
-                <ul class="category-box__options" role="listbox" tabindex="-1" (click)="selectCategory($event)">
-                    <li *ngFor="let category of this.categories; index as i"
-                        [ngClass]="{active:category.name == selected.name}">        
-                        <button value="{{i}}">
-                            <fa-icon [icon]="category.icon" size="sm"></fa-icon>
-                            {{category.name}}                   
-                        </button>
-                    </li>
-                </ul>
-            </div>
-        </ng-template>
     </div>
-    <input class="searcher-input" type="text" placeholder="Buscar producto..." aria-label="Buscar producto">
-    <button type="submit" class="searcher-go" aria-label="Realizar busqueda">
-        <fa-icon icon="magnifying-glass" size="sm"></fa-icon>
-    </button>
-</div>
+</form>

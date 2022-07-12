@@ -15,11 +15,12 @@
             </div>
             <div class="info-box__options">
                 <div class="price">
+                    <span class="discount" *ngIf="product.discount>0">{{product.discount}}% OFF</span>
                     <h5>Precio:</h5>
-                    <span>{{product.price | currency : 'USD' : 'symbol' : '1.0-0'}}</span>
+                    <span>{{product.price - (product.price * product.discount/100) | currency : 'USD' : 'symbol' : '1.0-0'}}</span>
                 </div>
                 <div class="options">
-                    <button class="button-secondary">Agregar al carrito</button>
+                    <button class="button-secondary" (click)="addCart()">Agregar al carrito</button>
                     <button class="button-primary">Comprar</button>
                 </div>
             </div>

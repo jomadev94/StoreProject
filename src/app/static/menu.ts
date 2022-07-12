@@ -1,3 +1,4 @@
+import { Button } from '@models/view/button';
 import { Roles } from '../enumerables/roles';
 import { NavLink } from '../models/view/navLink';
 import { NavSection } from '../models/view/navSection';
@@ -16,9 +17,8 @@ export class Menu {
       title: 'Panel Admin',
       links: [
         { title: 'Agregar producto', href: 'product/create', roles: [Roles.Admin] },
-        { title: 'Gestión de ofertas', href: '', roles: [Roles.Admin] },
-        { title: 'Configurar promoción', href: '', roles: [Roles.Admin] },
-        { title: 'Ver estadísticas', href: '', roles: [Roles.Admin] },
+        { title: 'Gestión de ofertas', href: 'user/alert/soon', roles: [Roles.Admin] },
+        { title: 'Ver estadísticas', href: 'user/alert/soon', roles: [Roles.Admin] },
       ],
       roles: [Roles.Admin],
     },
@@ -30,39 +30,24 @@ export class Menu {
     {
       title: 'Cuenta',
       links: [
-        {
-          title: 'Editar perfil',
-          href: '',
-          roles: [Roles.Client, Roles.Admin],
-        },
-        { title: 'Seguridad', href: '', roles: [Roles.Client, Roles.Admin] },
-        { title: 'Mis compras', href: '', roles: [Roles.Client] },
+        { title: 'Editar perfil', href: 'user/alert/soon', roles: [Roles.Client, Roles.Admin]},
+        { title: 'Seguridad', href: 'user/alert/soon', roles: [Roles.Client, Roles.Admin] },
+        { title: 'Mis compras', href: 'user/alert/soon', roles: [Roles.Client] },
       ],
       roles: [Roles.Client, Roles.Admin],
     },
     {
       title: 'Descubrir',
       links: [
-        {
-          title: 'Ofertas',
-          href: '',
-          roles: [Roles.Client, Roles.Admin, Roles.NoAuth],
-        },
-        {
-          title: 'Populares',
-          href: '',
-          roles: [Roles.Client, Roles.Admin, Roles.NoAuth],
-        },
-        { title: 'Recomendado', href: '', roles: [Roles.Client] },
+        { title: 'Ofertas',href: '',roles: [Roles.Client, Roles.Admin, Roles.NoAuth]},
+        { title: 'Populares', href: '', roles: [Roles.Client, Roles.Admin, Roles.NoAuth]},
       ],
       roles: [Roles.Client, Roles.Admin, Roles.NoAuth],
     },
   ];
   
-  public static options:NavLink[]=[
-    {title:"Ofertas",roles:[Roles.Admin,Roles.Client,Roles.NoAuth],href:""},
-    {title:"Populares",roles:[Roles.Admin,Roles.Client,Roles.NoAuth],href:""},
-    {title:"Categorias",roles:[Roles.Admin,Roles.Client,Roles.NoAuth],href:""},
-    {title:"Recomendado",roles:[Roles.Client],href:""}
+  public static options:Button[]=[
+    {text:"Ofertas",href:"/product/search", params:{ofert:true}},
+    {text:"Novedades",href:"/product/search"},
   ]
 }

@@ -61,5 +61,21 @@ body {
     }
   }
 
+  .loading,.error{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size:cover;
+    text-indent: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+  .loading{
+    background-image: url("/assets/img/loader/load.gif");
+  }
+
+  .error{
+    background-image: url("/assets/img/loader/error.gif");
+  }
   
 }

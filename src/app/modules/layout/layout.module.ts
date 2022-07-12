@@ -16,6 +16,8 @@ import { OverlayModule } from '@angular/cdk/overlay';
 import { A11yModule } from '@angular/cdk/a11y';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { RouterModule } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
+import { CartMenuComponent } from './components/header/cart/cart-menu/cart-menu.component';
 
 @NgModule({
   declarations: [
@@ -29,10 +31,12 @@ import { RouterModule } from '@angular/router';
     MobileNavComponent,
     MainCarouselComponent,
     BaseComponent,
-    BaseAuxComponent
+    BaseAuxComponent,
+    CartMenuComponent
   ],
   imports: [
     CommonModule,
+    ReactiveFormsModule,
     FontAwesomeModule,
     SharedModule,
     OverlayModule,

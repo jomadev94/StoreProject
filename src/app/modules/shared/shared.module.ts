@@ -26,6 +26,9 @@ import { ButtonComponent } from './components/button/button.component';
 import { ImgPreviewComponent } from './components/img-preview/img-preview.component';
 import { DeleteModalComponent } from './components/modals/delete-modal/delete-modal.component';
 import { LoadingComponent } from './components/loading/loading.component';
+import { ButtonWithModalMenuComponent } from './components/modals/button-with-modal-menu/button-with-modal-menu.component';
+import { ModalMenuComponent } from './components/modals/modal-menu/modal-menu.component';
+import { ImgLoaderDirective } from './directives/imgLoader/img-loader.directive';
 
 @NgModule({
   declarations: [
@@ -51,7 +54,10 @@ import { LoadingComponent } from './components/loading/loading.component';
     ButtonComponent,
     ImgPreviewComponent,
     DeleteModalComponent,
-    LoadingComponent
+    LoadingComponent,
+    ButtonWithModalMenuComponent,
+    ModalMenuComponent,
+    ImgLoaderDirective,
   ],
   imports: [
     CommonModule,
@@ -79,7 +85,10 @@ import { LoadingComponent } from './components/loading/loading.component';
     SelectComponent,
     ButtonComponent,
     ImgPreviewComponent,
-    LoadingComponent
+    LoadingComponent,
+    ButtonWithModalMenuComponent,
+    ModalMenuComponent,
+    ImgLoaderDirective
   ]
 })
 export class SharedModule { }

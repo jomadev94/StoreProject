@@ -16,7 +16,8 @@ export class ModalComponent implements OnInit, OnDestroy {
 
   private _routerSubs:Subscription;
 
-  constructor(private router:Router) {}
+  constructor(private router:Router) {
+  }
 
   ngOnDestroy(): void {
     this._routerSubs.unsubscribe();

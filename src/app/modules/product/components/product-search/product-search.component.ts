@@ -26,6 +26,7 @@ export class ProductSearchComponent implements OnInit {
   items: Product[] = [];
   query: QueryProduct;
   loadSearch: boolean = false;
+  pageSize:9;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -55,7 +56,7 @@ export class ProductSearchComponent implements OnInit {
           param.get('pageNumber') != null
             ? parseInt(param.get('pageNumber')!)
             : 1,
-        pageSize: 3,
+        pageSize: this.pageSize,
         name: param.get('name'),
         category: param.get('category') as Categories,
         ofert: param.get('ofert') === 'true' ? true : false,

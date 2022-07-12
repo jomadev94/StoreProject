@@ -1,7 +1,12 @@
 <div class="categories-box">
-    <a *ngFor="let category of categories" class="category" href="">
-        <img src="{{category.background.src}}" alt="{{category.background.description}}">
-        <h3>{{category.name}}</h3>
-    </a>
+    <div class="category" *ngFor="let category of categories">
+        <a [routerLink]="category.href" [queryParams]="category.params">
+            <img appImgLoader src="{{category.background!.src}}" alt="{{category.background!.alt}}">
+            <div class="category__info">
+                <h3>{{category.text}}</h3>
+                <fa-icon [icon]="category.icon!"></fa-icon>
+            </div>
+        </a>
+    </div>
 </div>
 

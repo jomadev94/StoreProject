@@ -42,6 +42,11 @@
   &.full{
     width: 100%;
   }
+
+  fa-icon {
+    pointer-events: none;
+  }
+  
 }
 
 .button-primary{

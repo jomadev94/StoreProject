@@ -134,4 +134,9 @@
   border-radius: $radius-all-200;
   background-color: $purple-70;
   color: $purple-120;
+
+  &:disabled{
+    filter: grayscale(1);
+    cursor: not-allowed;
+  }
 }

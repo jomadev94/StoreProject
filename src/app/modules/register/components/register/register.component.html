@@ -12,10 +12,10 @@
                 <app-input-password label="Repita la contraseña" controlName="repeatPassword" [form]="registerForm" placeholder="Repita la contraseña..."></app-input-password>
                 <app-input-checkbox controlName="terms" [form]="registerForm" text="Aceptar terminos y condiciones"></app-input-checkbox>
                 <div class="form-box__field-submit">
-                    <app-button-submit class="button-width" text="Registrarse" [condition]="!registerForm.valid"></app-button-submit>
+                    <app-button type="submit" text="Registrarse" [disabled]="!registerForm.valid"></app-button>
                 </div>
             </form>
-            <app-form-notification [error]="true" [messages]="errorMessages"></app-form-notification>
+            <app-form-notification *ngIf="errorMessages.length > 0" [error]="true" [messages]="errorMessages"></app-form-notification>
         </div>
         <div class="created-box">
             <h3>Usuario creado exitosamente!</h3>

@@ -1,11 +1,11 @@
 <div class="gallery-box">
     <div class="gallery-preview" (click)="fullPagePreview()">
-        <img src="{{imgSelected.src}}" alt="{{imgSelected.alt}}">
+        <img appImgLoader src="{{imgSelected.src}}" alt="{{imgSelected.alt}}">
     </div>
     <div class="gallery-carousel">
         <div class="gallery-carousel__container" #gallery>
             <div *ngFor="let img of imgs" class="gallery-carousel__item" (click)="preview($event)">
-                <img src="{{img.src}}" alt="{{img.src}}">
+                <img appImgLoader src="{{img.src}}" alt="{{img.src}}">
             </div>
         </div>
         <button *ngIf="index+cantShow < imgs.length" class="next" (click)="next()">
