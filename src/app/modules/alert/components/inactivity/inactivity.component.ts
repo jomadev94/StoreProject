@@ -49,7 +49,6 @@ export class InactivityComponent implements OnInit, OnDestroy {
   
   ngOnInit(): void {
     this.auth$=this.authService.userAuth$.subscribe(res=>{
-      console.log("auth es:",res);
       this.isAuth=res;
       if(this.isAuth){
         this.inactiveService.start();

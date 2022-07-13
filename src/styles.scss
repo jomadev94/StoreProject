@@ -61,7 +61,7 @@ body {
     }
   }
 
-  .loading,.error{
+  .loading-img,.error-img{
     background-position: center;
     background-repeat: no-repeat;
     background-size:cover;
@@ -70,11 +70,11 @@ body {
     overflow: hidden;
   }
 
-  .loading{
+  .loading-img{
     background-image: url("/assets/img/loader/load.gif");
   }
 
-  .error{
+  .error-img{
     background-image: url("/assets/img/loader/error.gif");
   }
   

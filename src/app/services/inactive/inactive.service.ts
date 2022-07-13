@@ -15,7 +15,7 @@ export class InactiveService{
   constructor(private storageService:StorageService) {}
 
   setTime(){
-    this.storageService.save('expiredTime',Date.now() + this.time * 1000);
+    this.storageService.save('expiredTime',Date.now() + this.time * 1000 * 60);
   }
 
   getTime(){

@@ -12,10 +12,10 @@ export class ImgLoaderDirective {
 
   set loading(val:boolean){
     if(val){
-      this.renderer.addClass(this.element.nativeElement,'loading')
+      this.renderer.addClass(this.element.nativeElement,'loading-img')
       return
     }
-    this.renderer.removeClass(this.element.nativeElement,'loading')
+    this.renderer.removeClass(this.element.nativeElement,'loading-img')
   }
 
   @HostListener('loadstart')
@@ -30,7 +30,7 @@ export class ImgLoaderDirective {
 
   @HostListener('error')
   onError(){
-    this.renderer.addClass(this.element.nativeElement,'error')
+    this.renderer.addClass(this.element.nativeElement,'error-img')
   }
 
 }
