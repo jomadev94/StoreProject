@@ -4,15 +4,16 @@ import {
   AfterViewInit,
   Component,
   ElementRef,
+  EventEmitter,
   Injector,
   Input,
   OnInit,
+  Output,
   StaticProvider,
   ViewChild,
 } from '@angular/core';
 import { Roles } from '@enumerables/roles';
 import { DATA_OVREF } from '@static/data';
-import { Globals } from '@static/globals';
 import gsap from 'gsap';
 
 @Component({
@@ -22,6 +23,7 @@ import gsap from 'gsap';
 })
 export class ButtonWithModalMenuComponent implements OnInit, AfterViewInit {
   @ViewChild('button') button: ElementRef;
+  @Output() close: EventEmitter<boolean> = new EventEmitter<boolean>(); 
   @Input() roles: Roles[];
   @Input() component: any = null;
   @Input() providers: StaticProvider[] = [];
@@ -55,6 +57,9 @@ export class ButtonWithModalMenuComponent implements OnInit, AfterViewInit {
     this.overlayRef.attachments().subscribe(() => {
       gsap.to('.modal-menu', { duration: 1, opacity: 1, ease: 'power2' });
     });
+    this.overlayRef.detachments().subscribe(()=>{
+      this.close.emit(true);
+    })
   }
 
   openModal() {

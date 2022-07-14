@@ -1,6 +1,5 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { SectionButton } from '@models/view/sectionButton';
 import { Tag } from '@models/tag';
 import { FileService } from '@services/file/file.service';
 import { ProductService } from '@services/product/product.service';
@@ -13,6 +12,7 @@ import { CreateProduct } from '@models/createProduct';
 import { selectValidator } from '@validators/selectValidator';
 import { Product } from '@models/product';
 import { Globals } from '@static/globals';
+import { Button } from '@models/view/button';
 
 @Component({
   selector: 'app-product-create',
@@ -28,7 +28,7 @@ export class ProductCreateComponent {
   currentStep: number = 1;
   load: boolean = false;
   created:boolean=false;
-  sectionButton: SectionButton[] = [Globals.buttons['home']];
+  sectionButton: Button[] = [Globals.buttons['home']];
   checkSteps: any;
 
   constructor(

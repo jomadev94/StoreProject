@@ -13,7 +13,8 @@
   text-align: right;
   padding-block: $space-180;
   opacity: 0;
-  width: $space-900;
+  min-width: $space-700;
+  max-width: $space-900;
 
   &::before {
     content: "";

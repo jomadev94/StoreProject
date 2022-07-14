@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Button } from '@models/view/button';
 import { Image } from '@models/view/image';
-import { SectionButton } from '@models/view/sectionButton';
 
 @Component({
   selector: 'app-created',
@@ -15,9 +14,9 @@ export class CreatedComponent implements OnInit {
     alt:"Producto creado",
   }
 
-  buttons: SectionButton[]=[{
+  buttons: Button[]=[{
     text:"Crear otro producto",
-    action:this.again
+    params:this.again
   }]
 
   constructor() { }

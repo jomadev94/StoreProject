@@ -7,7 +7,7 @@ import { BehaviorSubject, Subscription } from 'rxjs';
 })
 export class InactiveService{
 
-  time:number=10;
+  time:number=1;
   interval:any;
   private detect=new BehaviorSubject<boolean>(false);
   closeSession$=this.detect.asObservable();

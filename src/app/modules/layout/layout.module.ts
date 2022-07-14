@@ -18,6 +18,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CartMenuComponent } from './components/header/cart/cart-menu/cart-menu.component';
+import { MobileNavMenuComponent } from './components/header/mobile-nav/mobile-nav-menu/mobile-nav-menu.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { CartMenuComponent } from './components/header/cart/cart-menu/cart-menu.
     MainCarouselComponent,
     BaseComponent,
     BaseAuxComponent,
-    CartMenuComponent
+    CartMenuComponent,
+    MobileNavMenuComponent
   ],
   imports: [
     CommonModule,

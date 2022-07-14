@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CategoriesComponent } from './components/categories/categories.component';
-import { PromotionsComponent } from './components/promotions/promotions.component';
 import { HomeComponent } from './home.component';
 import { ItemCarouselComponent } from './components/item-carousel/item-carousel.component';
 import { ItemCardComponent } from './components/item-carousel/item-card/item-card.component';
@@ -12,7 +11,6 @@ import { RouterModule } from '@angular/router';
 @NgModule({
   declarations: [
     CategoriesComponent,
-    PromotionsComponent,
     ItemCarouselComponent,
     ItemCardComponent,
     HomeComponent

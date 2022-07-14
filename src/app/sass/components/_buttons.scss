@@ -75,7 +75,7 @@
   font-weight: bold;
   color: $white-80;
 
-  &:focus {
+  &:focus-visible {
     outline: $border-white-100;
   }
 }

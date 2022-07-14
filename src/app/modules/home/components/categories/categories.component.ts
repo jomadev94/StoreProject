@@ -1,7 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { Categories } from '@enumerables/categories';
+import { Component, OnInit } from '@angular/core';
 import { Button } from '@models/view/button';
-import { CategoryButton } from '@models/view/categoryButton';
 import { Globals } from '@static/globals';
 
 @Component({

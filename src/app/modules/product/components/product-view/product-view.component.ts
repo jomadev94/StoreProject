@@ -1,13 +1,12 @@
 import {
   Component,
   OnDestroy,
-  OnInit,
 } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Categories } from '@enumerables/categories';
 import { Roles } from '@enumerables/roles';
 import { Product } from '@models/product';
-import { SectionButton } from '@models/view/sectionButton';
+import { Button } from '@models/view/button';
 import { DeleteModalComponent } from '@modules/shared/components/modals/delete-modal/delete-modal.component';
 import { CartService } from '@services/cart/cart.service';
 import { ProductService } from '@services/product/product.service';
@@ -23,17 +22,16 @@ import { Subscription } from 'rxjs';
 })
 export class ProductViewComponent implements OnDestroy {
   
-  buttons: SectionButton[] = [
+  buttons: Button[] = [
     {
       text: 'eliminar',
-      action: '',
       icon: 'trash-can',
       roles: [Roles.Admin, Roles.Client],
       component: DeleteModalComponent,
     },
     {
       text: 'editar',
-      action: '/product/edit/',
+      href: '/product/edit/',
       icon: 'pen-to-square',
       roles: [Roles.Admin, Roles.Client],
     },
@@ -51,7 +49,7 @@ export class ProductViewComponent implements OnDestroy {
     private cartService:CartService
     ){
     const productId=this.route.snapshot.params["productId"];
-    this.buttons[1].action += productId;
+    this.buttons[1].href += productId;
     const categories=Object.values(Categories).filter(c=> c != "Todas");
     this.sub$=this.productService.findById(productId).subscribe(res=>{
       if(res.success){

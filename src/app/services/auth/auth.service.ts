@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, Subject } from 'rxjs';
+import { BehaviorSubject, lastValueFrom, Observable, Subject } from 'rxjs';
 import { Roles } from '@enumerables/roles';
 import { User } from '@models/user';
 import { StorageService } from '../storage/storage.service';
@@ -27,7 +27,8 @@ export class AuthService {
     }
   }
 
-  reset(){
+  async reset(){
+    await lastValueFrom(this.logout());
     this.storageService.clear();
     this.currentUser={role:Roles.NoAuth}
     this.authSorce.next(false);
@@ -50,6 +51,10 @@ export class AuthService {
 
   refreshToken(): Observable<BaseResponse>{
     return this.dataService.post(environment.apiUrl+'Auth/RefreshToken')
+  }
+
+  logout(): Observable<BaseResponse>{
+    return this.dataService.post(environment.apiUrl+'Auth/Logout')
   }
 
 }

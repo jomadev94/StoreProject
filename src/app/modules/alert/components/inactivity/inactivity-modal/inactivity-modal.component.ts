@@ -1,5 +1,6 @@
 import { OverlayRef } from '@angular/cdk/overlay';
 import { Component, Inject, OnDestroy, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Roles } from '@enumerables/roles';
 import { AuthService } from '@services/auth/auth.service';
 import { InactiveService } from '@services/inactive/inactive.service';
@@ -16,7 +17,7 @@ export class InactivityModalComponent implements OnInit, OnDestroy {
   count:number=10;
   interval:any;
 
-  constructor(@Inject(DATA_OVREF) public ovRef: OverlayRef,private inactiveService:InactiveService, private authService:AuthService) {
+  constructor(@Inject(DATA_OVREF) public ovRef: OverlayRef,private router:Router, private authService:AuthService) {
     this.ovRef.backdropClick().subscribe(()=>{
       this.closeModal();
     });
@@ -40,6 +41,7 @@ export class InactivityModalComponent implements OnInit, OnDestroy {
     clearInterval(this.interval);
     this.authService.reset();
     this.closeModal();
+    this.router.navigate(['/home']);
   }
 
   closeModal(){

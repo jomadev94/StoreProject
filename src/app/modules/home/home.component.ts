@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Roles } from '@enumerables/roles';
 import { Product } from '@models/product';
-import { SectionButton } from '@models/view/sectionButton';
+import { Button } from '@models/view/button';
 import { ProductService } from '@services/product/product.service';
 import { lastValueFrom } from 'rxjs';
 
@@ -13,10 +13,10 @@ import { lastValueFrom } from 'rxjs';
 export class HomeComponent implements OnInit {
 
   products:Product[];
-  buttons: SectionButton[] = [
+  buttons: Button[] = [
     {
       text: 'ver todos',
-      action: '/product/search',
+      href: '/product/search',
       params:{order:0},
       roles:[Roles.Admin,Roles.Client,Roles.NoAuth]
     },

@@ -1,15 +1,12 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import gsap from 'gsap';
+import { Component, OnDestroy, OnInit, StaticProvider } from '@angular/core';
 import { User } from '@models/user';
-import { Menu } from '@static/menu';
-import { NavSection } from '@models/view/navSection';
 import { AuthService } from '@services/auth/auth.service';
 import { Subscription } from 'rxjs';
 import { Globals } from '@static/globals';
-import { Overlay, ScrollStrategyOptions } from '@angular/cdk/overlay';
-import { LoginComponent } from '@modules/login/components/login/login.component';
-import { AddWalletComponent } from '@modules/add-wallet/components/add-wallet/add-wallet.component';
 import { Router } from '@angular/router';
+import { MobileNavMenuComponent } from './mobile-nav-menu/mobile-nav-menu.component';
+import { DATA_ANY } from '@static/data';
+import { IconProp } from '@fortawesome/fontawesome-svg-core';
 
 @Component({
   selector: 'app-mobile-nav',
@@ -18,22 +15,24 @@ import { Router } from '@angular/router';
 })
 export class MobileNavComponent implements OnInit, OnDestroy {
   user:User;
-  readonly menu:NavSection[]=Menu.navSections;
+  component=MobileNavMenuComponent;
+  providers:StaticProvider[]=[];
   readonly roles=Globals.roles;
   private subsAuth$:Subscription;
-  components:{[key:string]:any}={
-    login:LoginComponent,
-    wallet:AddWalletComponent
-  }
-  open:boolean=false;
+  icon:IconProp='bars';
   
-  constructor(private authService:AuthService, private sso:ScrollStrategyOptions, private overlay:Overlay, private router:Router) {
+  constructor(private authService:AuthService, private router:Router) {
     this.user=this.authService.currentUser;
     this.subsAuth$=this.authService.userAuth$.subscribe(
       isAuth=>{
         this.user=this.authService.currentUser;
+        this.providers=[{provide:DATA_ANY,useValue:this.user}]
       }
     );
+  }
+
+  changeIcon(){
+    this.icon=this.icon === 'xmark'? 'bars':'xmark';
   }
 
   ngOnInit(): void {
@@ -41,38 +40,6 @@ export class MobileNavComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.subsAuth$.unsubscribe();
-  }
-
-  toggleMenu():void{
-    if(this.open){
-      gsap.to('.mobile-nav',{opacity:0,duration:.3}).then(
-        ()=>{
-          this.open=false;
-        }
-      );
-      return;
-    }
-    this.open=true;
-  }
-
-  logout(){
-    this.authService.reset();
-    this.toggleMenu();
-    this.router.navigate(['home']);
-  }
-
-  close(event:KeyboardEvent){
-    if (event.key.toUpperCase().includes("ESC")) {
-      gsap.to('.mobile-nav',{opacity:0,duration:.3}).then(
-        ()=>{
-          this.open=false;
-        }
-      );
-    }
-  }
-
-  openMenu(){
-    gsap.to('.mobile-nav',{opacity:1,duration:.5});
   }
 
 }

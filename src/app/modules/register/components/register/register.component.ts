@@ -2,13 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import gsap from 'gsap';
 import { Register } from '@models/register';
-import { SectionButton } from '@models/view/sectionButton';
 import { UserService } from '@services/user/user.service';
 import { birthdayValidator } from '@validators/birthdayValidator';
 import { emailExistValidator } from '@validators/emailExistValidator';
 import { matchValidator } from '@validators/matchValidator';
-import { Roles } from '@enumerables/roles';
 import { v4 as uuidv4 } from 'uuid';
+import { Button } from '@models/view/button';
+import { Globals } from '@static/globals';
 
 @Component({
   selector: 'app-register',
@@ -21,12 +21,7 @@ export class RegisterComponent implements OnInit {
   load:boolean=false;
   errorMessages: string[]=[];
   success:boolean=false;
-  button:SectionButton[]=[{
-    text:"Volver a home",
-    action:"/home",
-    icon:"house",
-    roles:[Roles.NoAuth,Roles.Admin,Roles.Client]
-  }];
+  button:Button[]=[Globals.buttons['home']];
   
   constructor(private formBuilder:FormBuilder, private userService:UserService) {
     this.registerForm=this.formBuilder.group({

@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { SectionButton } from '@models/view/sectionButton';
-
+import { Button } from '@models/view/button';
 @Component({
   selector: 'app-section-title',
   templateUrl: './section-title.component.html',
@@ -9,7 +8,7 @@ import { SectionButton } from '@models/view/sectionButton';
 export class SectionTitleComponent implements OnInit {
 
   @Input("title") title:string;
-  @Input("buttons") buttons:SectionButton[];
+  @Input("buttons") buttons:Button[];
 
   constructor() { }
 

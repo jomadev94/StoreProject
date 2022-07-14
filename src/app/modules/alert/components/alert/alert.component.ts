@@ -1,7 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Button } from '@models/view/button';
 import { Image } from '@models/view/image';
-import { SectionButton } from '@models/view/sectionButton';
-
 @Component({
   selector: 'app-alert',
   templateUrl: './alert.component.html',
@@ -12,7 +11,7 @@ export class AlertComponent implements OnInit {
   @Input() alertImg: Image;
   @Input() title: string;
   @Input() text: string;
-  @Input() buttons: SectionButton[];
+  @Input() buttons: Button[];
 
   constructor() { }
 

@@ -6,7 +6,7 @@
             <app-info-text text="{{text}}"></app-info-text>
             <ng-container *ngIf="buttons">
                 <div class="options-box">
-                    <button class="button-primary" *ngFor="let button of buttons" (click)="button.action()">{{button.text}}</button>
+                    <button class="button-primary" *ngFor="let button of buttons" (click)="button.params()">{{button.text}}</button>
                 </div>
             </ng-container>
         </div>

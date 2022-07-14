@@ -1,16 +1,13 @@
-import { SectionButton } from '@models/view/sectionButton';
 import { Category } from '@models/view/category';
 import { Roles } from '../enumerables/roles';
 import { Categories } from '@enumerables/categories';
 import {
   FlexibleConnectedPositionStrategy,
   GlobalPositionStrategy,
-  Overlay,
   OverlayConfig,
-  PositionStrategy,
   ScrollStrategy,
-  ScrollStrategyOptions,
 } from '@angular/cdk/overlay';
+import { Button } from '@models/view/button';
 
 export class Globals {
   public static roles = Roles;
@@ -33,10 +30,10 @@ export class Globals {
     maxSize: 'Uno de los archivos seleccionados supera el maximo de 10 MB.',
   };
 
-  public static buttons: { [key: string]: SectionButton } = {
+  public static buttons: { [key: string]: Button } = {
     home: {
       text: 'Volver a home',
-      action: '/home',
+      href: '/home',
       roles: [Roles.NoAuth, Roles.Admin, Roles.Client],
       icon: 'arrow-left',
     },

@@ -1,0 +1,28 @@
+<app-modal-menu [overRef]="ovRef" [ngClass]="{'hide':user.role == roles.NoAuth}">
+    <div class="menu" cdkTrapFocus cdkTrapFocusAutoCapture="true">
+        <div *ngFor="let section of menu;index as i" class="mobile-nav__section">
+            <ng-container *appRole="section.roles">
+                <h3>{{section.title}}</h3>
+                <ul>
+                    <li *ngIf="section.title === 'Saldo actual'" class="wallet">{{user.wallet | currency : 'USD' :
+                        'symbol' : '1.0-0'}}
+                    </li>
+                    <li *ngFor="let link of section.links">
+                        <ng-container *ngIf="!link.href else notButton">
+                            <app-link-with-modal [title]="link.text!" [roles]="link.roles!"
+                                [component]="components[link.id!]"></app-link-with-modal>
+                        </ng-container>
+                        <ng-template #notButton>
+                            <a *appRole="link.roles!" class="link-nav" routerLink="/{{link.href}}">{{link.text}}</a>
+                        </ng-template>
+                    </li>
+                </ul>
+                <hr *ngIf="i<menu.length-1">
+            </ng-container>
+        </div>
+        <div class="mobile-nav__section" *appRole="[roles.Client, roles.Admin]">
+            <hr>
+            <button class="logout" (click)="logout()">Cerrar sesión</button>
+        </div>
+    </div>
+</app-modal-menu>

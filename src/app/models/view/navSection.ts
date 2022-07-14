@@ -1,8 +1,8 @@
 import { Roles } from "@enumerables/roles";
-import { NavLink } from "@models/view/navLink";
+import { Button } from "./button";
 
 export interface NavSection{
     title:string,
-    links:NavLink[],
+    links:Button[],
     roles:Roles[]
 }

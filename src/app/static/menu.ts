@@ -1,6 +1,5 @@
 import { Button } from '@models/view/button';
 import { Roles } from '../enumerables/roles';
-import { NavLink } from '../models/view/navLink';
 import { NavSection } from '../models/view/navSection';
 
 export class Menu {
@@ -8,39 +7,39 @@ export class Menu {
     {
       title: 'Acceso',
       links: [
-        { title: 'Iniciar sesión', id: 'login', roles: [Roles.NoAuth],isButton:true },
-        { title: 'Registrarse', href: 'user/register', roles: [Roles.NoAuth] },
+        { text: 'Iniciar sesión', id: 'login', roles: [Roles.NoAuth]},
+        { text: 'Registrarse', href: 'user/register', roles: [Roles.NoAuth] },
       ],
       roles: [Roles.NoAuth],
     },
     {
       title: 'Panel Admin',
       links: [
-        { title: 'Agregar producto', href: 'product/create', roles: [Roles.Admin] },
-        { title: 'Gestión de ofertas', href: 'user/alert/soon', roles: [Roles.Admin] },
-        { title: 'Ver estadísticas', href: 'user/alert/soon', roles: [Roles.Admin] },
+        { text: 'Agregar producto', href: 'product/create', roles: [Roles.Admin] },
+        { text: 'Gestión de ofertas', href: 'user/alert/soon', roles: [Roles.Admin] },
+        { text: 'Ver estadísticas', href: 'user/alert/soon', roles: [Roles.Admin] },
       ],
       roles: [Roles.Admin],
     },
     {
       title: 'Saldo actual',
-      links: [{ title: '+ Agregar saldo', id: 'wallet', roles: [Roles.Client],isButton:true}],
+      links: [{ text: '+ Agregar saldo', id: 'wallet', roles: [Roles.Client]}],
       roles: [Roles.Client],
     },
     {
       title: 'Cuenta',
       links: [
-        { title: 'Editar perfil', href: 'user/alert/soon', roles: [Roles.Client, Roles.Admin]},
-        { title: 'Seguridad', href: 'user/alert/soon', roles: [Roles.Client, Roles.Admin] },
-        { title: 'Mis compras', href: 'user/alert/soon', roles: [Roles.Client] },
+        { text: 'Editar perfil', href: 'user/alert/soon', roles: [Roles.Client, Roles.Admin]},
+        { text: 'Seguridad', href: 'user/alert/soon', roles: [Roles.Client, Roles.Admin] },
+        { text: 'Mis compras', href: 'user/alert/soon', roles: [Roles.Client] },
       ],
       roles: [Roles.Client, Roles.Admin],
     },
     {
       title: 'Descubrir',
       links: [
-        { title: 'Ofertas',href: '',roles: [Roles.Client, Roles.Admin, Roles.NoAuth]},
-        { title: 'Populares', href: '', roles: [Roles.Client, Roles.Admin, Roles.NoAuth]},
+        { text: 'Ofertas',href: '',roles: [Roles.Client, Roles.Admin, Roles.NoAuth]},
+        { text: 'Populares', href: '', roles: [Roles.Client, Roles.Admin, Roles.NoAuth]},
       ],
       roles: [Roles.Client, Roles.Admin, Roles.NoAuth],
     },

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ImageWithLink } from '@models/view/imageWithLink';
+import { Button } from '@models/view/button';
 
 @Component({
   selector: 'app-logo-slider',
@@ -8,46 +8,62 @@ import { ImageWithLink } from '@models/view/imageWithLink';
 })
 export class LogoSliderComponent{
 
-  images:ImageWithLink[]=[
+  buttons:Button[]=[
     {
-      src:"../../../assets/img/logos/logo_1.png",
-      description:"algo",
-      link: "../../../assets/img/logos/logo_1.png"
+      background:{
+        src:"/assets/img/logos/logo_1.png",
+        alt:"Logo DC"
+      },
+      href: "https://www.dccomics.com/"
     },
     {
-      src:"../../../assets/img/logos/logo_2.png",
-      description:"algo",
-      link: "../../../assets/img/logos/logo_1.png"
+      background:{
+        src:"/assets/img/logos/logo_2.png",
+        alt:"Logo Funko"
+      },
+      href: "https://www.funko.com/"
     },
     {
-      src:"../../../assets/img/logos/logo_3.png",
-      description:"algo",
-      link: "../../../assets/img/logos/logo_1.png"
+      background:{
+        src:"/assets/img/logos/logo_3.png",
+        alt:"Logo Lego"
+      },
+      href:"https://www.lego.com/es-ar"
     },
     {
-      src:"../../../assets/img/logos/logo_4.png",
-      description:"algo",
-      link: "../../../assets/img/logos/logo_1.png"
+      background:{
+        src:"/assets/img/logos/logo_4.png",
+        alt:"Logo Marvel"
+      },
+      href: "https://www.marvel.com/"
     },
     {
-      src:"../../../assets/img/logos/logo_5.jpg",
-      description:"algo",
-      link: "../../../assets/img/logos/logo_1.png"
+      background:{
+        src:"/assets/img/logos/logo_5.jpg",
+        alt:"Logo Mezco"
+      },
+      href: "https://www.mezcotoyz.com/"
     },
     {
-      src:"../../../assets/img/logos/logo_6.png",
-      description:"algo",
-      link: "../../../assets/img/logos/logo_1.png"
+      background:{
+        src:"/assets/img/logos/logo_6.png",
+        alt:"Logo Neca"
+      },
+      href:"https://necaonline.com/"
     },
     {
-      src:"../../../assets/img/logos/logo_7.png",
-      description:"algo",
-      link: "../../../assets/img/logos/logo_1.png"
+      background:{
+        src:"/assets/img/logos/logo_7.png",
+        alt:"Logo Kotobukiya",
+      },
+      href: "https://en.kotobukiya.co.jp/"
     },
     {
-      src:"../../../assets/img/logos/logo_8.png",
-      description:"algo",
-      link: "../../../assets/img/logos/logo_1.png"
+      background:{
+        src:"/assets/img/logos/logo_8.png",
+        alt:"Logo HotToys"
+      },
+      href: "http://www.hottoys.com.hk/"
     },
   ]
 

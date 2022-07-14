@@ -1,12 +1,12 @@
 <section>
     <div class="logo-box" #logoBox>
-        <div *ngFor="let image of images" class="logo-item">
-            <a href="{{image.link}}"><img src="{{image.src}}" alt="{{image.description}}"></a>
+        <div *ngFor="let button of buttons" class="logo-item">
+            <a href="{{button.href}}" target="_blank" rel="nofollow external"><img src="{{button.background!.src}}" alt="{{button.background!.alt}}"></a>
         </div>
     </div>
     <div class="logo-box delay" #logoBox>
-        <div *ngFor="let image of images" class="logo-item">
-            <a href="{{image.link}}"><img src="{{image.src}}" alt="{{image.description}}"></a>
+        <div *ngFor="let button of buttons" class="logo-item">
+            <a href="{{button.href}}" target="_blank" rel="nofollow external"><img src="{{button.background!.src}}" alt="{{button.background!.alt}}"></a>
         </div>
     </div>
 </section>

@@ -20,9 +20,9 @@ export class InactivityComponent implements OnInit, OnDestroy {
 
   @ViewChild("template") template:any;
 
-  @HostListener('window:click', ['$event'])
-  @HostListener('window:scroll', ['$event'])
-  @HostListener('window:keydown', ['$event'])
+  @HostListener('window:click')
+  @HostListener('window:scroll')
+  @HostListener('window:keydown')
   resetTime(){
     if(this.isAuth){
       this.inactiveService.setTime();

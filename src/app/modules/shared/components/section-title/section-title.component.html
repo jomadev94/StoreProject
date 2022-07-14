@@ -2,12 +2,14 @@
     <h2>{{title}}</h2>
     <div *ngIf="buttons" class="section-options">
         <ng-container *ngFor="let button of buttons">
-            <a *ngIf="button.action != '' else elseBlock" class="button-section" routerLink="{{button.action}}" [queryParams]="button.params">
-                <fa-icon *ngIf="button.icon" [icon]="button.icon"></fa-icon>
-                {{button.text}}
-            </a>
+            <ng-container *ngIf="button.href != '' else elseBlock">
+                <a  class="button-section" routerLink="{{button.href}}" [queryParams]="button.params" *appRole="button.roles!">
+                    <fa-icon *ngIf="button.icon" [icon]="button.icon"></fa-icon>
+                    {{button.text}}
+                </a>
+            </ng-container>
             <ng-template #elseBlock>
-                <app-link-with-modal [component]="button.component" [providers]="button.providers!" buttonStyle="button-section" [icon]="button.icon!"
+                <app-link-with-modal *appRole="button.roles!" [component]="button.component" [providers]="button.providers!" buttonStyle="button-section" [icon]="button.icon!"
                     title="{{button.text}}"></app-link-with-modal>
             </ng-template>
         </ng-container>
