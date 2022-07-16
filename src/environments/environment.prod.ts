@@ -8,5 +8,7 @@ export const environment = {
     authDomain: 'gf-storeproject.firebaseapp.com',
     messagingSenderId: '651998259393',
   },
-  production: true
+  production: true,
+  // apiUrl:"https://localhost:7059/api/",
+  apiUrl:"https://storedemo.somee.com/api/",
 };

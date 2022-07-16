@@ -13,7 +13,7 @@ export const environment = {
     messagingSenderId: '651998259393',
   },
   production: false,
-  apiUrl:"https://localhost:7059/api/"
+  apiUrl:"https://storedemo.somee.com/api/"
 };
 
 /*
