@@ -28,7 +28,7 @@ import { provideStorage,getStorage } from '@angular/fire/storage';
 @NgModule({
   declarations: [AppComponent],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     HttpClientModule,
     ProductModule,

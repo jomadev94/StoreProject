@@ -34,8 +34,9 @@ export class AuthService {
     this.authSorce.next(false);
   }
 
-  setAuth(token:string,user:User){
+  setAuth(token:string,refresh:string,user:User){
     this.storageService.save("token",token);
+    this.storageService.save("refresh-token",refresh);
     this.storageService.save("user",user);
     this.currentUser=user;
     const data=jwt_decode(token) as User;

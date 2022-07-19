@@ -1,10 +1,8 @@
-import { Overlay, OverlayRef } from '@angular/cdk/overlay';
+import { OverlayRef } from '@angular/cdk/overlay';
 import {
   Component,
-  EventEmitter,
   Inject,
   OnInit,
-  Output,
 } from '@angular/core';
 import {
   FormBuilder,
@@ -69,7 +67,7 @@ export class LoginComponent implements OnInit {
     if (this.loginForm.valid) {
       this.userService.login(this.prepareSend()).subscribe(res=>{
         if(res.success){
-          this.authService.setAuth(res.data.token,res.data.user);
+          this.authService.setAuth(res.data.token,res.data.refresh,res.data.user);
           this.closeModal();
         }else{
           this.errorMessages=res.errorMessage;

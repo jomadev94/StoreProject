@@ -52,6 +52,12 @@ export class StorageService {
   clear(){
     this.storage.removeItem('user');
     this.storage.removeItem('token');
+    this.storage.removeItem('refresh-token');
+  }
+
+  clearUser(){
+    this.storage.removeItem('user');
+    this.storage.removeItem('token');
   }
 
 }
