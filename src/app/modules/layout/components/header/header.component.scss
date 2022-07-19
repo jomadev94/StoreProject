@@ -10,6 +10,7 @@ header {
   background: $header-gradient;
   position: sticky;
   top: 0;
+  z-index: $index-3;
 
   @include media-down(md) {
     background: $purple-60;
@@ -19,7 +20,6 @@ header {
     list-style: none;
   }
 
-  z-index: $index-2;
 }
 
 .header-top {
@@ -34,8 +34,8 @@ header {
   position: absolute;
 
   .logo {
-    height: 2.5rem;
-    width: 2.5rem;
+    height: clamp(2rem,5vw,2.3rem);
+    width: clamp(2rem,5vw,2.3rem);
   }
 }
 

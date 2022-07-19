@@ -26,7 +26,7 @@ $white-80: hsl(0, 0%, 92%); // -> FONT COLOR SECTION, NAV OPTIONS
 $white-100: hsl(0, 0%, 100%); // -> BACKGROUND FORMS, FONT COLOR OFERTA
 
 // HEADER
-$header-gradient: linear-gradient(to bottom,hsl(0, 1%, 17%, 97%),hsl(265, 24%, 34%, 9%),hsla(264, 34%, 51%, 0));
+$header-gradient: linear-gradient(to bottom,hsl(0, 1%, 17%, 97%),hsl(265, 24%, 34%, 9%),transparent);
 $category-gradient:linear-gradient(to top, $purple-122 20%, transparent 50%);
 $footer-gradient:linear-gradient(to right, $black-100 15%, transparent 80%);
 

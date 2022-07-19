@@ -2,7 +2,13 @@
     <app-section-title [title]="'Categorías'"></app-section-title>
     <app-categories></app-categories>
 </section>
-<section *ngIf="products.length > 0">
+<section>
     <app-section-title [title]="'Novedades'" [buttons]="buttons"></app-section-title>
-    <app-item-carousel class="fix-padding" [products]="products"></app-item-carousel>
+    <app-item-carousel *ngIf="products.length > 0 else elseBlock" class="fix-padding" [products]="products"></app-item-carousel>
+    <ng-template #elseBlock>
+        <div class="load-section">
+            <img src="/assets/img/loader/load-section.gif" alt="Cargando">
+            <span>Cargando</span>
+        </div>
+    </ng-template>
 </section>

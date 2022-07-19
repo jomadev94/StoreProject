@@ -1,14 +1,7 @@
-import { stagger } from '@angular/animations';
 import {
-  AfterViewChecked,
   AfterViewInit,
   Component,
-  ElementRef,
-  EventEmitter,
   OnDestroy,
-  OnInit,
-  Output,
-  ViewChild,
 } from '@angular/core';
 import {
   NavigationCancel,
@@ -41,7 +34,7 @@ export class PageLoaderComponent implements AfterViewInit, OnDestroy {
   ngAfterViewInit(): void {
     this.routerSubs$ = this.router.events.subscribe((event) => {
       switch (true) {
-        case event instanceof NavigationStart: {
+        case event instanceof NavigationStart : {
           this.show = true;
           this.generateRandom();
           setTimeout(() => {
@@ -61,13 +54,15 @@ export class PageLoaderComponent implements AfterViewInit, OnDestroy {
         case event instanceof NavigationEnd: {
           setTimeout(async () => {
             await clearInterval(this.interval);
-            this.percent = 100;
-            await this.load(94);
-            await this.fadeOutLoader();
-            this.percent = 0;
-            setTimeout(() => {
-              this.show = false;
-            });
+            if(this.show){
+              this.percent = 100;
+              await this.load(94);
+              await this.fadeOutLoader();
+              this.percent = 0;
+              setTimeout(() => {
+                this.show = false;
+              });
+            }
           }, 3000);
           break;
         }

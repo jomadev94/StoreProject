@@ -2,9 +2,9 @@
 @use "variables/fonts" as *;
 @use "variables/spaces" as *;
 @use "helpers/mixins" as *;
+@use "components/buttons" as *;
 
-.carousel{
-  --show: 0;
+.carousel {
   --cant-items: 4;
   --gap: 1.5rem;
   --arraw-size: 5rem;
@@ -16,33 +16,58 @@
     height: $space-500;
     width: $space-500;
     border-radius: 100%;
-    transform: translateY(calc((var(--arraw-size)/2) * -1));
+    transform: translateY(calc((var(--arraw-size) / 2) * -1));
     border: none;
-    padding: 0.5rem;
+    padding: $space-100;
     font-size: $font-size-280;
     cursor: pointer;
-    opacity: var(--show);
+    opacity: 1;
     transition: opacity 0.5s ease-in-out;
     box-shadow: $black-100 0px 0px 30px;
 
+    @include with-hover() {
+      opacity: 0;
+    }
+
     &.arrow-left {
-      left: calc(var(--arraw-size) / 2 * -1 + var(--gap)/2);
+      left: calc(var(--arraw-size) / 2 * -1 + var(--gap) / 2);
+
+      @include media-down(sm){
+        left: 0;
+      }
     }
 
     &.arrow-right {
-      right: calc((var(--arraw-size) / 2 * -1) + var(--gap)/2);
+      right: calc((var(--arraw-size) / 2 * -1) + var(--gap) / 2);
+
+      @include media-down(sm){
+        right: 0;
+      }
+    }
+
+    @include media-down(sm) {
+      border-radius: 5px;
+      background-color: $purple-120;
+      font-size: $font-size-280;
+      color: $white-100;
+      box-shadow: -5px 0px 2px white;
     }
   }
 
   &:hover {
-    --show: 1;
+    button {
+      opacity: 1;
+    }
   }
 }
 
 .carousel-view {
   overflow: hidden;
   padding-block: 1.5rem;
-  padding-left: 1.5rem;
+
+  @include with-hover() {
+    padding-left: 1.5rem;
+  }
 }
 
 .carousel-box {
@@ -57,11 +82,15 @@
     height: 100%;
     width: calc(100% / var(--cant-items) - var(--gap));
     border-radius: 3%;
-    transition: transform .3s ease-in-out;
+    transition: transform 0.3s ease-in-out;
 
     &:hover {
-      box-shadow: 10px 10px 10px $black-100;
       transform: scale(105%);
+      box-shadow: 10px 10px 10px $black-100;
+
+      @include media-down(sm){
+        box-shadow: none;
+      }
     }
   }
 

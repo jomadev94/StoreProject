@@ -1,4 +1,5 @@
 @use "helpers/normalize";
+@use "helpers/mixins" as *;
 @use "components/scrollbar";
 @use "variables/colors" as *;
 @use "variables/borders" as *;
@@ -35,6 +36,13 @@ body {
 
     section {
       margin-inline: auto;
+      width: clamp(10rem, 70vw, 90rem);
+      margin-bottom: 1.5rem;
+
+      @include media-down(sm){
+        margin-inline:1rem;
+        width: auto;
+      }
     }
 
     .big-section {
@@ -44,11 +52,6 @@ body {
     .medium-section {
       width: 50%;
     }
-  }
-
-  section {
-    width: clamp(21rem, 70vw, 90rem);
-    margin-bottom: 1.5rem;
   }
 
   .invalid {
