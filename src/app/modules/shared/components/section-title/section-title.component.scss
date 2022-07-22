@@ -16,7 +16,6 @@
         font-size: $font-size-280;
         color: $white-80;
         text-shadow: $text-shadow-200;
-        // white-space: nowrap; 
     }
 
     .section-options{
@@ -27,9 +26,10 @@
 }
 
 hr{
-    border: $border-section;
+    height: clamp(.3rem, 3vh, .5rem);
+    background-color: $purple-120;
+    border: none;
     border-radius: $radius-all-500;
     margin-bottom: $space-180;
-
 }
 

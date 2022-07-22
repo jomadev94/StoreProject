@@ -1,3 +1,4 @@
+import { ThisReceiver } from '@angular/compiler';
 import {
   AfterViewInit,
   Component,
@@ -20,17 +21,9 @@ export class MainCarouselComponent implements OnInit, AfterViewInit, OnDestroy {
   goPosition: number;
   eventSubscription: Subscription;
   order: Array<number> = [0, 1, 2, 3, 4, 5];
+  list: Array<number> = [0, 1, 2, 3, 4, 5];
   move: boolean = false;
   @ViewChild('gallery') gallery: ElementRef;
-
-  images:Image[]=[
-    {src:"/assets/img/carousel/carousel 1.jpg",alt:"Promocion/Publicidad"},
-    {src:"/assets/img/carousel/carousel 2.jpg",alt:"Promocion/Publicidad"},
-    {src:"/assets/img/carousel/carousel 3.jpg",alt:"Promocion/Publicidad"},
-    {src:"/assets/img/carousel/carousel 4.jpg",alt:"Promocion/Publicidad"},
-    {src:"/assets/img/carousel/carousel 5.jpg",alt:"Promocion/Publicidad"},
-    {src:"/assets/img/carousel/carousel 6.jpg",alt:"Promocion/Publicidad"},
-  ]
 
   constructor() {}
 
@@ -62,6 +55,7 @@ export class MainCarouselComponent implements OnInit, AfterViewInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.eventSubscription.unsubscribe();
+    this.stop();
   }
 
   next() {

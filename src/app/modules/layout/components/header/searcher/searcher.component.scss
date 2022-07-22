@@ -58,7 +58,7 @@
     flex-direction: column;
     gap: $space-100;
     overflow: auto;
-    width: clamp(4rem, 30vw + 1rem, 10rem);
+    width: clamp(10rem, 30vw, 14rem);
     border-radius: 0.4rem;
     background-color: $purple-120;
     padding: 0.5rem;
