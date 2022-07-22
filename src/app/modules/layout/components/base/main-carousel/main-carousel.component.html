@@ -1,27 +1,12 @@
 <section>
     <div class="carousel-box">
         <div class="gallery" #gallery>
-            <div class="gallery__item">
-                <a href=""><img src="../../../assets/img/carousel/carousel 1.jpg" alt="demo"></a>
-            </div>
-            <div class="gallery__item">
-                <a href=""><img src="../../../assets/img/carousel/carousel 2.jpg" alt="demo"></a>
-            </div>
-            <div class="gallery__item">
-                <a href=""><img src="../../../assets/img/carousel/carousel 3.jpg" alt="demo"></a>
-            </div>
-            <div class="gallery__item">
-                <a href=""><img src="../../../assets/img/carousel/carousel 4.jpg" alt="demo"></a>
-            </div>
-            <div class="gallery__item">
-                <a href=""><img src="../../../assets/img/carousel/carousel 5.jpg" alt="demo"></a>
-            </div>
-            <div class="gallery__item">
-                <a href=""><img src="../../../assets/img/carousel/carousel 6.jpg" alt="demo"></a>
+            <div *ngFor="let image of images" class="gallery__item">
+                <img src="{{image.src}}" alt="{{image.alt}}">
             </div>
         </div>
         <div class="indicators" (click)="goTo($event)">
-            <button *ngFor="let i of lista;let indice=index" value="{{indice}}" [ngClass]="{active:indice == currentItem}"></button>
+            <button *ngFor="let i of images;let indice=index" value="{{indice}}" [ngClass]="{active:indice == currentItem}"></button>
         </div>
     </div>
 </section>

@@ -1,12 +1,12 @@
-<section>
+<section aria-hidden="true">
     <div class="logo-box" #logoBox>
         <div *ngFor="let button of buttons" class="logo-item">
-            <a href="{{button.href}}" target="_blank" rel="nofollow external"><img src="{{button.background!.src}}" alt="{{button.background!.alt}}"></a>
+            <a href="{{button.href}}" target="_blank" rel="nofollow external" tabindex="-1"><img src="{{button.background!.src}}" alt="{{button.background!.alt}}"></a>
         </div>
     </div>
     <div class="logo-box delay" #logoBox>
         <div *ngFor="let button of buttons" class="logo-item">
-            <a href="{{button.href}}" target="_blank" rel="nofollow external"><img src="{{button.background!.src}}" alt="{{button.background!.alt}}"></a>
+            <a href="{{button.href}}" target="_blank" rel="nofollow external" tabindex="-1"><img src="{{button.background!.src}}" alt="{{button.background!.alt}}"></a>
         </div>
     </div>
 </section>

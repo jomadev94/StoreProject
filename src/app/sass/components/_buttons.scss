@@ -25,7 +25,7 @@
 
 .button-base {
   color: $white-100;
-  font-size: $font-size-200;
+  font-size: $font-size-210;
   font-weight: bold;
   border: none;
   cursor: pointer;
@@ -82,11 +82,11 @@
 
 .link {
   text-decoration: none;
+  // outline: none;
 
-  &:focus {
+  &:focus-visible {
     color: $purple-130;
     font-weight: bold;
-    outline: none;
   }
 }
 
@@ -108,5 +108,5 @@
 
 .link-nav {
   color: $grey-100;
-  font-size: $font-size-200;
+  font-size: $font-size-210;
 }

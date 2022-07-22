@@ -9,10 +9,16 @@
   position: relative;
   background-color: $white-100;
   border-radius: $radius-all-300;
-  padding: $space-300;
+  padding: $space-250;
   transform: scale(0);
   transform-origin: center;
   width: clamp(20rem,30vw,25rem);
+  box-sizing: border-box;
+
+  @include media-down(sm){
+    width: 90%;
+    margin-inline: auto;
+  }
 
   h3 {
     margin: 0;

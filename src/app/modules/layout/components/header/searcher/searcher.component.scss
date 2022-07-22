@@ -1,4 +1,6 @@
 @use "variables/colors" as *;
+@use "variables/fonts" as *;
+@use "variables/spaces" as *;
 @use "helpers/mixins" as *;
 
 .searcher {
@@ -19,7 +21,6 @@
 }
 
 .category-box {
-  // position: relative;
 
   &__select {
     cursor: pointer;
@@ -37,7 +38,7 @@
     overflow: hidden;
     font-size: clamp(0.8rem, 5vw, 1rem);
 
-    &:focus{
+    &:focus-visible{
       border: .2rem solid $purple-60; 
       outline: none; 
     }
@@ -55,7 +56,7 @@
   &__options {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: $space-100;
     overflow: auto;
     width: clamp(4rem, 30vw + 1rem, 10rem);
     border-radius: 0.4rem;
@@ -70,15 +71,18 @@
         cursor: pointer;
         padding: 0.3rem;
         border: none;
-        // outline: none;
         text-align: left;
         background-color: inherit;
         color: $white-100;
-        font-size: clamp(0.8rem, 5vw, 1rem);
+        font-size: $font-size-210;
         width: 100%;
 
         &:focus{
           background-color: $purple-60;
+        }
+
+        fa-icon{
+          margin-right: $space-50;
         }
       }
 

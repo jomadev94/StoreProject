@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import { Category } from '@models/view/category';
 import { Globals } from '@static/globals';
@@ -18,16 +18,28 @@ export class SearcherComponent implements OnInit {
   iconOpen: IconProp;
   categories: Category[] = Globals.categories;
   form:FormGroup;
+  placeholder:string;
+
+  @HostListener('window:resize')
+  onResize(){
+    this.generatePlaceholder();
+  }
 
   constructor(private formBuilder:FormBuilder,private router:Router) {
     this.form=this.formBuilder.group({
       name:['']
     });
+    this.generatePlaceholder();
   }
 
   ngOnInit(): void {
     this.selected = this.categories[0];
     this.iconOpen = 'angle-down';
+  }
+
+  generatePlaceholder(){
+    const w=window.screen.width;
+    this.placeholder=w < 600? "Buscar" : "Buscar producto...";
   }
 
   changeCategory(): void {

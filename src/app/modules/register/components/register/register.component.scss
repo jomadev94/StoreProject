@@ -14,6 +14,10 @@ section {
   @include media-down(md){
     width: 80%;
   }
+
+  @include media-down(sm){
+    width: 100%;
+  }
 }
 
 .box{
@@ -37,11 +41,11 @@ section {
   &__fields {
     margin-top: $space-180;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(20vw, 1fr));
+    grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
 
-    @include media-down(md) {
-      grid-template-columns: repeat(auto-fit, minmax(34vw, 1fr));
+    @include media-down(sm) {
+      grid-template-columns: 1fr;
     }
   }
 

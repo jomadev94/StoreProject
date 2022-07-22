@@ -6,6 +6,7 @@ import {
   OnInit,
   ViewChild,
 } from '@angular/core';
+import { Image } from '@models/view/image';
 import { fromEvent, Subscription, TimeInterval } from 'rxjs';
 
 @Component({
@@ -18,10 +19,18 @@ export class MainCarouselComponent implements OnInit, AfterViewInit, OnDestroy {
   currentItem: number = 0;
   goPosition: number;
   eventSubscription: Subscription;
-  lista: Array<number> = [1, 2, 3, 4, 5, 6];
   order: Array<number> = [0, 1, 2, 3, 4, 5];
   move: boolean = false;
   @ViewChild('gallery') gallery: ElementRef;
+
+  images:Image[]=[
+    {src:"/assets/img/carousel/carousel 1.jpg",alt:"Promocion/Publicidad"},
+    {src:"/assets/img/carousel/carousel 2.jpg",alt:"Promocion/Publicidad"},
+    {src:"/assets/img/carousel/carousel 3.jpg",alt:"Promocion/Publicidad"},
+    {src:"/assets/img/carousel/carousel 4.jpg",alt:"Promocion/Publicidad"},
+    {src:"/assets/img/carousel/carousel 5.jpg",alt:"Promocion/Publicidad"},
+    {src:"/assets/img/carousel/carousel 6.jpg",alt:"Promocion/Publicidad"},
+  ]
 
   constructor() {}
 

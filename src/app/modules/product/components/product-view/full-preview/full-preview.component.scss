@@ -20,18 +20,22 @@
     object-fit: contain;
   }
 
-  .full-next,
-  .full-prev {
+  .close,.full-next,
+  .full-prev{
     cursor: pointer;
     position: absolute;
+    border: none;
+  }
+
+  .full-next,
+  .full-prev {
     top: 50%;
     transform: translateY(-50%);
     background-color: $purple-120;
-    color: $white-100;
     font-size: $font-size-350;
     padding: $space-250;
-    border: none;
     border-radius: 100%;
+    color: $white-100;
 
     @include media-down(md){
       top: 90%;
@@ -42,6 +46,18 @@
       cursor: not-allowed;
       background-color: $purple-70;
     }
+  }
+
+  .close{
+    background-color: $white-100;
+    color:$black-100;
+    right: 0;
+    top: 0;
+    padding: $space-100;
+    font-size: $font-size-300;
+    border-radius: $radius-all-200;
+    margin-right:$space-250;
+    margin-top: $space-250;
   }
 
   .full-next {

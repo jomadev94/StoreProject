@@ -5,8 +5,8 @@
         <app-select [hideLabel]="true" [form]="form" controlName="order" [options]="orders" [needEmpty]="false"></app-select>
     </div>
     <div class="search-box">
-        <div class="search-box__options">
-            <app-input [form]="form" controlName="name" label="Nombre del producto" placeholder="Nombre..."></app-input>
+        <form [formGroup]="form" class="search-box__options" (submit)="search()">
+            <app-input [form]="form" controlName="name" label="Nombre" placeholder="Nombre del producto..."></app-input>
             <app-select [form]="form" controlName="category" label="Categoría" [options]="categories" defaultText="Todas"></app-select>
             <div class="price-box">
                 <label for="price">Precio</label>
@@ -23,11 +23,10 @@
             </div>
             <div class="check-box">
                 <label for="stock">Stock</label>
-                <app-input-checkbox [form]="form" controlName="stock" text="Mostrar solo con stock"></app-input-checkbox>
+                <app-input-checkbox [form]="form" controlName="stock" text="Mostrar solo stock"></app-input-checkbox>
             </div>
-            
-            <app-button (clicked)="search()" text="Buscar" [autoLoad]="false" [load]="loadSearch" className="button-primary full"></app-button>
-        </div>
+            <app-button text="Buscar" type="submit" [autoLoad]="false" [load]="loadSearch" className="button-primary full"></app-button>
+        </form>
         <div class="search-box__items">
             <div class="products-box" *ngIf="!empty else elseBlock">
                 <ng-container *ngFor="let item of items">

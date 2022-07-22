@@ -14,7 +14,7 @@ import {
 } from '@angular/core';
 import { Product } from '@models/product';
 import { Image } from '@models/view/image';
-import { DATA_IMGS, DATA_NUMBER } from '@static/data';
+import { DATA_IMGS, DATA_NUMBER, DATA_OVREF } from '@static/data';
 import gsap from 'gsap';
 import { Subscription } from 'rxjs';
 import { FullPreviewComponent } from '../full-preview/full-preview.component';
@@ -59,6 +59,7 @@ export class ProductCarouselComponent implements OnInit, AfterViewInit, OnDestro
   fullPagePreview() {
     const portalInjector = Injector.create({
       providers: [
+        { provide: DATA_OVREF, useValue: this.overlayRef},
         { provide: DATA_IMGS, useValue: this.imgs },
         { provide: DATA_NUMBER, useValue: this.indexFull },
       ],

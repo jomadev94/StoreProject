@@ -34,7 +34,7 @@
   }
 
   span {
-    font-size: $font-size-150;
+    font-size: $font-size-205;
     max-width: 12rem;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -50,7 +50,6 @@
   @extend .button-secondary;
   padding: $space-100;
   border-radius: $radius-all-200;
-  width: 3rem;
   justify-self: center;
 }
 

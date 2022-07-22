@@ -2,6 +2,7 @@
 @use "variables/spaces" as *;
 @use "variables/borders" as *;
 @use "variables/fonts" as *;
+@use "helpers/mixins" as *;
 @use "components/buttons" as *;
 
 .product-box {
@@ -9,9 +10,13 @@
   background-color: $white-100;
   border-radius: $radius-all-300;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(32vw, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   grid-template-rows: 40rem;
   gap: 1rem;
+
+  @include media-down(md){
+    grid-template-columns: 1fr;
+  }
 
   .info-box {
     width: 100%;
@@ -32,7 +37,7 @@
     }
 
     h5 {
-      font-size: $font-size-200;
+      font-size: $font-size-230;
     }
 
     .product-detail {
@@ -48,7 +53,7 @@
       span {
         font-weight: $font-semibold;
         color: $black-transparent-3;
-        font-size: $font-size-200;
+        font-size: $font-size-210;
       }
     }
 
@@ -61,6 +66,10 @@
         display: flex;
         flex-direction: column;
         gap: $space-180;
+        
+        button{
+          font-size: $font-size-200;
+        }
       }
 
       .price {

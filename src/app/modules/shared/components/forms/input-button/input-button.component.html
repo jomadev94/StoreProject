@@ -1,6 +1,6 @@
 <app-input-base [controlName]="controlName" [form]="form" [label]="label" [labelIcon]="labelIcon" [labelIconFormat]="labelIconFormat" [formGroup]="form" [hideLabel]="hideLabel">
     <input class="border-left" type="{{type}}" id="{{controlName}}" formControlName="{{controlName}}" placeholder="{{placeholder}}">
-    <button [disabled]="form.invalid" type="button" (click)="onClick()">
+    <button [disabled]="form.invalid && disableActive" type="button" (click)="onClick()">
         <ng-container *ngIf="load else elseBlock">
             <fa-icon [icon]="['fas', 'spinner']" [spin]="true"></fa-icon>
         </ng-container>

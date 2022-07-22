@@ -1,6 +1,7 @@
+import { OverlayRef } from '@angular/cdk/overlay';
 import { Component, HostListener, Inject, OnInit } from '@angular/core';
 import { Image } from '@models/view/image';
-import { DATA_IMGS, DATA_NUMBER } from '@static/data';
+import { DATA_IMGS, DATA_NUMBER, DATA_OVREF } from '@static/data';
 
 @Component({
   selector: 'app-full-preview',
@@ -22,7 +23,7 @@ export class FullPreviewComponent implements OnInit {
     }
   }
 
-  constructor(@Inject(DATA_IMGS) public imgs:Image[],@Inject(DATA_NUMBER) public indexFull:number) {
+  constructor(@Inject(DATA_OVREF) private ovRef:OverlayRef,@Inject(DATA_IMGS) public imgs:Image[],@Inject(DATA_NUMBER) public indexFull:number) {
     this.imgSelectedFull=this.imgs[this.indexFull];
   }
 
@@ -41,6 +42,10 @@ export class FullPreviewComponent implements OnInit {
       this.indexFull--;
       this.imgSelectedFull = this.imgs[this.indexFull];
     }
+  }
+
+  close(){
+    this.ovRef.detach();
   }
 
 }

@@ -18,6 +18,7 @@ footer{
         justify-content: center;
         margin-top: $space-200;
         height: 2.3rem;
+        font-size: $font-size-210;
 
         button{
             padding: $space-100;
@@ -89,7 +90,7 @@ footer{
     flex-direction: column;
     gap: $space-150;
     background-color: $grey-100;
-    font-size: $font-size-200;
+    font-size: $font-size-210;
 
     .options{
         display: flex;
@@ -106,7 +107,7 @@ footer{
         flex-direction: column;
         gap: $space-50;
         color: $black-transparent-2;
-        font-size: $font-size-100;
+        font-size: $font-size-200;
     }
 
     .social-media{

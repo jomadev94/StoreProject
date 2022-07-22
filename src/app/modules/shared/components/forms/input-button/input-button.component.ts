@@ -15,6 +15,7 @@ export class InputButtonComponent extends InputModelComponent implements OnInit 
   @Input() buttonIcon: IconName;
   @Input() type: string="text";
   @Input() load: boolean | null=false;
+  @Input() disableActive:boolean=true;
 
   constructor() {
     super();

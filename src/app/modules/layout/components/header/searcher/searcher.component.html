@@ -22,7 +22,7 @@
                 </div>
             </ng-template>
         </div>
-        <input formControlName="name" class="searcher-input" type="text" placeholder="Buscar producto..." aria-label="Buscar producto">
+        <input formControlName="name" class="searcher-input" type="text" [placeholder]="placeholder" aria-label="Buscar producto">
         <button type="submit" class="searcher-go" aria-label="Realizar busqueda">
             <fa-icon icon="magnifying-glass" size="sm"></fa-icon>
         </button>

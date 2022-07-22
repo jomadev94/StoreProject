@@ -39,7 +39,7 @@ export class HeaderComponent implements OnInit, AfterViewInit {
       })
       .to('.searcher',{
         duration:1,
-        translateX:50,
+        translateX:40,
       })
       .from('#logo-header', {
         duration: 1,

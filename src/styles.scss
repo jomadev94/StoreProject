@@ -38,10 +38,11 @@ body {
       margin-inline: auto;
       width: clamp(10rem, 70vw, 90rem);
       margin-bottom: 1.5rem;
+      box-sizing: border-box;
 
       @include media-down(sm){
-        margin-inline:1rem;
-        width: auto;
+        width: 100%;
+        padding-inline: 1rem;
       }
     }
 
