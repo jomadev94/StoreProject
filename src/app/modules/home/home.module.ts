@@ -7,6 +7,7 @@ import { ItemCardComponent } from './components/item-carousel/item-card/item-car
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { SharedModule } from '@modules/shared/shared.module';
 import { RouterModule } from '@angular/router';
+import { LoaderModule } from '@modules/loader/loader.module';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { RouterModule } from '@angular/router';
     CommonModule,
     RouterModule,
     FontAwesomeModule,
-    SharedModule
+    SharedModule,
+    LoaderModule
   ],
   exports:[
     HomeComponent,

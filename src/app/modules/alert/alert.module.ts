@@ -11,6 +11,8 @@ import { InactivityComponent } from './components/inactivity/inactivity.componen
 import { InactivityModalComponent } from './components/inactivity/inactivity-modal/inactivity-modal.component';
 import { CreatedComponent } from './components/created/created.component';
 import { EmptyComponent } from './components/empty/empty.component';
+import { ValidateComponent } from './components/validate/validate.component';
+import { LoaderModule } from '@modules/loader/loader.module';
 
 
 @NgModule({
@@ -23,11 +25,13 @@ import { EmptyComponent } from './components/empty/empty.component';
     InactivityModalComponent,
     CreatedComponent,
     EmptyComponent,
+    ValidateComponent,
   ],
   imports: [
     CommonModule,
     AlertRoutingModule,
-    SharedModule
+    SharedModule,
+    LoaderModule
   ],
   exports:[
     NotFoundComponent,

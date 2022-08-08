@@ -1,0 +1,25 @@
+@use 'variables/borders' as *;
+@use 'variables/fonts' as *;
+@use 'variables/colors' as *;
+@use 'variables/spaces' as *;
+
+.load-section{
+
+    img{
+        position: relative;
+        left: -2rem;
+    }
+
+    span{
+        font-size: $font-size-200;
+        margin-block: $space-200;
+        font-weight: $font-semibold;
+    }
+
+    background-color: $white-100;
+    display: grid;
+    place-content: center;
+    text-align: center;
+    border-radius: $radius-all-200;    
+    padding-block: 1rem;
+}

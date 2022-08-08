@@ -1,0 +1,9 @@
+<app-alert *ngIf="img else elseBlock" [alertImg]="img" title="{{title}}"
+    text="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsum vero provident officiis consectetur officia amet, ea dicta blanditiis odio nisi totam dolorum, molestiae iste iure, consequuntur deleniti alias. Saepe, aliquid.
+Minus inventore alias harum tenetur veritatis fugit, temporibus accusantium repudiandae adipisci at sequi esse illo perspiciatis earum accusamus cupiditate dolorem corrupti suscipit expedita pariatur sit? Possimus dolorem mollitia omnis incidunt.
+Officiis voluptatem eius quos fuga accusamus pariatur amet quas minima, aut totam rem dolorum facilis sed eaque natus inventore officia ab saepe? Nemo, aperiam rerum est culpa distinctio adipisci debitis.
+Laboriosam harum rem exercitationem a quia, pariatur itaque illo totam, deserunt reprehenderit nobis magnam delectus impedit provident. Nostrum aspernatur id nobis voluptate rem error dicta ex beatae exercitationem. Expedita, harum.">
+</app-alert>
+<ng-template #elseBlock>
+    <app-section-loader></app-section-loader>
+</ng-template>

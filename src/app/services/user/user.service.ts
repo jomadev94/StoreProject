@@ -31,4 +31,8 @@ export class UserService {
     return this.dataService.put(environment.apiUrl+"Auth/AddMoney",{wallet:money});
   }
 
+  activate(key:string){
+    return this.dataService.put(environment.apiUrl+`Auth/Activate/${key}`);
+  }
+
 }

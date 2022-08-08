@@ -6,9 +6,6 @@
     <app-section-title [title]="'Novedades'" [buttons]="buttons"></app-section-title>
     <app-item-carousel *ngIf="products.length > 0 else elseBlock" class="fix-padding" [products]="products"></app-item-carousel>
     <ng-template #elseBlock>
-        <div class="load-section">
-            <img src="/assets/img/loader/load-section.gif" alt="Cargando">
-            <span>Cargando</span>
-        </div>
+       <app-section-loader></app-section-loader>
     </ng-template>
 </section>
