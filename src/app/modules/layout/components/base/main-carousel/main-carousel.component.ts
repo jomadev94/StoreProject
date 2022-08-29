@@ -44,11 +44,11 @@ export class MainCarouselComponent implements OnInit, AfterViewInit, OnDestroy {
         });
         if (this.move) {
           this.move = false;
-          // this.play();
+          this.play();
         }
       }
     );
-    // this.play();
+    this.play();
   }
 
   ngOnDestroy(): void {
@@ -58,7 +58,7 @@ export class MainCarouselComponent implements OnInit, AfterViewInit, OnDestroy {
 
   next() {
     this.currentItem++;
-    if (this.currentItem == 6) {
+    if (this.currentItem == 4) {
       this.currentItem = 0;
     }
     this.changePosition();
