@@ -7,16 +7,16 @@
 
 .categories-box{
     display: grid;
-    grid-template-columns: repeat(auto-fit,15rem);
-    gap: $space-250;
+    grid-template-columns: repeat(5,1fr);
+    gap: $space-180;
+    row-gap: $space-200;
 
     @include media-down(lg){
-        grid-template-columns: repeat(auto-fit,30%);
-        justify-content: space-between;
+        grid-template-columns: repeat(4,1fr);
     }
 
     @include media-down(md){
-        grid-template-columns: repeat(auto-fit,47%);
+        grid-template-columns: repeat(3,1fr);
     }
 
     @include media-down(sm){

@@ -3,22 +3,40 @@
         <div class="gallery" #gallery>
             <!-- NOT WORK WELL WITH NG FOR -->
             <div class="gallery__item">
-                <img src="/assets/img/carousel/carousel 1.jpg" alt="publicidad">
+                <div class="info-box">
+                    <img class="info-box__img" src="/assets/img/logos/logo_2.png" alt="Funko">
+                    <div class="info-box__text">
+                        <p>La empresa estadounidense Funko se dedica a la creación de figuras coleccionables para generar felicidad a los fans de todas las edades.</p>
+                    </div>
+                </div>
+                <img class="gallery__item__img" src="/assets/img/carousel/carousel_1.png" alt="promo funko">
             </div>
             <div class="gallery__item">
-                <img src="/assets/img/carousel/carousel 2.jpg" alt="publicidad">
+                <div class="info-box">
+                    <img class="info-box__img" src="/assets/img/logos/logo_4.png" alt="Marvel">
+                    <div class="info-box__text">
+                        <p>Descuento en todos los comics de Marvel durante la semana del 12/9</p>
+                    </div>
+                </div>
+                <img class="gallery__item__img" src="/assets/img/carousel/carousel_2.png" alt="promo marvel">
             </div>
             <div class="gallery__item">
-                <img src="/assets/img/carousel/carousel 3.jpg" alt="publicidad">
+                <div class="info-box">
+                    <img class="info-box__img" src="/assets/img/logos/logo_6.png" alt="Neca">
+                    <div class="info-box__text">
+                        <p>Nueva figura Neca de Moon Knight. Ideal para continuar con tu colección</p>
+                    </div>
+                </div>
+                <img class="gallery__item__img" src="/assets/img/carousel/carousel_3.png" alt="promo neca">
             </div>
             <div class="gallery__item">
-                <img src="/assets/img/carousel/carousel 4.jpg" alt="publicidad">
-            </div>
-            <div class="gallery__item">
-                <img src="/assets/img/carousel/carousel 5.jpg" alt="publicidad">
-            </div>
-            <div class="gallery__item">
-                <img src="/assets/img/carousel/carousel 6.jpg" alt="publicidad">
+                <div class="info-box">
+                    <img class="info-box__img" src="/assets/img/logos/logo_3.png" alt="Lego">
+                    <div class="info-box__text">
+                        <p>Aventuras con Mario LEGO® Super Mario™ con respuestas y expresiones inmediatas a través de las pantallas LCD y el altavoz.</p>
+                    </div>
+                </div>
+                <img class="gallery__item__img" src="/assets/img/carousel/carousel_4.png" alt="publicidad">
             </div>
         </div>
         <div class="indicators" (click)="goTo($event)">

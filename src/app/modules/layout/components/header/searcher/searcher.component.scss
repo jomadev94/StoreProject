@@ -102,11 +102,11 @@
       background-color: inherit;
       position: absolute;
       top: -0.5rem;
-      left: calc(28% - 0.5rem);
+      left: 2.5rem;
       clip-path: polygon(50% 0%, 100% 50%, 0% 50%, 0 50%);
 
       @include media-down(md) {
-        left: calc(15% - 0.5rem);
+        left: calc(12% - 0.5rem);
       }
     }
   }

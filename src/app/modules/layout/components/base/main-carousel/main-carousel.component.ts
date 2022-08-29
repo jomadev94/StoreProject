@@ -1,4 +1,3 @@
-import { ThisReceiver } from '@angular/compiler';
 import {
   AfterViewInit,
   Component,
@@ -7,7 +6,6 @@ import {
   OnInit,
   ViewChild,
 } from '@angular/core';
-import { Image } from '@models/view/image';
 import { fromEvent, Subscription, TimeInterval } from 'rxjs';
 
 @Component({
@@ -20,8 +18,8 @@ export class MainCarouselComponent implements OnInit, AfterViewInit, OnDestroy {
   currentItem: number = 0;
   goPosition: number;
   eventSubscription: Subscription;
-  order: Array<number> = [0, 1, 2, 3, 4, 5];
-  list: Array<number> = [0, 1, 2, 3, 4, 5];
+  order: Array<number> = [0, 1, 2, 3];
+  list: Array<number> = [0, 1, 2, 3];
   move: boolean = false;
   @ViewChild('gallery') gallery: ElementRef;
 
@@ -46,11 +44,11 @@ export class MainCarouselComponent implements OnInit, AfterViewInit, OnDestroy {
         });
         if (this.move) {
           this.move = false;
-          this.play();
+          // this.play();
         }
       }
     );
-    this.play();
+    // this.play();
   }
 
   ngOnDestroy(): void {

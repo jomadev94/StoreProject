@@ -35,8 +35,8 @@ export class PageLoaderComponent implements AfterViewInit, OnDestroy {
     this.routerSubs$ = this.router.events.subscribe((event) => {
       switch (true) {
         case event instanceof NavigationStart : {
-          this.show = true;
           this.generateRandom();
+          this.show = true;
           setTimeout(() => {
             this.animateIcons();
             this.animateBar();
@@ -72,12 +72,12 @@ export class PageLoaderComponent implements AfterViewInit, OnDestroy {
 
   private generateRandom(): void {
     this.icons = [];
-    let number = Math.floor(Math.random() * 24);
+    let starter = Math.floor(Math.random() * 24);
+    console.log(starter);
+    starter= (starter + 4) <= 24? starter: starter - 4;
     for (let index = 0; index < 4; index++) {
-      while (this.icons.includes(number)) {
-        number = Math.floor(Math.random() * 24);
-      }
-      this.icons.push(number);
+      this.icons.push(starter);
+      starter++;
     }
   }
 
