@@ -1,7 +1,7 @@
 <app-modal title="Agregar Saldo" [overRef]="ovRef">
     <form [formGroup]="walletForm" (ngSubmit)="addMoney()" novalidate>
         <app-input type="number" label="Monto" controlName="wallet" placeholder="Ingrese un monto.." [form]="walletForm" numberIcon="dollar-sign"></app-input>
-        <app-button-submit [condition]="!walletForm.valid" text="Agregar"></app-button-submit>
+        <app-button type="submit" className="button-primary" [disabled]="!walletForm.valid" text="Agregar"></app-button>
     </form>
-    <app-form-notification [error]="error" [messages]="messages"></app-form-notification>
+    <app-form-notification *ngIf="messages.length > 0" [error]="error" [messages]="messages"></app-form-notification>
 </app-modal>
