@@ -7,13 +7,12 @@
 
 .modal-menu {
   position: relative;
-  background-color: $black-transparent-1;
+  background-color: $purple-60;
   top: 1rem;
   border-radius: $radius-all-300;
   text-align: right;
   padding-block: 1rem;
   opacity: 0;
-  min-width: $space-700;
   max-width: $space-900;
 
   &::before {
@@ -23,7 +22,7 @@
     right: $space-150;
     height: 1rem;
     width: 1rem;
-    background-color: $black-transparent-1;
+    background-color: inherit;
     clip-path: polygon(50% 0, 100% 50%, 0 50%, 0 50%);
   }
 }

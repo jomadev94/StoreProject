@@ -35,18 +35,17 @@ export class HeaderComponent implements OnInit, AfterViewInit {
       })
       .to('header', {
         duration: 1,
-        backgroundColor: '#aa98d2',
+        backgroundColor: '#000000',
       })
-      .to('.searcher',{
-        duration:1,
-        translateX:40,
-      })
-      .from('#logo-header', {
+      .to('#logo-header', {
         duration: 1,
         delay:1,
         opacity:0,
         yPercent: -100
+      })
+      .from('.searcher',{
+        duration:1,
+        translateX:40,
       });
-      
   }
 }

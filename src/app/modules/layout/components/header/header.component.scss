@@ -7,14 +7,10 @@
 @use "helpers/mixins" as *;
 
 header {
-  background: $header-gradient;
+  background: $black-transparent-3;
   position: sticky;
   top: 0;
   z-index: $index-3;
-
-  @include media-down(md) {
-    background: $purple-60;
-  }
 
   li{
     list-style: none;
@@ -65,10 +61,14 @@ header {
 .navbar-options {
   display: flex;
   gap: $space-250;
-  background-color: $black-transparent-2;
+  background-color: $purple-80;
   padding-inline: $space-250;
   padding-block: 0.5rem;
   margin: 0;
+
+  a{
+    color: white;
+  }
 
   @include media-down(md) {
     display: none;
