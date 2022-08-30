@@ -37,7 +37,8 @@
   }
 
   hr {
-    color: $purple-60;
+    // color: $purple-120;
+    border-bottom: 1px solid $purple-120;
     margin-block: 1rem;
   }
 }
