@@ -23,6 +23,12 @@
   gap: $space-180;
   text-align: center;
 
+  @include media-down(md){
+    .price-column{
+      display: none;
+    }
+  }
+
   &::after {
     position: absolute;
     content: "";

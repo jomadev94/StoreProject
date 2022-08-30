@@ -5,14 +5,15 @@
             <span>{{cart.length}} {{cart.length === 1? 'producto': 'productos'}}</span>
             <span>Total: {{ total | currency : 'USD' : 'symbol' : '1.0-0' }}</span>
         </div>
+        <hr>
         <ng-container *ngIf="cart.length > 0">
             <div role="table" class="menu__cart">
-                <h4 class="left">Nombre</h4>
-                <h4>Precio</h4>
-                <h4>Quitar</h4>
+                <h5 class="left">Nombre</h5>
+                <h5 class="price-column">Precio</h5>
+                <h5>Quitar</h5>
                 <ng-container *ngFor="let product of cart">
                     <span class="left">{{product.name}}</span>
-                    <span>{{product.price - (product.price * product.discount/100) | currency : 'USD' : 'symbol' :
+                    <span class="price-column">{{product.price - (product.price * product.discount/100) | currency : 'USD' : 'symbol' :
                         '1.0-0'}}</span>
                     <button type="button" class="option" id="{{product.productId}}" (click)="remove($event)">
                         <fa-icon icon="xmark">
