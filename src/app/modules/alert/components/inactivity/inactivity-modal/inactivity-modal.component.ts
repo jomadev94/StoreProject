@@ -1,9 +1,7 @@
 import { OverlayRef } from '@angular/cdk/overlay';
 import { Component, Inject, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Roles } from '@enumerables/roles';
 import { AuthService } from '@services/auth/auth.service';
-import { InactiveService } from '@services/inactive/inactive.service';
 import { DATA_OVREF } from '@static/data';
 import gsap from 'gsap';
 
@@ -18,12 +16,12 @@ export class InactivityModalComponent implements OnInit, OnDestroy {
   interval:any;
 
   constructor(@Inject(DATA_OVREF) public ovRef: OverlayRef,private router:Router, private authService:AuthService) {
-    this.ovRef.backdropClick().subscribe(()=>{
-      this.closeModal();
+    this.ovRef.backdropClick().subscribe(async()=>{
+      await this.closeModal();
     });
-    this.interval=setInterval(()=>{
+    this.interval=setInterval(async ()=>{
       if(this.count == 0){
-        this.logout();
+        await this.logout();
         return
       }
       this.count--;
@@ -37,17 +35,17 @@ export class InactivityModalComponent implements OnInit, OnDestroy {
     clearInterval(this.interval);
   }
 
-  logout(){
+  async logout(){
     clearInterval(this.interval);
-    this.authService.reset();
-    this.closeModal();
+    await this.authService.reset();
+    await this.closeModal();
+
     this.router.navigate(['/home']);
   }
 
-  closeModal(){
-    gsap.to('.modal-box',{duration:.2,opacity:0,ease:"power2"}).then(()=>{
-      this.ovRef.detach();
-    });
+  async closeModal(){
+    await gsap.to('.modal-box',{duration:.2,opacity:0,ease:"power2"});
+    this.ovRef.detach();
   }
 
 }
