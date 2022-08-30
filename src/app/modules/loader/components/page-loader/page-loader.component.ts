@@ -20,7 +20,7 @@ import { Subscription } from 'rxjs';
 })
 export class PageLoaderComponent implements AfterViewInit, OnDestroy {
   show: boolean = false;
-  icons: number[];
+  icons: number[]=[1,2,3,4,5,6];
   percent: number = 0;
   private interval: any;
   private routerSubs$: Subscription;
@@ -35,7 +35,6 @@ export class PageLoaderComponent implements AfterViewInit, OnDestroy {
     this.routerSubs$ = this.router.events.subscribe((event) => {
       switch (true) {
         case event instanceof NavigationStart : {
-          this.generateRandom();
           this.show = true;
           setTimeout(() => {
             this.animateIcons();
@@ -68,17 +67,6 @@ export class PageLoaderComponent implements AfterViewInit, OnDestroy {
         }
       }
     });
-  }
-
-  private generateRandom(): void {
-    this.icons = [];
-    let starter = Math.floor(Math.random() * 24);
-    console.log(starter);
-    starter= (starter + 4) <= 24? starter: starter - 4;
-    for (let index = 0; index < 4; index++) {
-      this.icons.push(starter);
-      starter++;
-    }
   }
 
   fadeOutLoader() {
