@@ -26,14 +26,14 @@ export class ProductViewComponent implements OnDestroy {
     {
       text: 'eliminar',
       icon: 'trash-can',
-      roles: [Roles.Admin, Roles.Client],
+      roles: [Roles.Admin],
       component: DeleteModalComponent,
     },
     {
       text: 'editar',
       href: '/product/edit/',
       icon: 'pen-to-square',
-      roles: [Roles.Admin, Roles.Client],
+      roles: [Roles.Admin],
     },
     Globals.buttons['home']
   ];

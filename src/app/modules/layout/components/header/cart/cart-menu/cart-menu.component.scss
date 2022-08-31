@@ -18,14 +18,13 @@
 .menu__cart {
   position: relative;
   margin-bottom: $space-180;
-  margin-inline: $space-180;
   display: grid;
   grid-template-columns: 3fr 2fr 1fr;
   align-items: center;
   gap: $space-180;
   text-align: center;
 
-  @include media-down(md){
+  @include media-down(sm){
     grid-template-columns: 3fr 1fr;
 
     .price-column{

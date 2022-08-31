@@ -20,7 +20,7 @@ import { Subscription } from 'rxjs';
 })
 export class PageLoaderComponent implements AfterViewInit, OnDestroy {
   show: boolean = false;
-  icons: number[]=[1,2,3,4,5,6];
+  icons: number[]=[1,2,3,4,5];
   percent: number = 0;
   private interval: any;
   private routerSubs$: Subscription;
