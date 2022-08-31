@@ -3,7 +3,7 @@
     <div *ngIf="buttons" class="section-options">
         <ng-container *ngFor="let button of buttons">
             <ng-container *ngIf="button.href != '' else elseBlock">
-                <a  class="button-section" routerLink="{{button.href}}" [queryParams]="button.params" *appRole="button.roles!">
+                <a class="button-section" routerLink="{{button.href}}" [queryParams]="button.params" *appRole="button.roles!">
                     <fa-icon *ngIf="button.icon" [icon]="button.icon"></fa-icon>
                     {{button.text}}
                 </a>

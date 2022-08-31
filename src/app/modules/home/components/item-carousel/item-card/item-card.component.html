@@ -5,7 +5,7 @@
         </div>
         <div class="card-box__image__preview">
             <img appImgLoader class="front" src="{{product.files![0].path}}" alt="{{product.files![0].fileId}}" loading="lazy">
-            <img appImgLoader class="back" src="{{product.files![1].path}}" alt="{{product.files![1].fileId}}" loading="lazy">
+            <img *ngIf="product.files!.length > 1" appImgLoader class="back" src="{{product.files![1].path}}" alt="{{product.files![1].fileId}}" loading="lazy">
         </div>
         <div *ngIf="newProduct || product.stock === 0" class="card-box__image__tag" [ngClass]="product.stock === 0? 'no-stock':'new'">
             <span>{{product.stock === 0? "Sin stock!":"Nuevo!"}}</span>

@@ -27,6 +27,7 @@ export class ProductViewComponent implements OnDestroy {
       text: 'eliminar',
       icon: 'trash-can',
       roles: [Roles.Admin],
+      href:'',
       component: DeleteModalComponent,
     },
     {
