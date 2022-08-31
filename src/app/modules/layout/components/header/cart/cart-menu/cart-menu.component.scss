@@ -17,7 +17,8 @@
 
 .menu__cart {
   position: relative;
-  margin-block: $space-180;
+  margin-bottom: $space-180;
+  margin-inline: $space-180;
   display: grid;
   grid-template-columns: 3fr 2fr 1fr;
   align-items: center;
@@ -25,6 +26,8 @@
   text-align: center;
 
   @include media-down(md){
+    grid-template-columns: 3fr 1fr;
+
     .price-column{
       display: none;
     }

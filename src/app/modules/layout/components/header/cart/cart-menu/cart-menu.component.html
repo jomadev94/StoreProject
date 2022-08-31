@@ -8,9 +8,9 @@
         <hr>
         <ng-container *ngIf="cart.length > 0">
             <div role="table" class="menu__cart">
-                <h5 class="left">Nombre</h5>
-                <h5 class="price-column">Precio</h5>
-                <h5>Quitar</h5>
+                <h4 class="left">Nombre</h4>
+                <h4 class="price-column">Precio</h4>
+                <h4>Quitar</h4>
                 <ng-container *ngFor="let product of cart">
                     <span class="left">{{product.name}}</span>
                     <span class="price-column">{{product.price - (product.price * product.discount/100) | currency : 'USD' : 'symbol' :
