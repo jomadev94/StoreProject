@@ -5,8 +5,8 @@
             <span>{{cart.length}} {{cart.length === 1? 'producto': 'productos'}}</span>
             <span>Total: {{ total | currency : 'USD' : 'symbol' : '1.0-0' }}</span>
         </div>
-        <hr>
         <ng-container *ngIf="cart.length > 0">
+            <hr>
             <div role="table" class="menu__cart">
                 <h4 class="left">Nombre</h4>
                 <h4 class="price-column">Precio</h4>

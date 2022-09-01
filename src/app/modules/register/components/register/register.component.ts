@@ -54,6 +54,12 @@ export class RegisterComponent implements OnInit {
     gsap.to('.box',{rotateY:180, duration:1, ease: 'circ'});
   }
 
+  resetMessages(){
+    setTimeout(()=>{
+      this.errorMessages=[];
+    },5000)
+  }
+
   register(){
     this.load=true;
     const data:Register={
@@ -72,6 +78,7 @@ export class RegisterComponent implements OnInit {
         this.registerForm.reset();
       }else{
         this.errorMessages=res.errorMessage;
+        this.resetMessages();
       }
     })
   }

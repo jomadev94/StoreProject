@@ -14,6 +14,7 @@ export class HeaderComponent implements OnInit, AfterViewInit {
   roles = Globals.roles;
   options = Menu.options;
   login = LoginComponent;
+  isAuth:boolean;
 
   constructor() {
     gsap.registerPlugin(ScrollTrigger);
@@ -32,6 +33,11 @@ export class HeaderComponent implements OnInit, AfterViewInit {
           id: 'header-id',
           toggleActions: 'restart none none reverse',
         },
+      })
+      .to('#nav-options',{
+        duration:1,
+        opacity:0,
+        display: "none"
       })
       .to('header', {
         duration: 1,

@@ -15,7 +15,7 @@
                     <app-button type="submit" text="Registrarse" [disabled]="!registerForm.valid"></app-button>
                 </div>
             </form>
-            <app-form-notification *ngIf="errorMessages.length > 0" [error]="true" [messages]="errorMessages"></app-form-notification>
+            <app-form-notification [error]="true" [messages]="errorMessages"></app-form-notification>
         </div>
         <div class="created-box">
             <h3>Usuario creado exitosamente!</h3>
