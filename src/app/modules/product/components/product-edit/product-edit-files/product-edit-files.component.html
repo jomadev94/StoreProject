@@ -4,6 +4,6 @@
     <app-img-preview icon="trash-can" [imgsPreview]="imgs" (clicked)="remove($event)"></app-img-preview>
     <div class="edit-options">
         <app-form-notification [error]="error" [messages]="msg"></app-form-notification>
-        <app-button text="Añadir imagenes" [disabled]="form.invalid" (clicked)="addFiles()" [autoLoad]="false" [load]="load"></app-button>
+        <app-button text="Añadir imagenes" [disabled]="form.invalid || cantFiles === 0" (clicked)="addFiles()" [autoLoad]="false" [load]="load"></app-button>
     </div>
 </app-product-edit-box>

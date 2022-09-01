@@ -21,7 +21,8 @@ export class ItemCardComponent implements OnInit {
   ngOnInit(): void {
     const now=new Date();
     const date=new Date(this.product.date);
-    this.newProduct= date.getMonth() === now.getMonth() && date.getFullYear() === now.getFullYear()? true : false;
+    date.setDate(date.getDate() + 7);
+    this.newProduct= now < date;
     if(this.product.discount>0){
       const discount=(this.product.discount/100)*this.product.price;
       this.showPrice=this.product.price - discount;

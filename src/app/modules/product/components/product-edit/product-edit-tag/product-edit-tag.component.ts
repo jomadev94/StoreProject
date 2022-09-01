@@ -16,6 +16,7 @@ export class ProductEditTagComponent implements OnInit {
   init: Tag[] = [];
   msg: string[] = [];
   err: boolean = false;
+  load:boolean= false;
 
   constructor(private productService: ProductService) {}
 
@@ -24,13 +25,26 @@ export class ProductEditTagComponent implements OnInit {
       this.tags = [...this.product.tags];
       this.init = [...this.tags];
     }
+    console.log(this.init)
+    console.log(this.tags)
   }
 
-  get check() {
-    return this.tags.length === this.init.length;
+  get change() {
+    if(this.tags.length != this.init.length) return true;
+    for(let index=0;index < this.tags.length; index++){
+      if(this.tags[index].tagId != this.tags[index].tagId) return true;
+    }
+    return false;
+  }
+
+  resetMessages(){
+    setTimeout(()=>{
+      this.msg=[];
+    },6000)
   }
 
   async setTags() {
+    this.load=true;
     const update: UpdateTags = {
       product: this.product,
       newTags: this.tags.filter((t) => !this.product.tags?.includes(t)),
@@ -39,13 +53,16 @@ export class ProductEditTagComponent implements OnInit {
     const res = await lastValueFrom(
       this.productService.updateTags(update, this.product.productId)
     );
+    this.load=false;
     if (res.success) {
       this.err = false;
       this.msg = ['Etiquetas del producto modificadas exitosamente'];
-      return;
+      this.init=this.tags;
     }
-    this.err = true;
-    this.msg = res.errorMessage;
-    console.log(res);
+    else{
+      this.err = true;
+      this.msg = res.errorMessage;
+    }
+    this.resetMessages();
   }
 }

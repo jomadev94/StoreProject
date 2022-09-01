@@ -60,6 +60,7 @@ body {
     button,
     textarea,
     .field-icon {
+      box-sizing: border-box;
       outline: $border-red-100;
       border: none;
     }

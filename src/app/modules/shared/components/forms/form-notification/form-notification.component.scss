@@ -8,14 +8,31 @@
 
 
 .notification {
-  margin-top: $space-180;
   background-color: $green-100;
   color: $white-100;
-  padding: $space-180;
+  opacity: 0;
+  transform: translateY(-20px);
   border-radius: $radius-all-200;
-
+  
   &.error {
     background-color: $red-100;
+  }
+  
+  &.show{
+    padding: $space-180;
+    animation: show;
+    animation-duration: 5s;
+  }
+
+  @keyframes show{
+    0%,100%{
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    30%,80%{
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
 }

@@ -30,7 +30,6 @@ export class LoginComponent implements OnInit {
     private formBuilder: FormBuilder,
     private authService: AuthService,
     private userService: UserService,
-    private router:Router
   ) {
     this.loginForm = this.formBuilder.group({
       email: ['', Validators.required],
@@ -61,6 +60,12 @@ export class LoginComponent implements OnInit {
     });
   }
 
+  resetMessage(){
+    setTimeout(()=>{
+      this.errorMessages=[];
+    },6000);
+  }
+
   login() {
     this.loginForm.markAllAsTouched();
     this.errorMessages=[];
@@ -71,6 +76,7 @@ export class LoginComponent implements OnInit {
           this.closeModal();
         }else{
           this.errorMessages=res.errorMessage;
+          this.resetMessage();
         }
       });
     }

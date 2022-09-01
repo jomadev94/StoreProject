@@ -8,9 +8,8 @@ import {
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { QueryTag } from '@models/queryTag';
 import { Tag } from '@models/tag';
-import { LoadService } from '@services/load/load.service';
 import { TagService } from '@services/tag/tag.service';
-import { firstValueFrom, lastValueFrom, Observable } from 'rxjs';
+import { firstValueFrom, lastValueFrom } from 'rxjs';
 import { Globals } from '@static/globals';
 import { v4 as uuid } from 'uuid';
 import { DeleteTagComponent } from './delete-tag/delete-tag.component';
@@ -28,7 +27,7 @@ export class StepThreeComponent {
   msg: string[] = [];
   errMsg: boolean = true;
   loadSearch: boolean;
-  loadCreate: Observable<boolean>;
+  loadCreate: boolean;
   searchForm: FormGroup;
   addForm: FormGroup;
   tagSelected: Tag | undefined;
@@ -42,21 +41,19 @@ export class StepThreeComponent {
     private formBuilder: FormBuilder,
     private renderer: Renderer2,
     private tagService: TagService,
-    private loadService: LoadService
   ) {
     this.searchForm = this.formBuilder.group({
       tag: [''],
     });
     this.addForm = this.formBuilder.group({
-      tag: ['', Validators.maxLength(20)],
+      tag: ['', [Validators.required,Validators.maxLength(20)]],
     });
     this.addForm.valueChanges.subscribe(() => (this.msg = []));
     this.searchForm.valueChanges.subscribe((res) => {
-      this.tags = [];
       this.page = 1;
       this.loadTags();
     });
-    this.loadCreate = this.loadService.isLoading$;
+    this.loadCreate = false;
     this.firstLoad();
     this.tagService.deleted$.subscribe((res) => {
       if (res) {
@@ -79,7 +76,7 @@ export class StepThreeComponent {
       items = items.filter(
         (t) => this.toAdd.findIndex((s) => s.tagId === t.tagId) < 0
       );
-      this.tags.push(...items);
+      this.tags=items;
       this.hasNext = res.data.hasNextPage;
     }
   }
@@ -128,8 +125,15 @@ export class StepThreeComponent {
     }
   }
 
+  resetMessages(){
+    setTimeout(()=>{
+      this.msg=[];
+    },6000)
+  }
+
   createTag() {
     if (this.addForm.valid) {
+      this.loadCreate=true;
       this.msg=[];
       const tag: Tag = {
         tagId: uuid(),
@@ -137,13 +141,17 @@ export class StepThreeComponent {
       };
       this.tagService.create(tag).subscribe((res) => {
         if (res.success) {
+          this.loadCreate=false;
           this.tags.push(tag);
           this.errMsg = false;
           this.msg = ['El Tag fue creado exitosamente'];
-          return;
         }
-        this.msg = res.errorMessage;
-        this.errMsg = true;
+        else{
+          this.loadCreate=false;
+          this.msg = res.errorMessage;
+          this.errMsg = true;
+        }
+        this.resetMessages();
       });
     }
   }

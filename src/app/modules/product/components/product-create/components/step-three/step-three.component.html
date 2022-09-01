@@ -21,7 +21,7 @@ Impedit placeat aspernatur, ab odit nisi quos vero, labore neque expedita repell
         </div>
         <div class="search-box__options">
             <form [formGroup]="addForm">
-                <app-input-button [load]="loadCreate | async" label="Tag" [hideLabel]="true" controlName="tag" [form]="addForm"
+                <app-input-button [load]="loadCreate" label="Tag" [hideLabel]="true" controlName="tag" [form]="addForm"
                     placeholder="Agregar etiqueta..." buttonIcon="plus" (isClicked)="createTag()"></app-input-button>
             </form>
             <app-link-with-modal [roles]="[roles.NoAuth,roles.Client,roles.Admin]" [component]="deleteTag" [providers]="providers" buttonStyle="button-primary-input" [disabled]="!tagSelected" icon="trash-can"></app-link-with-modal>

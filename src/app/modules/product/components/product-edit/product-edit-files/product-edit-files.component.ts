@@ -2,7 +2,6 @@ import { Overlay, OverlayConfig, OverlayRef } from '@angular/cdk/overlay';
 import { ComponentPortal } from '@angular/cdk/portal';
 import { Component, Injector, Input, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { FileUpload } from '@models/file';
 import { Product } from '@models/product';
 import { Image } from '@models/view/image';
 import { DeleteModalComponent } from '@modules/shared/components/modals/delete-modal/delete-modal.component';
@@ -12,8 +11,7 @@ import { DATA_ANY, DATA_ID, DATA_KEY, DATA_OVREF, DATA_TITLE } from '@static/dat
 import { fileSizeValidator } from '@validators/fileSizeValidator';
 import { fileTypeValidator } from '@validators/fileTypeValidator';
 import gsap from 'gsap';
-import { lastValueFrom, of } from 'rxjs';
-import { v4 as uuid } from 'uuid'
+import { lastValueFrom} from 'rxjs';
 
 @Component({
   selector: 'app-product-edit-files',
@@ -27,8 +25,6 @@ export class ProductEditFilesComponent implements OnInit {
   form:FormGroup
   msg:string[]=[];
   error:boolean=false;
-  change:boolean=false;
-  initial:any;
   ovRef:OverlayRef;
   key="File"
   index:number;
@@ -47,7 +43,6 @@ export class ProductEditFilesComponent implements OnInit {
     });
     this.toDeleteService.deleted$.subscribe(key=>{
       if(key===this.key){
-        console.log("mi indice es:",this.index);
         this.product.files?.splice(this.index,1);
         this.imgs.splice(this.index,1);
       }
@@ -59,22 +54,36 @@ export class ProductEditFilesComponent implements OnInit {
       files: this.formBuilder.array(
         [],
         [
-          Validators.required,
           fileTypeValidator(['png', 'jpg', 'jpeg']),
           fileSizeValidator(10),
         ]
       ),
     });
-    this.initial=this.form.value;
     this.product.files?.forEach(f=>{
       this.imgs.push({
         src: f.path,
         alt: f.fileId,
       });
-    })
+    });
+  }
+
+  get cantFiles(){
+    return this.form.get('files')?.value.length;
+  }
+
+  resetMessages(){
+    setTimeout(()=>{
+      this.msg=[];
+    },6000)
   }
 
   remove(event:any){
+    if(this.imgs.length === 1){
+      this.error=true;
+      this.msg=["El producto debe contener al menos una imagen"];
+      this.resetMessages();
+      return;
+    }
     const id=event.target?.id as string;
     this.index=this.product.files!.findIndex(f=>f.fileId === id);
     const portalInjector = Injector.create({
@@ -110,6 +119,7 @@ export class ProductEditFilesComponent implements OnInit {
         this.error=true;
         this.msg=res.errorMessage;
       }
+      this.resetMessages();
     }
     this.load=false;
   }

@@ -2,6 +2,7 @@
 @use "variables/fonts" as *;
 
 .edit-options {
+  margin-top: 1rem;
   display: flex;
   gap: $space-180;
   justify-content: flex-end;

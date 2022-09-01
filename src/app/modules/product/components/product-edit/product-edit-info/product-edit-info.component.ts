@@ -64,6 +64,13 @@ export class ProductEditInfoComponent implements OnInit {
 
   reset() {
     this.form.reset(this.initial);
+    this.change=false;
+  }
+
+  resetMessage(){
+    setTimeout(()=>{
+      this.msg=[];
+    },6000);
   }
 
   async edit() {
@@ -75,9 +82,13 @@ export class ProductEditInfoComponent implements OnInit {
     if (res.success) {
       this.error = false;
       this.msg = ['Datos del producto actualizados correctamente'];
+      this.initial=info;
+      this.reset();
+      this.resetMessage();
       return;
     }
     this.error = true;
     this.msg = res.errorMessage;
+    this.resetMessage();
   }
 }
