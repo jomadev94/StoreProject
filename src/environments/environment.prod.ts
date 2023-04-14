@@ -9,5 +9,5 @@ export const environment = {
     messagingSenderId: '651998259393',
   },
   production: true,
-  apiUrl:"https://storedemo.somee.com/api/",
+  apiUrl:"https://storeproject.somee.com/api/",
 };
